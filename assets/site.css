@@ -249,6 +249,7 @@ footer a:hover{color:var(--accent)}
   .scene{height:88svh;min-height:520px}
   .scene__cap{font-size:clamp(26px,8.6vw,44px);max-width:14ch}
   .hero{min-height:92svh}
+  .hero h1 br{display:none}
   .hero__scroll{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -286,7 +287,7 @@ footer a:hover{color:var(--accent)}
   display:inline-block;transform-origin:50% 58%;
   will-change:transform,opacity;backface-visibility:visible;
 }
-.ch.is-locked{animation:chIn .45s cubic-bezier(.2,.9,.2,1) both}
+.ch.is-locked{animation:chIn .45s cubic-bezier(.2,.9,.2,1) both;will-change:auto}
 @keyframes chIn{
   from{opacity:.35;transform:translateY(-.16em) rotateX(58deg)}
   to{opacity:1;transform:none}
@@ -1002,7 +1003,8 @@ footer a:hover{color:var(--accent)}
   .layers{height:auto}
   .layers__stage{position:static;height:auto;padding:clamp(40px,8vh,90px) 0}
   .layers__inner{grid-template-columns:1fr;gap:clamp(22px,4vh,38px)}
-  .layers__scene{height:min(46vh,320px);order:-1}
+  .layers__scene{height:min(46vh,320px)}
+  .layers__hint{display:none}
 }
 
 /* ---------- слова выезжают по очереди ---------- */
@@ -1078,11 +1080,9 @@ footer a:hover{color:var(--accent)}
   .mosaic__grid{width:min(84vw,420px)}
   .lane{height:auto}
   .lane__stage{position:static;height:auto;padding:clamp(48px,8vh,90px) 0}
-  .lane__track{
-    transform:none !important;overflow-x:auto;scroll-snap-type:x mandatory;
-    padding-bottom:10px;-webkit-overflow-scrolling:touch;
-  }
-  .lane__card{scroll-snap-align:start}
+  .lane__track{display:grid;gap:12px;transform:none !important;overflow:visible;padding:0}
+  .lane__card{flex:none;min-height:0}
+  .lane__hint{display:none}
   .spot{display:none}
 }
 

@@ -43,7 +43,7 @@
   <div class="shell hero__inner">
   <span class="mono">Йошкар-Ола · сайты для малого бизнеса</span>
   <h1 class="caps caps--xl caps--center" data-spin style="margin-left:auto;margin-right:auto">
-    Мы делаем сайты так,<br>чтобы клиент понял всё<br>за один экран
+    Мы делаем сайты так,<br> чтобы клиент понял всё<br> за один экран
   </h1>
   <p class="lead">
     Чистый HTML, CSS и JavaScript. Без конструкторов, платных подписок и шаблонов,
@@ -1320,8 +1320,13 @@ const spinEl = (el, opts) => {
   const LOCK_FROM = o.from || 240;
   const STAGGER = o.stagger || 34;
   const t0 = performance.now();
+  /* на телефоне не подменяем буквы: разная ширина глифов дёргает центрированную строку */
+  const NO_SWAP = matchMedia('(max-width:900px)').matches;
 
-  chars.forEach((c, i) => { c.dataset.lock = LOCK_FROM + i * STAGGER; });
+  chars.forEach((c, i) => {
+    c.dataset.lock = LOCK_FROM + i * STAGGER;
+    if (NO_SWAP) c.style.opacity = '0';
+  });
 
   const frame = (now) => {
     const t = now - t0;
@@ -1338,6 +1343,7 @@ const spinEl = (el, opts) => {
         }
       } else {
         live = true;
+        if (NO_SWAP) continue;
         const k = Math.floor(t / SPEED) + i;
         if (c.dataset.k !== String(k)) {
           c.dataset.k = k;
