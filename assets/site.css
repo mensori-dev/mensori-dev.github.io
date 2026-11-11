@@ -246,7 +246,12 @@ footer a:hover{color:var(--accent)}
 .panel--line{border-top:1px solid var(--rule-2)}
 
 @media (max-width:760px){
-  .scene{height:88svh;min-height:520px}
+  /* на телефоне широкий скриншот показываем полосой целиком: cover резал его в чёрное */
+  .scene{height:auto;min-height:0;display:block;background:var(--bg)}
+  .scene__img{position:relative;top:0;left:0;width:100%;height:min(64vw,300px);object-fit:cover;object-position:left top;transform:none!important;will-change:auto;filter:brightness(1.45);border-bottom:1px solid var(--rule)}
+  .scene::after{background:linear-gradient(180deg,rgba(10,10,11,0) 72%,rgba(10,10,11,.8) 92%,rgba(10,10,11,1) 100%)}
+  .scene__top{position:static;display:block;padding:18px clamp(18px,4.2vw,64px) 0}
+  .scene__inner{padding:14px clamp(18px,4.2vw,64px) 48px}
   .scene__cap{font-size:clamp(26px,8.6vw,44px);max-width:14ch}
   .hero{min-height:92svh}
   .hero h1 br{display:none}
@@ -686,6 +691,67 @@ footer a:hover{color:var(--accent)}
   background-size:7px 7px,7px 7px;background-position:calc(100% - 18px) 50%,calc(100% - 11px) 50%;background-repeat:no-repeat;
 }
 .fld input:focus,.fld textarea:focus,.fld select:focus{border-color:var(--red);background:rgba(255,74,53,.07)}
+/* свои выпадашки: системный список не показываем */
+.sel{position:relative;display:block}
+.sel select{position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;pointer-events:none}
+.sel__btn{
+  position:relative;display:flex;align-items:center;width:100%;
+  background:transparent;border:1px dashed rgba(244,243,239,.34);border-radius:0;
+  padding:14px 40px 14px 16px;color:var(--ink);text-align:left;
+  font:600 13px/1.4 ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif;
+  text-transform:uppercase;letter-spacing:.06em;outline:none;
+  -webkit-tap-highlight-color:transparent;
+  transition:border-color .2s,background .2s;
+}
+.sel__btn::after{
+  content:"";position:absolute;right:17px;top:50%;width:7px;height:7px;margin-top:-5px;
+  border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  transform:rotate(45deg);transition:transform .25s,margin .25s;
+}
+.sel.open .sel__btn{border-color:var(--red);background:rgba(255,74,53,.07)}
+.sel.open .sel__btn::after{transform:rotate(-135deg);margin-top:-1px}
+.sel__val{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sel__val.is-empty{color:rgba(244,243,239,.38)}
+.sel__val.is-cur{color:var(--red)}
+.sel__list{
+  position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:20;
+  display:flex;flex-direction:column;max-height:min(46vh,320px);overflow:auto;
+  padding:6px 0;background:#101012;border:1px solid var(--rule);
+  box-shadow:0 30px 70px rgba(0,0,0,.75);
+  animation:selIn .18s ease;
+}
+@keyframes selIn{from{transform:translateY(-6px)}to{transform:none}}
+.sel__list[hidden]{display:none}
+.sel.is-up .sel__list{top:auto;bottom:calc(100% + 6px);animation-name:selInUp}
+@keyframes selInUp{from{transform:translateY(6px)}to{transform:none}}
+.sel__opt{
+  position:relative;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;
+  padding:12px 18px 12px 20px;background:none;border:0;text-align:left;
+  color:var(--ink-2);font:400 14px/1.35 ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:0;text-transform:none;outline:none;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .16s,color .16s,padding-left .16s;
+}
+.sel__opt::before{
+  content:"";position:absolute;left:0;top:9px;bottom:9px;width:2px;background:var(--red);
+  opacity:0;transform:scaleY(.3);transition:opacity .18s,transform .18s;
+}
+.sel__opt:hover::before,.sel__opt.is-cur::before{opacity:1;transform:none}
+.sel__opt:hover,.sel__opt.is-cur{background:#1b1b1e;color:var(--ink);padding-left:26px}
+.sel.open .sel__opt{animation:optIn .24s cubic-bezier(.2,.8,.2,1) both}
+.sel.open .sel__opt:nth-child(1){animation-delay:.02s}
+.sel.open .sel__opt:nth-child(2){animation-delay:.06s}
+.sel.open .sel__opt:nth-child(3){animation-delay:.1s}
+.sel.open .sel__opt:nth-child(4){animation-delay:.14s}
+.sel.open .sel__opt:nth-child(5){animation-delay:.18s}
+.sel.open .sel__opt:nth-child(6){animation-delay:.22s}
+@keyframes optIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.sel__opt.is-on{color:var(--ink)}
+.sel__opt.is-on::after{content:"✓";color:var(--red);font-size:13px;line-height:1;animation:checkPop .3s cubic-bezier(.2,1.4,.4,1)}
+@keyframes checkPop{from{transform:scale(.2);opacity:0}to{transform:none;opacity:1}}
+.fld__pair{display:grid;gap:10px}
+.fld__own[hidden]{display:none}
 .consent{display:flex;align-items:flex-start;gap:10px;margin:6px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5}
 .consent input{width:16px;height:16px;margin:2px 0 0;accent-color:var(--ink);flex:none}
 .consent a{color:var(--ink);text-decoration:underline}
@@ -830,6 +896,16 @@ footer a:hover{color:var(--accent)}
   transition:opacity .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1);
 }
 .msg.on{opacity:1;transform:none}
+.chatpin__chips{display:flex;gap:7px;flex-wrap:wrap;padding:0 12px 10px;flex:none;animation:chipIn .35s ease}
+.chatpin__chips[hidden]{display:none}
+@keyframes chipIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.chatpin__chip{
+  padding:7px 13px;border-radius:999px;border:1px solid rgba(255,74,53,.5);
+  background:rgba(255,74,53,.1);color:var(--ink);
+  font:600 11.5px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.02em;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.chatpin__chip:hover{background:var(--red);border-color:var(--red);color:#1a0502}
 .msg--in{align-self:flex-start;background:#e9e9ec;color:#15151a;border-bottom-left-radius:5px}
 .msg--out{align-self:flex-end;background:var(--red);color:#1a0502;border-bottom-right-radius:5px}
 .chatpin__input{
@@ -1105,6 +1181,7 @@ footer a:hover{color:var(--accent)}
   .mosaic{height:auto}
   .mosaic__stage{position:static;height:auto;padding:clamp(52px,9vh,96px) 0}
   .mosaic__grid{width:min(84vw,420px);gap:6px;background:var(--bg);box-shadow:0 30px 70px rgba(0,0,0,.55)}
+  .mtile{transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .8s}
   .lane{height:auto}
   .lane__stage{position:static;height:auto;padding:clamp(48px,8vh,90px) 0}
   .lane__track{display:grid;gap:12px;transform:none !important;overflow:visible;padding:0}
