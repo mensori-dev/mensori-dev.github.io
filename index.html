@@ -256,7 +256,7 @@
         <span class="wrow__d">автосервис</span>
         <span class="wrow__y mono">2026</span>
         <span class="wrow__a">↗</span>
-        <img class="wrow__img" src="assets/works/auto.jpg" alt="Сайт автосервиса" loading="lazy">
+        <img class="wrow__img" src="assets/works/auto.jpg" alt="Сайт автосервиса" decoding="async">
       </a>
       <a class="wrow reveal" href="https://mensori-dev.github.io/demos/barber/" target="_blank" rel="noopener" data-img="assets/works/barber.jpg">
         <span class="wrow__n mono">02</span>
@@ -264,7 +264,7 @@
         <span class="wrow__d">барбершоп</span>
         <span class="wrow__y mono">2026</span>
         <span class="wrow__a">↗</span>
-        <img class="wrow__img" src="assets/works/barber.jpg" alt="Сайт барбершопа" loading="lazy">
+        <img class="wrow__img" src="assets/works/barber.jpg" alt="Сайт барбершопа" decoding="async">
       </a>
       <a class="wrow reveal" href="https://mensori-dev.github.io/demos/flowers/" target="_blank" rel="noopener" data-img="assets/works/flowers.jpg">
         <span class="wrow__n mono">03</span>
@@ -272,7 +272,7 @@
         <span class="wrow__d">цветы</span>
         <span class="wrow__y mono">2026</span>
         <span class="wrow__a">↗</span>
-        <img class="wrow__img" src="assets/works/flowers.jpg" alt="Сайт цветочной мастерской" loading="lazy">
+        <img class="wrow__img" src="assets/works/flowers.jpg" alt="Сайт цветочной мастерской" decoding="async">
       </a>
       <a class="wrow reveal" href="https://mensori-dev.github.io/demos/salon/" target="_blank" rel="noopener" data-img="assets/works/salon.jpg">
         <span class="wrow__n mono">04</span>
@@ -280,7 +280,7 @@
         <span class="wrow__d">салон красоты</span>
         <span class="wrow__y mono">2026</span>
         <span class="wrow__a">↗</span>
-        <img class="wrow__img" src="assets/works/salon.jpg" alt="Сайт салона красоты" loading="lazy">
+        <img class="wrow__img" src="assets/works/salon.jpg" alt="Сайт салона красоты" decoding="async">
       </a>
     </div>
     <div class="wpeek" id="wpeek" aria-hidden="true"><img id="wpeekImg" src="assets/works/auto.jpg" alt=""></div>
@@ -1054,8 +1054,14 @@ const checkRail = () => {
 };
 const onScroll = () => {
   if (raf) return;
-  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkRail(); });
+  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); });
 };
+/* рельс обновляем отдельно и по времени: он должен работать и без кадров */
+let railT = 0;
+addEventListener('scroll', () => {
+  const n = performance.now();
+  if (n - railT > 120) { railT = n; checkRail(); }
+}, { passive: true });
 addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
 addEventListener('load', onScroll);

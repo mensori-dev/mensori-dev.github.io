@@ -285,7 +285,12 @@ footer a:hover{color:var(--accent)}
 }
 .rail a:hover .rail__bar,.rail a.is-on .rail__bar{width:34px;background:var(--red)}
 .rail a:hover .rail__lb,.rail a:focus-visible .rail__lb{opacity:1;transform:translate(0,-50%);color:var(--ink)}
-@media (max-width:900px){.rail{display:none}}
+@media (max-width:900px){
+  .rail{right:7px;gap:12px}
+  .rail a{padding:7px 0}
+  .rail__bar{width:18px}
+  .rail a.is-on .rail__bar{width:30px}
+}
 
 /* курсор */
 .cursor{
@@ -981,6 +986,7 @@ footer a:hover{color:var(--accent)}
   .wrow__img{
     display:block;grid-column:1/-1;width:100%;height:auto;aspect-ratio:16/10;
     object-fit:cover;object-position:top center;border:1px solid var(--rule-2);margin-top:4px;
+    background:var(--bg-2);
   }
   .wpeek{display:none}
 }
@@ -1098,7 +1104,7 @@ footer a:hover{color:var(--accent)}
 @media (max-width:900px){
   .mosaic{height:auto}
   .mosaic__stage{position:static;height:auto;padding:clamp(52px,9vh,96px) 0}
-  .mosaic__grid{width:min(84vw,420px)}
+  .mosaic__grid{width:min(84vw,420px);gap:6px;background:var(--bg);box-shadow:0 30px 70px rgba(0,0,0,.55)}
   .lane{height:auto}
   .lane__stage{position:static;height:auto;padding:clamp(48px,8vh,90px) 0}
   .lane__track{display:grid;gap:12px;transform:none !important;overflow:visible;padding:0}
