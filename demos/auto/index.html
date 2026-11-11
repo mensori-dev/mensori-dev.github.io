@@ -827,6 +827,9 @@
   (function () {
     var q = new URLSearchParams(location.search);
     var name = q.get('n'), phone = q.get('p'), addr = q.get('a');
+    /* параметры приходят из ссылки — вырезаем теги, иначе это дырка для <img onerror=…> */
+    var clean = function (s) { return (s || '').replace(/[<>"'`]/g, '').slice(0, 70); };
+    name = clean(name); phone = clean(phone); addr = clean(addr);
     if (q.get('clean') === '1') {
       var dn = document.querySelector('.demo-note');
       if (dn) dn.remove();
@@ -834,7 +837,10 @@
     if (name) {
       document.title = name + ' — автосервис в Йошкар-Оле';
       document.querySelectorAll('.logo span:last-child').forEach(function (el) {
-        el.innerHTML = name + '<small>автосервис · Йошкар-Ола</small>';
+        el.textContent = name;
+        var sm = document.createElement('small');
+        sm.textContent = 'автосервис · Йошкар-Ола';
+        el.appendChild(sm);
       });
       var h3 = document.querySelector('#contacts h3');
       if (h3) h3.textContent = 'Автосервис «' + name + '»';
@@ -846,7 +852,10 @@
         a.href = 'https://wa.me/' + digits.replace(/\D/g, '');
       });
       document.querySelectorAll('.top__phone').forEach(function (a) {
-        a.innerHTML = phone + '<span>звонок или WhatsApp</span>';
+        a.textContent = phone;
+        var sp = document.createElement('span');
+        sp.textContent = 'звонок или WhatsApp';
+        a.appendChild(sp);
       });
       Array.prototype.forEach.call(document.querySelectorAll('.book__list li'), function (li) {
         var k = li.querySelector('span');
