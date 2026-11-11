@@ -266,6 +266,27 @@ footer a:hover{color:var(--accent)}
   z-index:60;transition:width .08s linear;
 }
 
+/* рельс: штрихи-разделы справа, клик — прыжок */
+.rail{
+  position:fixed;right:clamp(12px,2vw,26px);top:50%;transform:translateY(-50%);
+  z-index:55;display:flex;flex-direction:column;align-items:flex-end;gap:15px;
+}
+.rail a{position:relative;display:block;text-decoration:none;color:var(--ink);padding:4px 0}
+.rail__bar{
+  display:block;width:16px;height:1px;background:rgba(244,243,239,.34);
+  transition:width .34s cubic-bezier(.2,.8,.2,1),background .3s;
+}
+.rail__lb{
+  position:absolute;right:100%;top:50%;margin-right:22px;pointer-events:none;
+  font:600 10px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  white-space:nowrap;opacity:0;transform:translate(8px,-50%);
+  transition:opacity .3s,transform .34s cubic-bezier(.2,.8,.2,1);
+  text-shadow:0 2px 12px rgba(0,0,0,.9);
+}
+.rail a:hover .rail__bar,.rail a.is-on .rail__bar{width:34px;background:var(--red)}
+.rail a:hover .rail__lb,.rail a:focus-visible .rail__lb{opacity:1;transform:translate(0,-50%);color:var(--ink)}
+@media (max-width:900px){.rail{display:none}}
+
 /* курсор */
 .cursor{
   position:fixed;top:0;left:0;z-index:70;pointer-events:none;opacity:0;transition:opacity .3s;

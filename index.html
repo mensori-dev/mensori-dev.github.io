@@ -17,6 +17,14 @@
 <body>
 
 <div class="progress" id="progress"></div>
+
+<nav class="rail" id="rail" aria-label="Быстрый переход по разделам">
+  <a href="#about"><span class="rail__lb">Про меня</span><span class="rail__bar"></span></a>
+  <a href="#calc"><span class="rail__lb">Калькулятор</span><span class="rail__bar"></span></a>
+  <a href="#works"><span class="rail__lb">Работы</span><span class="rail__bar"></span></a>
+  <a href="#process"><span class="rail__lb">Как работаем</span><span class="rail__bar"></span></a>
+  <a href="#contact"><span class="rail__lb">Контакты</span><span class="rail__bar"></span></a>
+</nav>
 <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__ring"></span><span class="cursor__dot"></span></div>
 
 <header class="top" id="top">
@@ -1035,14 +1043,23 @@ const checkBand = (() => {
 })();
 
 let raf = 0;
+const railLinks = [...document.querySelectorAll('.rail a')];
+const railSecs = railLinks.map((a) => document.querySelector(a.getAttribute('href')));
+const checkRail = () => {
+  if (!railLinks.length) return;
+  const mid = innerHeight * 0.45;
+  let idx = -1;
+  railSecs.forEach((s, i) => { if (s && s.getBoundingClientRect().top <= mid) idx = i; });
+  railLinks.forEach((a, i) => a.classList.toggle('is-on', i === idx));
+};
 const onScroll = () => {
   if (raf) return;
-  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); });
+  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkRail(); });
 };
 addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
 addEventListener('load', onScroll);
-onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand();
+onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkRail();
 
 /* ---------- курсор ---------- */
 const cur = document.getElementById('cursor');
