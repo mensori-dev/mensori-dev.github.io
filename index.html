@@ -12,12 +12,13 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/site.css?v=20261113">
+<link rel="stylesheet" href="assets/site.css?v=20261124">
 </head>
 <body>
 
 <div class="progress" id="progress"></div>
 
+<button class="railbtn" id="railBtn" type="button" aria-label="Разделы" aria-controls="rail" aria-expanded="false"><span></span><span></span><span></span></button>
 <nav class="rail" id="rail" aria-label="Быстрый переход по разделам">
   <a href="#works"><span class="rail__lb">Работы</span><span class="rail__bar"></span></a>
   <a href="#calc"><span class="rail__lb">Калькулятор</span><span class="rail__bar"></span></a>
@@ -890,7 +891,8 @@ if (chatChips) {
       location.href = 'https://wa.me/79020153104?text=' + encodeURIComponent('Здравствуйте! Хочу сайт как в примере на сайте — расскажите, что нужно');
       return;
     }
-    chatChips.hidden = true;
+    if (b.disabled) return;
+    b.disabled = true;
     const add = (text, cls) => {
       const d = document.createElement('div');
       d.className = 'msg ' + cls;
@@ -1107,6 +1109,24 @@ const checkRail = () => {
   railSecs.forEach((s, i) => { if (s && s.getBoundingClientRect().top <= mid) idx = i; });
   railLinks.forEach((a, i) => a.classList.toggle('is-on', i === idx));
 };
+/* на телефоне рельс — шторка по тапу на язычок */
+const railBox = document.getElementById('rail');
+const railBtn = document.getElementById('railBtn');
+if (railBox && railBtn) {
+  const setRail = (on) => {
+    railBox.classList.toggle('open', on);
+    railBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
+  };
+  railBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setRail(!railBox.classList.contains('open'));
+  });
+  railBox.addEventListener('click', (e) => { if (e.target.closest('a')) setRail(false); });
+  document.addEventListener('click', (e) => {
+    if (railBox.classList.contains('open') && !railBox.contains(e.target) && !railBtn.contains(e.target)) setRail(false);
+  });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') setRail(false); });
+}
 const onScroll = () => {
   if (raf) return;
   raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); });

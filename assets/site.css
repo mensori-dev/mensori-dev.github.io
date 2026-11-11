@@ -291,13 +291,38 @@ footer a:hover{color:var(--accent)}
 }
 .rail a:hover .rail__bar,.rail a.is-on .rail__bar{width:34px;background:var(--red)}
 .rail a:hover .rail__lb,.rail a:focus-visible .rail__lb{opacity:1;transform:translate(0,-50%);color:var(--ink)}
-/* на телефоне рельс не убираем — просто делаем тап под палец */
+/* на телефоне рельс — шторка: язычок справа, тап — список разделов словами */
+.railbtn{
+  display:none;position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:57;
+  width:26px;height:58px;padding:0;gap:4px;flex-direction:column;align-items:center;justify-content:center;
+  background:#141416;border:1px solid var(--rule);border-right:0;border-radius:9px 0 0 9px;
+  box-shadow:-8px 0 24px rgba(0,0,0,.55);
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+}
+.railbtn span{display:block;width:11px;height:1px;background:rgba(244,243,239,.7);transition:background .2s}
+.railbtn[aria-expanded=true]{background:#1b1b1e;opacity:0;pointer-events:none}
+.railbtn[aria-expanded=true] span{background:var(--red)}
 @media (max-width:900px){
-  .rail{right:0;gap:2px;z-index:56;padding:8px 0 8px 12px;background:linear-gradient(to right,rgba(10,10,11,0),rgba(10,10,11,.88) 50%)}
-  .rail a{padding:18px 7px 18px 16px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-  .rail__bar{width:12px;height:2px;background:rgba(244,243,239,.42)}
-  .rail a.is-on .rail__bar,.rail a:hover .rail__bar{width:24px}
-  .rail__lb{display:none}
+  .railbtn{display:flex}
+  .rail{
+    right:0;top:50%;transform:translate(105%,-50%);
+    display:flex;flex-direction:column;align-items:stretch;gap:0;
+    padding:8px 0;background:#101012;border-left:1px solid var(--rule);
+    box-shadow:-24px 0 48px rgba(0,0,0,.7);
+    pointer-events:none;transition:transform .32s cubic-bezier(.2,.8,.2,1);
+  }
+  .rail.open{transform:translate(0,-50%);pointer-events:auto}
+  .rail a{
+    display:flex;flex-direction:row-reverse;align-items:center;justify-content:flex-start;gap:12px;
+    padding:13px 16px 13px 20px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  }
+  .rail__bar{width:12px;height:2px;background:rgba(244,243,239,.45);transition:width .25s,background .25s}
+  .rail a.is-on .rail__bar{width:20px;background:var(--red)}
+  .rail__lb{
+    position:static;margin:0;opacity:.6;transform:none;white-space:nowrap;
+    font-size:10px;letter-spacing:.1em;color:var(--ink);text-shadow:none;
+  }
+  .rail a.is-on .rail__lb{opacity:1;color:var(--red)}
 }
 
 /* курсор */
@@ -574,6 +599,15 @@ footer a:hover{color:var(--accent)}
 .bp small{display:block;font-size:11px;letter-spacing:.18em;font-weight:500;color:var(--muted);margin-top:9px;text-transform:uppercase}
 .bp:hover{color:var(--red)}
 .bp--hot,.bp--hot em{color:var(--red)}
+.bp__tag{
+  display:inline-block;margin:6px 0 0;padding:5px 10px;border-radius:999px;
+  background:var(--red);color:#0a0a0b;vertical-align:middle;
+  font:800 11.5px/1 ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;
+}
+@media (max-width:560px){
+  .bp__tag{padding:5px 9px;font-size:11px;letter-spacing:0}
+}
 
 .stamp{
   position:absolute;z-index:3;transform:rotate(-9deg);
@@ -925,6 +959,7 @@ footer a:hover{color:var(--accent)}
   transition:background .2s,border-color .2s,color .2s;
 }
 .chatpin__chip:hover{background:var(--red);border-color:var(--red);color:#1a0502}
+.chatpin__chip:disabled{opacity:.3;pointer-events:none}
 .msg--in{align-self:flex-start;background:#e9e9ec;color:#15151a;border-bottom-left-radius:5px}
 .msg--out{align-self:flex-end;background:var(--red);color:#1a0502;border-bottom-right-radius:5px}
 .chatpin__input{
@@ -973,7 +1008,6 @@ footer a:hover{color:var(--accent)}
   font-size:clamp(17px,2.6vw,32px);font-weight:800;letter-spacing:-.035em;
 }
 .bp:hover em{color:var(--red)}
-.bp--hot em,.bp--hot b{color:var(--red)}
 .pnote{max-width:70ch;margin:0 auto;text-align:center}
 .pnote p{color:var(--muted);font-size:15px;line-height:1.6;margin:0 0 14px}
 .pnote b{color:var(--ink);font-weight:700}
