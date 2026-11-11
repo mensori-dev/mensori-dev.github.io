@@ -1,0 +1,1514 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mensoridev — сайты для малого бизнеса</title>
+<meta name="description" content="Лендинги и сайты-визитки на чистом HTML, CSS и JavaScript. Без конструкторов и подписок. От 3 000 ₽, два-три дня.">
+<meta name="theme-color" content="#f2f2f0">
+<meta property="og:title" content="Mensoridev — сайты для малого бизнеса">
+<meta property="og:description" content="Чистый код, адаптив, измеримая скорость. От 3 000 ₽, 2–3 дня.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__ring"></span><span class="cursor__dot"></span></div>
+
+<header class="top" id="top">
+  <div class="shell">
+    <a class="logo" href="index.html">mensoridev</a>
+    <nav class="nav">
+      <a href="#works"><i>01</i>Работы</a>
+      <a href="#calc"><i>02</i>Калькулятор</a>
+      <a href="#process"><i>03</i>Как работаем</a>
+      <a href="#about"><i>04</i>Про меня</a>
+      <a href="uslugi.html"><i>05</i>Цены</a>
+      <a href="#contact"><i>06</i>Контакты</a>
+    </nav>
+    <span class="clock" id="clock"></span>
+    <a class="tel" href="tel:+79020153104">+7 902 015-31-04</a>
+  </div>
+</header>
+
+<!-- ============ ПЕРВЫЙ ЭКРАН ============ -->
+<section class="hero">
+  <video class="hero__bg" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg">
+    <source src="assets/video/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__lamp" id="heroLamp" aria-hidden="true"></div>
+  <div class="shell hero__inner">
+  <span class="mono">Йошкар-Ола · сайты для малого бизнеса</span>
+  <h1 class="caps caps--xl caps--center" data-spin style="margin-left:auto;margin-right:auto">
+    Мы делаем сайты так,<br>чтобы клиент понял всё<br>за один экран
+  </h1>
+  <p class="lead">
+    Чистый HTML, CSS и JavaScript. Без конструкторов, платных подписок и шаблонов,
+    которые разваливаются в телефоне. От трёх тысяч рублей, два-три дня.
+  </p>
+  <div class="hero__cta">
+    <a class="btn magnet" href="#works">Смотреть работы <span class="btn__arrow">→</span></a>
+    <a class="btn btn--line magnet" href="tel:+79020153104">Позвонить</a>
+  </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <i></i><span class="mono">листайте</span>
+  </div>
+</section>
+
+<!-- ============ ТИКЕР ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__row">
+    <span>лендинги <b>·</b> визитки <b>·</b> каталоги <b>·</b> правки <b>·</b> перенос <b>·</b> pwa <b>·</b> apk <b>·</b> присмотр <b>·</b>&nbsp;</span>
+    <span>лендинги <b>·</b> визитки <b>·</b> каталоги <b>·</b> правки <b>·</b> перенос <b>·</b> pwa <b>·</b> apk <b>·</b> присмотр <b>·</b>&nbsp;</span>
+  </div>
+</div>
+
+<!-- ============ МАНИФЕСТ ============ -->
+<section class="manifesto">
+  <div class="shell">
+    <span class="bleed bleed--wide bleed--red" aria-hidden="true">Сайт — это</span>
+    <span class="bleed bleed--wide" aria-hidden="true">витрина,</span>
+    <span class="bleed bleed--wide bleed--thin" aria-hidden="true">а не брошюра</span>
+    <p style="margin-top:clamp(30px,5vh,56px)" class="reveal">
+      Мне важно, чтобы после нашей работы у вашего дела появился сайт, которому хочется
+      верить: <b>понятная цена</b>, живые фотографии, запись в два касания — и ни одного
+      «уточните по телефону».
+    </p>
+  </div>
+</section>
+
+<!-- ============ ЗАЛИПАНИЕ: сайт стоит, текст заливается ============ -->
+<section class="pin" id="pin" style="--ph:3">
+  <div class="pin__stage">
+    <div class="pin__inner">
+      <div class="pin__top">
+        <span class="mono">[ почему так ]</span>
+        <span class="mono" id="pinPct">0%</span>
+      </div>
+      <p class="pin__text" id="pinText">
+        Сайт — это не картинка. Это ответы на вопросы, которые клиент задаёт до звонка:
+        сколько стоит, сколько ждать, кто этим занимается и что будет, если что-то пойдёт не так.
+        Мы отвечаем на них прямо на странице — и клиент приходит уже готовым
+      </p>
+      <div class="pin__bar" aria-hidden="true"><i id="pinBar"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ СЦЕНА 1 ============ -->
+<section class="scene" data-parallax>
+  <img class="scene__img" src="assets/works/band-auto.jpg" alt="Сайт автосервиса и шиномонтажа" loading="lazy">
+  <span class="scene__top mono" style="color:rgba(255,255,255,.75)">автосервис · шиномонтаж</span>
+  <span class="stamp" aria-hidden="true"><span>без</span><span>конструкторов</span></span>
+  <div class="scene__inner">
+    <h2 class="scene__cap">Цена переобувки считается до звонка</h2>
+    <p class="scene__sub">Калькулятор на главной: клиент выбирает радиус и услугу, видит сумму и приходит уже готовым. Без «уточните по телефону».</p>
+  </div>
+</section>
+
+<!-- ============ ТЕКСТ ============ -->
+<section class="sec sec--line">
+  <div class="shell--narrow" style="margin:0 auto">
+    <p class="mono reveal" style="text-align:center">как это работает</p>
+    <h2 class="caps caps--lg caps--center reveal" style="margin-top:22px">
+      Хороший сайт — это не картинка.<br>Это ответы на вопросы, которые клиент<br>не хочет задавать по телефону
+    </h2>
+    <p class="lead lead--center reveal">
+      Сколько стоит. Кто мастер. Как записаться. Что будет, если опоздаю. Если на эти
+      четыре вопроса нет ответа на первом экране — человек уходит к конкуренту,
+      у которого он есть.
+    </p>
+  </div>
+</section>
+
+<!-- ============ СЛОИ: карточка разбирается на части ============ -->
+<section class="layers" id="layers" style="--ph:2.4">
+  <div class="layers__stage">
+    <div class="shell layers__inner">
+      <div class="layers__copy">
+        <p class="mono reveal">из чего это собрано</p>
+        <h2 class="caps caps--lg reveal" style="margin-top:16px;max-width:15ch">Сайт — это слои, а не картинка</h2>
+        <p class="lead reveal" style="margin-top:18px">
+          Сетка держит ритм, фото задаёт настроение, текст отвечает на вопросы,
+          кнопка ведёт к заявке. Уберите любой слой — экран развалится.
+          Поэтому вёрстка ручная: конструктор такие стыки не держит.
+        </p>
+        <p class="layers__hint mono" id="layersHint">листайте — слои разойдутся</p>
+      </div>
+      <div class="layers__scene" id="layersScene">
+        <div class="layer">
+          <div class="lcard lcard--grid"><span class="mono">сетка</span><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="layer">
+          <div class="lcard lcard--photo"><span class="mono">фото</span><img src="assets/works/salon.jpg" alt="" loading="lazy"></div>
+        </div>
+        <div class="layer">
+          <div class="lcard lcard--text"><span class="mono">текст</span><b>Стрижка<br>и борода</b><s></s><s></s><s></s></div>
+        </div>
+        <div class="layer">
+          <div class="lcard lcard--btn"><span>Записаться</span><em>↗</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ СЛОВА-ЭТАПЫ ============ -->
+<section class="words">
+  <div class="shell">
+    <p class="mono reveal" style="margin-bottom:clamp(20px,4vh,40px)">пять шагов</p>
+    <div class="words__wrap">
+      <div class="words__list" id="words">
+        <button class="words__item" type="button" data-step="0"><span class="i">01</span>разговор</button>
+        <button class="words__item" type="button" data-step="1"><span class="i">02</span>структура</button>
+        <button class="words__item" type="button" data-step="2"><span class="i">03</span>дизайн</button>
+        <button class="words__item" type="button" data-step="3"><span class="i">04</span>вёрстка</button>
+        <button class="words__item" type="button" data-step="4"><span class="i">05</span>запуск</button>
+      </div>
+      <div class="wstep" id="wstep"></div>
+    </div>
+    <p class="words__note reveal">
+      Ни один шаг не пропускается: сначала понимаем задачу и раскладываем её на блоки,
+      потом рисуем, потом собираем и проверяем на телефоне. Правки по утверждённому
+      объёму — без доплат.
+    </p>
+  </div>
+</section>
+
+<!-- ============ ВЕРТИКАЛЬНАЯ ПЛАШКА ============ -->
+<section class="sec sec--tight">
+  <div class="shell">
+    <a class="tall reveal" href="https://mensori-dev.github.io/demos/flowers/" target="_blank" rel="noopener">
+      <img src="assets/works/tall-flowers.jpg" alt="Сайт цветочной мастерской" loading="lazy">
+      <span class="tall__cap">Сборка букета<br>по поводу и бюджету</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ ПРО НАС ============ -->
+<section class="about" id="about">
+  <div class="shell">
+    <div class="about__head">
+      <span class="mono">[ про меня ]</span>
+      <span class="mono">Йошкар-Ола · с 2024</span>
+    </div>
+
+    <h2 class="about__name">
+      <span>Максим</span>
+      <span>Менсори</span>
+    </h2>
+
+    <div class="about__grid">
+      <div class="about__side">
+        <div class="about__counter">
+          <b>14</b>
+          <span>работ<br>в портфолио</span>
+        </div>
+        <div class="about__quote">
+          <span class="mono">[ принцип ]</span>
+          <p>Лучший сайт — тот, который не стыдно открыть при клиенте</p>
+          <span class="mono">никаких «потом доделаем»</span>
+        </div>
+      </div>
+
+      <div class="about__text">
+        <p class="about__lead">Сайты — мой основной заработок, а не подработка по вечерам</p>
+
+        <div class="ablks">
+          <div class="ablk">
+            <span class="ablk__n mono">01</span>
+            <h3>Разговариваю сам</h3>
+            <p>Без менеджеров и «передам задачу в отдел». Написали — ответил я, и дальше ведём проект вдвоём.</p>
+          </div>
+          <div class="ablk">
+            <span class="ablk__n mono">02</span>
+            <h3>Собираю сам</h3>
+            <p>Макет, вёрстка, публикация — один человек. Никто не переспрашивает по кругу, что вы имели в виду.</p>
+          </div>
+          <div class="ablk">
+            <span class="ablk__n mono">03</span>
+            <h3>Файлы уходят вам</h3>
+            <p>Чистый HTML, CSS и JavaScript. Не сажаю на конструктор с подпиской и не привязываю к студии.</p>
+          </div>
+          <div class="ablk">
+            <span class="ablk__n mono">04</span>
+            <h3>Чего не делаю</h3>
+            <p>Не обещаю первые места в поиске, не рисую логотипы, не веду рекламу — и не беру задачи, в которых не разбираюсь.</p>
+          </div>
+        </div>
+
+        <div class="about__facts">
+          <div><span>чем работаю</span><span>HTML · CSS · JavaScript, без сборки и библиотек</span></div>
+          <div><span>срок</span><span>2–3 дня на лендинг</span></div>
+          <div><span>оплата</span><span>50 % до старта, 50 % после показа</span></div>
+          <div><span>домен и хостинг</span><span>оформляются на вас</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЧТО ВХОДИТ ============ -->
+<section class="sec sec--tight">
+  <div class="shell">
+    <p class="mono reveal">что входит в цену</p>
+    <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:22ch">Без «это отдельно, и это тоже отдельно»</h2>
+    <div class="feats">
+      <div class="feat reveal">
+        <span class="n mono">01</span>
+        <h3>Вёрстка под телефон</h3>
+        <p>Семь-восемь из десяти клиентов малого бизнеса заходят с телефона. Сайт собирается под узкий экран, а не сжимается потом.</p>
+      </div>
+      <div class="feat reveal">
+        <span class="n mono">02</span>
+        <h3>Расчёты и формы</h3>
+        <p>Калькулятор цены, форма заявки, кнопки звонка и WhatsApp, галочка согласия на обработку данных.</p>
+      </div>
+      <div class="feat reveal">
+        <span class="n mono">03</span>
+        <h3>Страница политики</h3>
+        <p>Отдельный документ по 152-ФЗ: какие данные собираем, зачем, сколько храним. Без него форма заявки — нарушение.</p>
+      </div>
+      <div class="feat reveal">
+        <span class="n mono">04</span>
+        <h3>Публикация и домен</h3>
+        <p>Домен и хостинг оформляются на вас, доступы передаём вам. Оплачиваете напрямую, без наценки.</p>
+      </div>
+      <div class="feat reveal">
+        <span class="n mono">05</span>
+        <h3>Метрика и карта</h3>
+        <p>Счётчик посещений, карта проезда, ссылки на соцсети. Всё, чтобы видеть, что работает.</p>
+      </div>
+      <div class="feat reveal">
+        <span class="n mono">06</span>
+        <h3>Исходники</h3>
+        <p>Отдаём код целиком. Не привязываем к себе и не забираем доступы «на всякий случай».</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КАЛЬКУЛЯТОР ============ -->
+<section class="sec sec--line" id="calc">
+  <div class="shell">
+    <p class="mono reveal">калькулятор</p>
+    <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:24ch">Соберите задачу — увидите порядок цены</h2>
+    <p class="lead reveal">Три вопроса. Цифра сразу — без «оставьте номер, мы перезвоним». Точную цену назовём после разговора, если задача сложнее, чем кажется.</p>
+
+    <div class="calc">
+      <div>
+        <div class="calc__q">
+          <span class="mono">01 · что нужно</span>
+          <div class="seg" data-q="type">
+            <button type="button" aria-pressed="true" data-v="3000">Лендинг</button>
+            <button type="button" aria-pressed="false" data-v="8000">Сайт-визитка</button>
+            <button type="button" aria-pressed="false" data-v="20000">Каталог с фильтрами</button>
+          </div>
+        </div>
+
+        <div class="calc__q">
+          <span class="mono">02 · сколько страниц сверх основного</span>
+          <div class="seg" data-q="pages">
+            <button type="button" aria-pressed="true" data-v="0">ни одной</button>
+            <button type="button" aria-pressed="false" data-v="1500">одна</button>
+            <button type="button" aria-pressed="false" data-v="4500">три-четыре</button>
+          </div>
+        </div>
+
+        <div class="calc__q">
+          <span class="mono">03 · нужна иконка на телефон</span>
+          <div class="seg" data-q="pwa">
+            <button type="button" aria-pressed="true" data-v="0">нет</button>
+            <button type="button" aria-pressed="false" data-v="2500">да, PWA</button>
+          </div>
+        </div>
+
+        <div class="calc__q">
+          <span class="mono">04 · срок</span>
+          <div class="seg" data-q="rush">
+            <button type="button" aria-pressed="true" data-v="1">обычный</button>
+            <button type="button" aria-pressed="false" data-v="1.3">срочно, за два дня</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc__out">
+        <span class="mono">примерно</span>
+        <div class="calc__sum" id="calcSum">3 000 ₽</div>
+        <p class="calc__note" id="calcNote">Лендинг под ключ: вёрстка, адаптив, публикация.</p>
+        <canvas class="calc__viz" id="calcBars" aria-hidden="true"></canvas>
+        <a class="btn" id="calcCta" href="tel:+79020153104">Обсудить задачу <span class="btn__arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ СЦЕНА 2 ============ -->
+<section class="scene" data-parallax>
+  <img class="scene__img" src="assets/works/band-barber.jpg" alt="Сайт барбершопа" loading="lazy">
+  <span class="scene__top mono" style="color:rgba(247,244,236,.75)">барбершоп</span>
+  <div class="scene__inner">
+    <h2 class="scene__cap">Без конструкторов и подписок</h2>
+    <p class="scene__sub">Ни одной сторонней платформы: сайт не отключится, когда закончится оплата тарифа, и не подорожает в новый год.</p>
+  </div>
+</section>
+
+<!-- ============ КИНОЛЕНТА: кадры выезжают по одному на весь экран ============ -->
+<section class="reel" id="reel" style="--n:5" aria-label="Работы: пять кадров">
+  <div class="reel__stage">
+    <div class="reel__top">
+      <span class="mono">[ работы ]</span>
+      <span class="mono reel__num" id="reelNum">01 / 05</span>
+    </div>
+
+    <figure class="reel__item">
+      <img src="assets/works/auto.jpg" alt="Сайт автосервиса" loading="lazy">
+      <figcaption><span class="reel__k">01 · автосервис</span><span class="reel__t">Калькулятор переобувки</span></figcaption>
+    </figure>
+
+    <figure class="reel__item">
+      <img src="assets/works/barber.jpg" alt="Сайт барбершопа" loading="lazy">
+      <figcaption><span class="reel__k">02 · барбершоп</span><span class="reel__t">Мастера и прайс строками</span></figcaption>
+    </figure>
+
+    <figure class="reel__item">
+      <img src="assets/works/flowers.jpg" alt="Сайт цветочной мастерской" loading="lazy">
+      <figcaption><span class="reel__k">03 · цветы</span><span class="reel__t">Сборка букета по бюджету</span></figcaption>
+    </figure>
+
+    <figure class="reel__item">
+      <img src="assets/works/salon.jpg" alt="Сайт салона красоты" loading="lazy">
+      <figcaption><span class="reel__k">04 · салон красоты</span><span class="reel__t">Запись в один экран</span></figcaption>
+    </figure>
+
+    <figure class="reel__item">
+      <img class="reel__img--phone" src="assets/works/phone-flowers.jpg" alt="Мобильная версия сайта цветочной мастерской" loading="lazy">
+      <figcaption><span class="reel__k">05 · мобильная версия</span><span class="reel__t">Фотографии, а не сток</span></figcaption>
+    </figure>
+
+    <span class="reel__hint">листайте — кадры сменяются</span>
+  </div>
+</section>
+
+<!-- ============ РАБОТЫ ============ -->
+<section class="sec" id="works">
+  <div class="shell">
+    <p class="mono reveal">работы</p>
+    <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:24ch">Четыре сайта, четыре характера — не один шаблон в разных цветах</h2>
+    <div class="wlist" id="wlist" style="margin-top:clamp(28px,4vh,48px)">
+      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/auto/" target="_blank" rel="noopener" data-img="assets/works/auto.jpg">
+        <span class="wrow__n mono">01</span>
+        <span class="wrow__t">Шиномонтаж с калькулятором</span>
+        <span class="wrow__d">автосервис</span>
+        <span class="wrow__y mono">2026</span>
+        <span class="wrow__a">↗</span>
+        <img class="wrow__img" src="assets/works/auto.jpg" alt="Сайт автосервиса" loading="lazy">
+      </a>
+      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/barber/" target="_blank" rel="noopener" data-img="assets/works/barber.jpg">
+        <span class="wrow__n mono">02</span>
+        <span class="wrow__t">Мастера и прайс строками</span>
+        <span class="wrow__d">барбершоп</span>
+        <span class="wrow__y mono">2026</span>
+        <span class="wrow__a">↗</span>
+        <img class="wrow__img" src="assets/works/barber.jpg" alt="Сайт барбершопа" loading="lazy">
+      </a>
+      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/flowers/" target="_blank" rel="noopener" data-img="assets/works/flowers.jpg">
+        <span class="wrow__n mono">03</span>
+        <span class="wrow__t">Мастерская с подбором букета</span>
+        <span class="wrow__d">цветы</span>
+        <span class="wrow__y mono">2026</span>
+        <span class="wrow__a">↗</span>
+        <img class="wrow__img" src="assets/works/flowers.jpg" alt="Сайт цветочной мастерской" loading="lazy">
+      </a>
+      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/salon/" target="_blank" rel="noopener" data-img="assets/works/salon.jpg">
+        <span class="wrow__n mono">04</span>
+        <span class="wrow__t">Прайс и запись в один экран</span>
+        <span class="wrow__d">салон красоты</span>
+        <span class="wrow__y mono">2026</span>
+        <span class="wrow__a">↗</span>
+        <img class="wrow__img" src="assets/works/salon.jpg" alt="Сайт салона красоты" loading="lazy">
+      </a>
+    </div>
+    <div class="wpeek" id="wpeek" aria-hidden="true"><img id="wpeekImg" src="assets/works/auto.jpg" alt=""></div>
+    <p style="margin-top:clamp(26px,4vh,40px)" class="reveal">
+      <a class="btn btn--line magnet" href="raboty.html">Что внутри каждого <span class="btn__arrow">→</span></a>
+    </p>
+  </div>
+</section>
+
+<!-- ============ МОЗАИКА ============ -->
+<section class="mosaic" id="mosaic" style="--ph:2.1">
+  <div class="mosaic__stage">
+    <div class="shell mosaic__inner">
+      <div class="mosaic__head">
+        <p class="mono reveal">сборка</p>
+        <h2 class="caps caps--lg reveal">Экран собирается из блоков</h2>
+        <p class="lead reveal" style="margin-top:14px;max-width:34ch">Каждый кусок — отдельный блок: его можно переставить, не ломая остальные. Поэтому на телефоне страница складывается в одну колонку, а не разваливается.</p>
+      </div>
+      <div class="mosaic__grid" id="mosaicGrid" aria-hidden="true">
+        <i class="mtile" style="--c:0;--r:0"></i><i class="mtile" style="--c:1;--r:0"></i><i class="mtile" style="--c:2;--r:0"></i>
+        <i class="mtile" style="--c:0;--r:1"></i><i class="mtile" style="--c:1;--r:1"></i><i class="mtile" style="--c:2;--r:1"></i>
+        <i class="mtile" style="--c:0;--r:2"></i><i class="mtile" style="--c:1;--r:2"></i><i class="mtile" style="--c:2;--r:2"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЛЕНТА ============ -->
+<section class="lane" id="band" style="--ph:2.6">
+  <div class="lane__stage">
+    <div class="shell lane__head">
+      <p class="mono reveal">с чем приходят</p>
+      <h2 class="caps caps--lg reveal" style="margin-top:14px;max-width:22ch">Пять ситуаций — и пять разных решений</h2>
+    </div>
+    <div class="lane__track" id="bandTrack">
+      <article class="lane__card">
+        <span class="mono">01</span>
+        <p class="lane__q">«У меня только Авито, своего сайта нет»</p>
+        <p class="lane__a">Одностраничник, на который можно кинуть ссылку в переписке. Объявление остаётся, но перестаёт быть единственным адресом.</p>
+      </article>
+      <article class="lane__card">
+        <span class="mono">02</span>
+        <p class="lane__q">«Есть группа ВК — сайт вроде и не нужен»</p>
+        <p class="lane__a">Группа не находится в поиске и не открывается по короткому адресу. Делаем страницу с прайсом и записью, ВК остаётся как лента.</p>
+      </article>
+      <article class="lane__card">
+        <span class="mono">03</span>
+        <p class="lane__q">«Сайт есть, но показывать его стыдно»</p>
+        <p class="lane__a">Перебираем первый экран и мобильную версию. Остальное не трогаем, если оно работает и не мешает.</p>
+      </article>
+      <article class="lane__card">
+        <span class="mono">04</span>
+        <p class="lane__q">«Хочу, чтобы записывались сами, без звонков»</p>
+        <p class="lane__a">Прайс, форма и кнопка WhatsApp. Заявка приходит с готовой задачей, а не с «здравствуйте, сколько стоит».</p>
+      </article>
+      <article class="lane__card">
+        <span class="mono">05</span>
+        <p class="lane__q">«На сайт есть три тысячи, не больше»</p>
+        <p class="lane__a">Этого хватает на лендинг под ключ. Домен и хостинг оформляются на вас, предоплата половина.</p>
+      </article>
+    </div>
+    <div class="shell"><p class="lane__hint mono">листайте вниз — лента идёт вбок</p></div>
+  </div>
+</section>
+
+<!-- ============ ЦИФРЫ ============ -->
+<section class="panel panel--line">
+  <div class="shell">
+    <p class="mono reveal" style="text-align:center">коротко</p>
+    <div class="nums">
+      <div class="num reveal">
+        <div class="v"><b data-count="3000">3 000</b><small>₽</small></div>
+        <div class="k">одна страница под ключ: вёрстка, адаптив, публикация</div>
+      </div>
+      <div class="num reveal">
+        <div class="v">2–3<small>дня</small></div>
+        <div class="k">от первого разговора до живой ссылки</div>
+      </div>
+      <div class="num reveal">
+        <div class="v"><b data-count="100">100</b><small>%</small></div>
+        <div class="k">исходников и доступов передаём вам</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КАК РАБОТАЕМ ============ -->
+<section class="sec" id="process">
+  <div class="shell">
+    <p class="mono reveal">порядок работы</p>
+    <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:20ch">Сначала работающее демо, потом деньги</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="n mono">01</span>
+        <h3>Разговор</h3>
+        <p>Задаём вопросы, пока задача не станет понятной. Сразу говорим, если браться не стоит.</p>
+      </div>
+      <div class="step reveal">
+        <span class="n mono">02</span>
+        <h3>Демо</h3>
+        <p>Показываем черновик по ссылке — на своём телефоне, без установок.</p>
+      </div>
+      <div class="step reveal">
+        <span class="n mono">03</span>
+        <h3>Оплата</h3>
+        <p>50 % до старта, остаток после показа. Файлы и доступы — после полной оплаты.</p>
+      </div>
+      <div class="step reveal">
+        <span class="n mono">04</span>
+        <h3>Передача</h3>
+        <p>Домен и хостинг на вас. Объясняем, как менять цены и тексты.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ВОПРОСЫ ============ -->
+<section class="sec sec--tight sec--line" id="faq">
+  <div class="shell shell--narrow" style="margin:0 auto">
+    <p class="mono reveal">частые вопросы</p>
+    <h2 class="caps caps--lg reveal" style="margin-top:18px">Отвечаем сразу</h2>
+    <div class="faq reveal">
+      <details>
+        <summary>Почему не WordPress или конструктор?</summary>
+        <div class="a">Конструктор — это ежемесячная подписка и чужая платформа: сайт отключается, когда заканчивается оплата тарифа. Готовый сайт на HTML не требует ни того, ни другого: файлы лежат у вас на хостинге и работают, пока вы платите за хостинг (это около 200–300 ₽ в год).</div>
+      </details>
+      <details>
+        <summary>Сможете ли потом менять текст и цены сами?</summary>
+        <div class="a">Да. Цены и тексты вынесены в понятные места, инструкция — на одной странице. Если правки сложнее (новая страница, блок, форма) — берём от 500 ₽ за правку.</div>
+      </details>
+      <details>
+        <summary>А если сайт понадобится через год изменить другим человеком?</summary>
+        <div class="a">Код без сборки и без библиотек: HTML, CSS, обычный JavaScript. Разберётся любой разработчик. Исходники отдаём в день полной оплаты, вы не привязаны к нам.</div>
+      </details>
+      <details>
+        <summary>Что с доменом и хостингом?</summary>
+        <div class="a">Оформляем на ваши данные и на вашу почту, оплачиваете напрямую. Домен — примерно 200–400 ₽ в год, хостинг — от 150 ₽ в месяц. Мы только помогаем с настройкой.</div>
+      </details>
+      <details>
+        <summary>Работаете только в Йошкар-Оле?</summary>
+        <div class="a">Сайты делаем удалённо по всей России, встреча не нужна. Так же работаем по 2ГИС и Авито — если понадобится оформить карточку и объявления.</div>
+      </details>
+      <details>
+        <summary>Как считается предоплата?</summary>
+        <div class="a">50 % до начала работы, 50 % — после показа готового сайта. Через Kwork — 100 % через площадку: деньги замораживаются и приходят после сдачи.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ПРАЙС-ПОЛОСА ============ -->
+<section class="sec sec--tight sec--line">
+  <div class="shell">
+    <h2 class="caps caps--md caps--center reveal">Сколько стоит</h2>
+    <div class="priceband reveal">
+      <span class="p">от 3 000 ₽</span>
+      <span class="t">лендинг или сайт-визитка под ключ. Точная цена — после разговора, без «уточним позже».</span>
+    </div>
+    <div class="hero__cta reveal" style="margin-top:clamp(24px,4vh,38px)">
+      <a class="btn btn--line magnet" href="uslugi.html">Полный прайс <span class="btn__arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БРИФ ============ -->
+<section class="brief" id="brief">
+  <div class="shell">
+    <div class="brief__head">
+      <div>
+        <span class="mono">[ бриф ]</span>
+        <h2>Расскажите о проекте</h2>
+      </div>
+      <span class="mono">займёт минуту</span>
+    </div>
+
+    <form class="form" id="briefForm" novalidate>
+      <label class="fld">
+        <span>Ваше имя<i>*</i></span>
+        <input type="text" name="name" placeholder="как к вам обращаться" required>
+      </label>
+
+      <label class="fld">
+        <span>Ваша почта</span>
+        <input type="email" name="email" placeholder="mail@example.com">
+      </label>
+
+      <label class="fld">
+        <span>Ваш Telegram</span>
+        <input type="text" name="tg" placeholder="@username">
+      </label>
+
+      <label class="fld">
+        <span>Сколько времени на проект<i>*</i></span>
+        <select name="time" required>
+          <option value="">выберите срок</option>
+          <option>Срочно, 1–3 дня</option>
+          <option>До 2 недель</option>
+          <option>Месяц</option>
+          <option>Не горит</option>
+        </select>
+      </label>
+
+      <label class="fld">
+        <span>Какой бюджет проекта<i>*</i></span>
+        <select name="budget" required>
+          <option value="">выберите бюджет</option>
+          <option>3 000 – 8 000 ₽</option>
+          <option>8 000 – 20 000 ₽</option>
+          <option>20 000 – 40 000 ₽</option>
+          <option>Больше 40 000 ₽</option>
+          <option>Пока не знаю</option>
+        </select>
+      </label>
+
+      <label class="fld">
+        <span>Что нужно сделать<i>*</i></span>
+        <textarea name="task" placeholder="кратко пропишите, что именно необходимо" required></textarea>
+      </label>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" required>
+        <span>Согласен на обработку персональных данных — <a href="privacy.html" target="_blank">политика конфиденциальности</a></span>
+      </label>
+
+      <div class="form__foot">
+        <button class="btn magnet" type="submit">Отправить в WhatsApp</button>
+        <span class="form__note" id="briefNote">откроется чат с готовым текстом</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ ЧАТ: заявка приходит по одной строке ============ -->
+<section class="chatpin" id="chatpin" style="--ph:3">
+  <div class="chatpin__stage">
+    <span class="chatpin__word" aria-hidden="true">Заявка</span>
+    <span class="chatpin__lit" id="chatLit" aria-hidden="true">Заявка</span>
+    <div class="chatpin__glow" id="chatGlow" aria-hidden="true"></div>
+    <div class="chatpin__inner">
+      <div class="chatpin__phone">
+        <div class="chatpin__bar"><i></i></div>
+        <div class="chatpin__head">
+          <span class="chatpin__av">М</span>
+          <span class="chatpin__who">Максим<i>онлайн</i></span>
+        </div>
+        <div class="chatpin__body" id="chatBody">
+          <div class="msg msg--in">Здравствуйте! Нашёл вас в 2ГИС. Нужен сайт для шиномонтажа</div>
+          <div class="msg msg--out">Здравствуйте! Сделаю. Что важно показать: цены, фото работ, запись?</div>
+          <div class="msg msg--in">Цены и чтобы записаться можно было. Сколько будет стоить?</div>
+          <div class="msg msg--out">Одна страница под ключ — 3 000 ₽, готово за два-три дня. Демо покажу до оплаты</div>
+          <div class="msg msg--in">Отлично, а домен?</div>
+          <div class="msg msg--out">Домен и хостинг оформляем на вас — сайт останется вашим при любом раскладе</div>
+        </div>
+        <div class="chatpin__input">Сообщение<i></i></div>
+      </div>
+      <div class="chatpin__side">
+        <span class="mono">[ как это работает ]</span>
+        <p class="chatpin__lead">Так выглядит обычный заказ: несколько сообщений — и всё понятно без звонков и встреч.</p>
+        <p class="chatpin__note" id="chatNote">листайте — реплики появляются по одной</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КОНТАКТЫ ============ -->
+<section class="contact" id="contact">
+  <div class="shell">
+    <p class="mono">связаться</p>
+    <h2 class="caps caps--lg caps--center" style="margin-top:18px;max-width:24ch;margin-left:auto;margin-right:auto">
+      Расскажите задачу — назовём цену и срок в тот же день
+    </h2>
+    <a class="telbig" href="tel:+79020153104">+7 902 015-31-04</a>
+    <div class="contact__row">
+      <a class="btn magnet" href="https://wa.me/79020153104" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <a class="btn btn--line magnet" href="uslugi.html">Прайс и сроки</a>
+    </div>
+    <div class="contact__meta">
+      <span class="mono">звонок · WhatsApp · ежедневно 9:00–21:00</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <span>© 2026 mensoridev · сайты для малого бизнеса, Йошкар-Ола</span>
+    <span><a href="uslugi.html">Цены</a> · <a href="raboty.html">Работы</a> · <a href="privacy.html">Политика конфиденциальности</a></span>
+  </div>
+</footer>
+
+<script src="assets/vendor/lenis.min.js"></script>
+<script>
+/* ---------- шапка и прогресс ---------- */
+const topEl = document.getElementById('top');
+const prog = document.getElementById('progress');
+const onScrollUI = () => {
+  topEl.classList.toggle('is-solid', scrollY > 40);
+  const h = document.documentElement.scrollHeight - innerHeight;
+  prog.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
+};
+
+/* ---------- появление ---------- */
+const reveals = [...document.querySelectorAll('.reveal')];
+const checkReveal = () => {
+  const h = innerHeight;
+  for (const el of reveals) {
+    if (el.classList.contains('in')) continue;
+    const r = el.getBoundingClientRect();
+    if (r.top < h * 0.92) el.classList.add('in');
+  }
+};
+
+/* ---------- сцены ---------- */
+const scenes = [...document.querySelectorAll('.scene[data-parallax]')];
+const checkScenes = () => {
+  const h = innerHeight;
+  for (const s of scenes) {
+    const r = s.getBoundingClientRect();
+    if (r.top < h * 0.78) s.classList.add('in');
+    const img = s.querySelector('.scene__img');
+    if (!img) continue;
+    const p = (r.top + r.height / 2 - h / 2) / (h + r.height / 2);
+    img.style.transform = 'translate3d(0,' + (p * -46).toFixed(1) + 'px,0)';
+  }
+};
+
+/* ---------- счётчики ---------- */
+const counters = [...document.querySelectorAll('[data-count]')];
+const runCount = (el) => {
+  const to = +el.dataset.count, dur = 1100, t0 = performance.now();
+  const fmt = (n) => n.toLocaleString('ru-RU').replace(/\u00a0/g, ' ');
+  const step = (t) => {
+    const k = Math.min(1, (t - t0) / dur);
+    const e = 1 - Math.pow(1 - k, 3);
+    el.textContent = fmt(Math.round(to * e));
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+};
+const checkCounters = () => {
+  for (const el of counters) {
+    if (el.dataset.done) continue;
+    const r = el.getBoundingClientRect();
+    if (r.top < innerHeight * 0.85) { el.dataset.done = '1'; runCount(el); }
+  }
+};
+
+/* ---------- кинолента: кадры выезжают по одному на весь экран ---------- */
+const reel = document.querySelector('.reel');
+const reelItems = [...document.querySelectorAll('.reel__item')];
+const reelNum = document.getElementById('reelNum');
+const checkReel = () => {
+  if (!reel || !reelItems.length) return;
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const r = reel.getBoundingClientRect();
+  const travel = r.height - innerHeight;
+  if (travel <= 0) return;
+  const p = Math.min(1, Math.max(0, -r.top / travel));
+  const n = reelItems.length;
+  for (let i = 0; i < n; i++) {
+    const local = p * (n - 1) - i;                    // 0 — кадр по центру экрана
+    const cl = Math.min(1, Math.max(-1, local));
+    const el = reelItems[i];
+    el.style.transform = 'translate3d(0,' + (-local * 100).toFixed(2) + '%,0) scale(' + (1 - Math.abs(cl) * 0.05).toFixed(3) + ')';
+    el.style.opacity = String(Math.max(0, 1 - Math.abs(cl) * 0.9));
+    el.style.zIndex = String(20 - Math.round(Math.abs(cl) * 10));
+  }
+  if (reelNum) {
+    const idx = Math.min(n - 1, Math.max(0, Math.round(p * (n - 1))));
+    reelNum.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
+  }
+};
+
+/* ---------- залипание: сайт стоит, текст заливается ---------- */
+const pinStage = document.querySelector('.pin__stage');
+const pinText = document.getElementById('pinText');
+const pinBar = document.getElementById('pinBar');
+const pinPct = document.getElementById('pinPct');
+let pinWords = [];
+if (pinText) {
+  const words = pinText.textContent.trim().split(/\s+/);
+  pinText.innerHTML = words.map((w) => '<span>' + w + '</span>').join(' ');
+  pinWords = [...pinText.children];
+  pinText.setAttribute('aria-label', words.join(' '));
+}
+const checkPin = () => {
+  if (!pinStage || !pinWords.length) return;
+  const r = pinStage.parentElement.getBoundingClientRect();
+  const travel = r.height - innerHeight;
+  if (travel <= 0) return;
+  const p = Math.min(1, Math.max(0, -r.top / travel));
+  if (pinBar) pinBar.style.width = (p * 100).toFixed(2) + '%';
+  if (pinPct) pinPct.textContent = Math.round(p * 100) + '%';
+  const n = Math.round(p * pinWords.length * 1.08);
+  for (let i = 0; i < pinWords.length; i++) pinWords[i].classList.toggle('on', i < n);
+};
+
+/* ---------- чат: реплики по одной ---------- */
+const chatPin = document.getElementById('chatpin');
+const chatStage = chatPin ? chatPin.querySelector('.chatpin__stage') : null;
+const chatMsgs = [...document.querySelectorAll('#chatBody .msg')];
+const chatNote = document.getElementById('chatNote');
+const chatNotes = [
+  'листайте — реплики появляются по одной',
+  'человек пишет, а не звонит: ему так проще',
+  'цена и срок сразу, без «уточним позже»',
+  'демо до оплаты — видно, что покупаете',
+  'домен и хостинг остаются на вас',
+  'заявка принята — дальше уже работа'
+];
+const checkChat = () => {
+  if (!chatStage || !chatMsgs.length) return;
+  const r = chatStage.parentElement.getBoundingClientRect();
+  const travel = r.height - innerHeight;
+  if (travel <= 0) return;
+  const p = Math.min(1, Math.max(0, -r.top / travel));
+  const n = chatMsgs.length;
+  const visible = Math.min(n, 1 + Math.floor(p * (n - 1) * 1.02));
+  for (let i = 0; i < n; i++) chatMsgs[i].classList.toggle('on', i < visible);
+  if (chatNote) chatNote.textContent = chatNotes[Math.min(visible, chatNotes.length) - 1];
+};
+
+/* ---------- слои: карточка разбирается по скроллу ---------- */
+const checkLayers = (() => {
+  const sec = document.getElementById('layers');
+  const scene = document.getElementById('layersScene');
+  if (!sec || !scene) return () => {};
+  const layers = [...scene.querySelectorAll('.layer')];
+  const hint = document.getElementById('layersHint');
+  const CFG = [
+    { dx: -120, dy: 52, z: -300, rx: 11, ry: -20, s: 0.9 },
+    { dx: 124, dy: -62, z: 40, rx: -5, ry: 15, s: 1 },
+    { dx: -58, dy: -168, z: 210, rx: 0, ry: -9, s: 1 },
+    { dx: 108, dy: 182, z: 330, rx: -7, ry: 11, s: 1 }
+  ];
+  const notes = [
+    'листайте — слои разойдутся',
+    'сетка: воздух и двенадцать колонок',
+    'фото: одно, но своё',
+    'текст: ответы, а не «мы лучшие»',
+    'кнопка: одно действие на экран'
+  ];
+  const apply = (p) => {
+    for (let i = 0; i < layers.length; i++) {
+      const c = CFG[i];
+      layers[i].style.transform =
+        'translate3d(' + (c.dx * p).toFixed(1) + 'px,' + (c.dy * p).toFixed(1) + 'px,' + (c.z * p).toFixed(1) + 'px)' +
+        ' rotateX(' + (c.rx * p).toFixed(1) + 'deg) rotateY(' + (c.ry * p).toFixed(1) + 'deg)' +
+        ' scale(' + (1 + (c.s - 1) * p).toFixed(3) + ')';
+    }
+    if (hint) hint.textContent = notes[Math.min(notes.length - 1, Math.floor(p * notes.length * 1.02))];
+  };
+  return () => {
+    const r = sec.getBoundingClientRect();
+    const travel = r.height - innerHeight;
+    if (innerWidth <= 900 || travel <= 0) { apply(0.5); return; }
+    apply(Math.min(1, Math.max(0, -r.top / travel)));
+  };
+})();
+
+/* ---------- мозаика: куски слетаются на место ---------- */
+const checkMosaic = (() => {
+  const sec = document.getElementById('mosaic');
+  const grid = document.getElementById('mosaicGrid');
+  if (!sec || !grid) return () => {};
+  const tiles = [...grid.children];
+  const SEED = [[-1.5,-1.2,1],[0,-1.7,-1],[1.4,-1.1,1],[-1.7,0,-1],[0,0,0],[1.7,0,1],[-1.4,1.2,1],[0,1.7,-1],[1.5,1.3,1]];
+  const apply = (p) => {
+    tiles.forEach((t, i) => {
+      const s = SEED[i] || [0, 0, 1];
+      const k = Math.min(1, Math.max(0, (p - i * 0.035) / 0.62));
+      const e = 1 - Math.pow(1 - k, 3);
+      const off = 1 - e;
+      t.style.transform = 'translate3d(' + (s[0] * off * 96) + 'px,' + (s[1] * off * 96) + 'px,0) rotate(' + (s[2] * off * 10) + 'deg) scale(' + (0.84 + 0.16 * e) + ')';
+      t.style.opacity = (0.12 + 0.88 * e).toFixed(3);
+    });
+  };
+  return () => {
+    const r = sec.getBoundingClientRect();
+    const travel = r.height - innerHeight;
+    if (innerWidth <= 900 || travel <= 0) { apply(1); return; }
+    apply(Math.min(1, Math.max(0, -r.top / travel)));
+  };
+})();
+
+/* ---------- лента: вертикальный скролл двигает карточки вбок ---------- */
+const checkBand = (() => {
+  const sec = document.getElementById('band');
+  const track = document.getElementById('bandTrack');
+  if (!sec || !track) return () => {};
+  let max = 0;
+  const measure = () => { max = Math.max(0, track.scrollWidth - innerWidth + 48); };
+  addEventListener('resize', measure, { passive: true });
+  addEventListener('load', measure);
+  measure();
+  return () => {
+    if (innerWidth <= 900) { track.style.transform = ''; return; }
+    const r = sec.getBoundingClientRect();
+    const travel = r.height - innerHeight;
+    if (travel <= 0) return;
+    if (!max) measure();
+    const p = Math.min(1, Math.max(0, -r.top / travel));
+    track.style.transform = 'translate3d(' + (-p * max).toFixed(1) + 'px,0,0)';
+  };
+})();
+
+/* ---------- свет от курсора: спотлайт, первый экран, слово «заявка» ---------- */
+(() => {
+  if (matchMedia('(pointer:coarse)').matches) return;
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+  const spot = document.createElement('div');
+  spot.className = 'spot';
+  document.body.appendChild(spot);
+
+  const hero = document.querySelector('.hero');
+  const lamp = document.getElementById('heroLamp');
+  const lit = document.getElementById('chatLit');
+  const glow = document.getElementById('chatGlow');
+  const pinEl = document.getElementById('chatpin');
+  const stageEl = pinEl ? pinEl.querySelector('.chatpin__stage') : null;
+
+  let mx = -999, my = -999, sx = -999, sy = -999, lx = -999, ly = -999;
+  let raf4 = 0, moved = false, glowOn = false;
+  let pinTop = 0, pinH = 0, stageH = 0, heroTop = 0, heroH = 0, pinned = false;
+
+  const hide = () => {
+    if (lit) lit.classList.remove('is-lit');
+    if (glow) glow.classList.remove('on');
+    glowOn = false;
+  };
+
+  /* Размеры секций читаем только при загрузке и ресайзе. В mousemove — ни одного
+     обращения к вёрстке: иначе браузер пересчитывает layout на каждое движение. */
+  const place = () => {
+    const t0 = pinTop - scrollY;
+    pinned = t0 <= 0 && pinTop + pinH - scrollY - stageH >= 0;
+    if (!pinned) hide();
+  };
+  const measure = () => {
+    if (pinEl) { pinTop = pinEl.offsetTop; pinH = pinEl.offsetHeight; }
+    if (stageEl) stageH = stageEl.offsetHeight;
+    if (hero) { heroTop = hero.offsetTop; heroH = hero.offsetHeight; }
+    place();
+  };
+  measure();
+  addEventListener('resize', measure, { passive: true });
+  addEventListener('load', measure);
+
+  const loop = () => {
+    sx += (mx - sx) * 0.2;
+    sy += (my - sy) * 0.2;
+    lx += (mx - lx) * 0.075;
+    ly += (my - ly) * 0.075;
+    spot.style.transform = 'translate3d(' + sx.toFixed(1) + 'px,' + sy.toFixed(1) + 'px,0) translate(-50%,-50%)';
+    if (lamp) lamp.style.transform = 'translate3d(' + lx.toFixed(1) + 'px,' + (ly + scrollY - heroTop).toFixed(1) + 'px,0) translate(-50%,-50%)';
+    const busy = Math.abs(mx - sx) > 0.4 || Math.abs(my - sy) > 0.4 ||
+                 Math.abs(mx - lx) > 0.6 || Math.abs(my - ly) > 0.6;
+    raf4 = busy ? requestAnimationFrame(loop) : 0;
+  };
+
+  const onMove = (e) => {
+    mx = e.clientX; my = e.clientY;
+    if (!moved) {
+      moved = true;
+      sx = mx; sy = my; lx = mx; ly = my;
+      spot.classList.add('on');
+    }
+    place();
+    if (pinned && lit) {
+      /* оба слоя привязаны к экрану: координаты курсора подставляем как есть */
+      lit.style.setProperty('--wx', mx + 'px');
+      lit.style.setProperty('--wy', my + 'px');
+      if (!lit.classList.contains('is-lit')) lit.classList.add('is-lit');
+      if (glow) {
+        if (!glowOn) { glowOn = true; glow.classList.add('on'); }
+        glow.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%,-50%)';
+      }
+    }
+    if (!raf4) raf4 = requestAnimationFrame(loop);
+  };
+  addEventListener('mousemove', onMove, { passive: true });
+
+  addEventListener('scroll', () => {
+    place();
+    if (lamp && hero) {
+      const on = scrollY < heroH - 80;
+      lamp.classList.toggle('on', on);
+      if (on && !raf4) raf4 = requestAnimationFrame(loop);
+    }
+  }, { passive: true });
+})();
+
+/* ---------- видео на первом экране: не декодируем, когда его не видно ---------- */
+(() => {
+  const v = document.querySelector('.hero__bg');
+  if (!v || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver((es) => {
+    const vis = es[0].isIntersecting;
+    if (vis) { if (v.paused) v.play().catch(() => {}); }
+    else if (!v.paused) v.pause();
+  }, { threshold: 0 }).observe(v);
+})();
+
+let raf = 0;
+const onScroll = () => {
+  if (raf) return;
+  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); });
+};
+addEventListener('scroll', onScroll, { passive: true });
+addEventListener('resize', onScroll);
+addEventListener('load', onScroll);
+onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand();
+
+/* ---------- курсор ---------- */
+const cur = document.getElementById('cursor');
+const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+if (fine) {
+  document.body.classList.add('cursor-on');
+  let cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
+  addEventListener('mousemove', (e) => { tx = e.clientX; ty = e.clientY; cur.style.opacity = 1; }, { passive: true });
+  const loop = () => {
+    cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18;
+    cur.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+    requestAnimationFrame(loop);
+  };
+  loop();
+  document.addEventListener('mouseover', (e) => {
+    cur.classList.toggle('is-hot', !!e.target.closest('a,button,summary'));
+  });
+  addEventListener('mousedown', () => cur.classList.add('is-down'));
+  addEventListener('mouseup', () => cur.classList.remove('is-down'));
+  document.addEventListener('mouseleave', () => { cur.style.opacity = 0; });
+}
+
+/* ---------- магнитные кнопки ---------- */
+if (fine) {
+  document.querySelectorAll('.magnet').forEach((btn) => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const dx = (e.clientX - r.left - r.width / 2) / r.width;
+      const dy = (e.clientY - r.top - r.height / 2) / r.height;
+      btn.style.transform = 'translate(' + (dx * 10).toFixed(1) + 'px,' + (dy * 7).toFixed(1) + 'px)';
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+}
+
+/* ---------- наклон карточек ---------- */
+if (fine) {
+  document.querySelectorAll('.tilt').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(900px) rotateY(' + (x * 6).toFixed(2) + 'deg) rotateX(' + (-y * 6).toFixed(2) + 'deg)';
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+}
+
+/* ---------- калькулятор ---------- */
+const calcState = { type: 3000, pages: 0, pwa: 0, rush: 1 };
+const calcSum = document.getElementById('calcSum');
+const calcNote = document.getElementById('calcNote');
+const fmtRub = (n) => Math.round(n).toLocaleString('ru-RU').replace(/\u00a0/g, ' ') + ' ₽';
+const calcTitles = { 3000: 'Лендинг', 8000: 'Сайт-визитка', 20000: 'Каталог с фильтрами' };
+
+/* сумма пересчитывается на глазах, а не прыгает */
+let sumShown = 3000, sumRaf = 0;
+const animSum = (to) => {
+  cancelAnimationFrame(sumRaf);
+  const from = sumShown;
+  sumShown = to;
+  if (from === to) { calcSum.textContent = fmtRub(to); return; }
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) { calcSum.textContent = fmtRub(to); return; }
+  const t0 = performance.now();
+  const dur = 520;
+  calcSum.classList.remove('is-tick');
+  void calcSum.offsetWidth;
+  calcSum.classList.add('is-tick');
+  const step = (t) => {
+    const k = Math.min(1, (t - t0) / dur);
+    const e = 1 - Math.pow(1 - k, 3);
+    calcSum.textContent = fmtRub(from + (to - from) * e);
+    if (k < 1) sumRaf = requestAnimationFrame(step);
+    else { calcSum.textContent = fmtRub(to); calcSum.classList.remove('is-tick'); }
+  };
+  sumRaf = requestAnimationFrame(step);
+};
+
+const renderCalc = () => {
+  const base = calcState.type + calcState.pages + calcState.pwa;
+  const total = base * calcState.rush;
+  animSum(total);
+  const parts = [calcTitles[calcState.type]];
+  if (calcState.pages) parts.push('доп. страницы');
+  if (calcState.pwa) parts.push('PWA');
+  if (calcState.rush > 1) parts.push('срочно');
+  calcNote.textContent = parts.join(' + ') + '. Срок уточним при разговоре; в цену входят вёрстка, адаптив и публикация.';
+  drawBars([calcState.type, calcState.pages, calcState.pwa, Math.round(base * (calcState.rush - 1))]);
+};
+
+/* ---------- диаграмма состава цены ---------- */
+const cv = document.getElementById('calcBars');
+const cx = cv ? cv.getContext('2d') : null;
+let barFrom = [0, 0, 0, 0], barTo = [0, 0, 0, 0], barStart = 0;
+
+const drawBars = (to) => {
+  if (!cx) return;
+  barFrom = barTo.slice();
+  barTo = to;
+  barStart = performance.now();
+  requestAnimationFrame(barStep);
+};
+
+const barStep = (t) => {
+  const k = Math.min(1, (t - barStart) / 520);
+  const e = 1 - Math.pow(1 - k, 3);
+  const cur = barTo.map((v, i) => barFrom[i] + (v - barFrom[i]) * e);
+  paintBars(cur);
+  if (k < 1) requestAnimationFrame(barStep);
+};
+
+const paintBars = (vals) => {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const rect = cv.getBoundingClientRect();
+  const w = Math.round(rect.width), h = Math.round(rect.height);
+  if (!w || !h) return;
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) {
+    cv.width = Math.round(w * dpr);
+    cv.height = Math.round(h * dpr);
+  }
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  cx.clearRect(0, 0, w, h);
+
+  const labels = ['тип', 'страницы', 'pwa', 'срочно'];
+  const gap = Math.max(10, w * 0.026);
+  const bw = (w - gap * 3) / 4;
+  const baseY = h - 44;
+  const max = Math.max(...barTo, 1);
+
+  for (let i = 0; i < 4; i++) {
+    const x = i * (bw + gap);
+    cx.fillStyle = 'rgba(244,243,239,.07)';
+    cx.fillRect(x, 0, bw, baseY);
+
+    const v = vals[i];
+    if (v > 0.5) {
+      const bh = Math.max(3, (v / max) * (baseY - 14));
+      cx.fillStyle = i === 3 ? '#ff4a35' : '#f4f3ef';
+      cx.fillRect(x, baseY - bh, bw, bh);
+    }
+
+    cx.textAlign = 'left';
+    cx.font = '700 13px ui-monospace,"Cascadia Mono",Consolas,monospace';
+    cx.fillStyle = v > 0.5 ? (i === 3 ? '#ff4a35' : '#f4f3ef') : 'rgba(244,243,239,.3)';
+    cx.fillText(v > 0.5 ? Math.round(v).toLocaleString('ru-RU').replace(/\u00a0/g, ' ') : '—', x, h - 24);
+
+    cx.font = '600 11px ui-monospace,"Cascadia Mono",Consolas,monospace';
+    cx.fillStyle = 'rgba(244,243,239,.55)';
+    cx.fillText(labels[i], x, h - 5);
+  }
+};
+
+document.querySelectorAll('.seg').forEach((seg) => {
+  const key = seg.dataset.q;
+  seg.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    seg.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    calcState[key] = parseFloat(btn.dataset.v);
+    renderCalc();
+  });
+});
+renderCalc();
+
+/* ---------- часы в шапке ---------- */
+const clock = document.getElementById('clock');
+const tickClock = () => {
+  if (!clock) return;
+  const d = new Date();
+  const p = (n) => String(n).padStart(2, '0');
+  clock.innerHTML = p(d.getDate()) + '.' + p(d.getMonth() + 1) + '.' + String(d.getFullYear()).slice(2) +
+    ' <b>//</b> ' + p(d.getHours()) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds());
+};
+tickClock(); setInterval(tickClock, 1000);
+
+/* ---------- слова-этапы + карточка этапа ---------- */
+const words = [...document.querySelectorAll('.words__item')];
+const wstep = document.getElementById('wstep');
+
+const STEPS = [
+  { name: 'разговор', time: '30 минут · бесплатно',
+    items: ['Созвон или переписка — как удобнее', 'Вопросы о задаче и о том, кто ваши клиенты',
+            'Ориентир по цене и срокам сразу', 'После разговора вы ничем не обязаны'] },
+  { name: 'структура', time: '1 день',
+    items: ['Карта страниц и разделов', 'Список блоков на каждом экране',
+            'Черновые тексты вместо «рыбы»', 'Состав согласуем до дизайна'] },
+  { name: 'дизайн', time: '1–2 дня',
+    items: ['Первый экран — как сайт встретит клиента', 'Палитра, шрифты, сетка',
+            'Мобильный макет отдельно', 'Правки по утверждённому объёму — без доплат'] },
+  { name: 'вёрстка', time: '1–2 дня',
+    items: ['Чистый HTML, CSS и JavaScript, без сборки', 'Адаптив от 320 до 2560 px',
+            'Формы, кнопки звонка, калькуляторы', 'Проверка в Chrome, Firefox и на Android'] },
+  { name: 'запуск', time: '1 день',
+    items: ['Домен и хостинг оформляем на вас', 'SSL, почта, редиректы',
+            'Метрика и карта сайта', 'Передача файлов, доступов и короткой инструкции'] },
+];
+
+let stepShown = -1;
+const renderStep = (i) => {
+  if (!wstep || i === stepShown || !STEPS[i]) return;
+  stepShown = i;
+  const s = STEPS[i];
+  wstep.innerHTML =
+    '<span class="wstep__n">0' + (i + 1) + '</span>' +
+    '<div><h3>' + s.name + '</h3>' +
+    '<ul>' + s.items.map((t) => '<li>' + t + '</li>').join('') + '</ul>' +
+    '<span class="wstep__time">' + s.time + '</span></div>';
+  wstep.classList.remove('is-in');
+  void wstep.offsetWidth;
+  wstep.classList.add('is-in');
+};
+
+const checkWords = () => {
+  if (!words.length) return;
+  const mid = innerHeight * 0.5;
+  let best = -1, bestD = 1e9;
+  words.forEach((w, i) => {
+    const r = w.getBoundingClientRect();
+    const d = Math.abs(r.top + r.height / 2 - mid);
+    if (d < bestD) { bestD = d; best = i; }
+  });
+  words.forEach((w, i) => {
+    const on = i === best && bestD < innerHeight * 0.42;
+    w.classList.toggle('is-on', on);
+    w.classList.toggle('is-open', on);
+  });
+  if (best >= 0) renderStep(best);
+};
+
+words.forEach((w, i) => w.addEventListener('click', () => {
+  words.forEach((x, j) => { x.classList.toggle('is-on', j === i); x.classList.toggle('is-open', j === i); });
+  renderStep(i);
+}));
+
+addEventListener('scroll', checkWords, { passive: true });
+addEventListener('resize', checkWords);
+checkWords();
+
+/* ---------- буквы: крутятся и собираются в слова ---------- */
+const spinEl = (el, opts) => {
+  if (!el || el.dataset.spun) return;
+  el.dataset.spun = '1';
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+  const o = opts || {};
+  el.setAttribute('aria-label', (el.getAttribute('aria-label') || el.textContent).replace(/\s+/g, ' ').trim());
+
+  const wrap = (node) => {
+    [...node.childNodes].forEach((n) => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        for (const part of n.textContent.split(/(\s+)/)) {
+          if (!part) continue;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); continue; }
+          const w = document.createElement('span');
+          w.className = 'wd';
+          for (const ch of part) {
+            const s = document.createElement('span');
+            s.className = 'ch';
+            s.dataset.ch = ch;
+            s.textContent = ch;
+            w.appendChild(s);
+          }
+          frag.appendChild(w);
+        }
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR') wrap(n);
+    });
+  };
+  wrap(el);
+
+  const chars = [...el.querySelectorAll('.ch')];
+  const ABC = 'АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЭЮЯ';
+  const SPEED = o.speed || 34;
+  const LOCK_FROM = o.from || 240;
+  const STAGGER = o.stagger || 34;
+  const t0 = performance.now();
+
+  chars.forEach((c, i) => { c.dataset.lock = LOCK_FROM + i * STAGGER; });
+
+  const frame = (now) => {
+    const t = now - t0;
+    let live = false;
+    for (let i = 0; i < chars.length; i++) {
+      const c = chars[i];
+      if (t >= +c.dataset.lock) {
+        if (!c.dataset.done) {
+          c.textContent = c.dataset.ch;
+          c.style.transform = '';
+          c.style.opacity = '';
+          c.classList.add('is-locked');
+          c.dataset.done = '1';
+        }
+      } else {
+        live = true;
+        const k = Math.floor(t / SPEED) + i;
+        if (c.dataset.k !== String(k)) {
+          c.dataset.k = k;
+          c.textContent = ABC[(k * 7 + i * 5) % ABC.length];
+          c.style.transform = 'rotateX(' + ((k * 53) % 360) + 'deg)';
+          c.style.opacity = '0.42';
+        }
+      }
+    }
+    if (live) requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+};
+
+/* сразу — главный заголовок */
+spinEl(document.querySelector('[data-spin]'));
+
+/* ---------- слова выезжают по очереди, с лёгкой задержкой ---------- */
+const wordsIn = (el, opts) => {
+  if (!el || el.dataset.win) return;
+  el.dataset.win = '1';
+  const el_ = el;
+  el_.setAttribute('aria-label', (el_.getAttribute('aria-label') || el_.textContent).replace(/\s+/g, ' ').trim());
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const o = opts || {};
+  const step = o.step || 60;
+
+  const wrap = (node) => {
+    [...node.childNodes].forEach((n) => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        for (const part of n.textContent.split(/(\s+)/)) {
+          if (!part) continue;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); continue; }
+          const w = document.createElement('span');
+          w.className = 'wd';
+          w.textContent = part;
+          frag.appendChild(w);
+        }
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR') wrap(n);
+    });
+  };
+  wrap(el_);
+
+  const ws = [...el_.querySelectorAll('.wd')];
+  ws.forEach((w, i) => {
+    w.classList.add('wi');
+    w.style.transitionDelay = (i * step) + 'ms';
+  });
+  requestAnimationFrame(() => el_.classList.add('wi-on'));
+};
+
+/* остальные заголовки — когда доезжают до экрана */
+(() => {
+  const heads = [...document.querySelectorAll('h2.caps--lg, .priceband .p')];
+  const seen = new Set();
+  const check = () => {
+    for (const h of heads) {
+      if (seen.has(h)) continue;
+      const r = h.getBoundingClientRect();
+      if (r.top < innerHeight * 0.9) { seen.add(h); wordsIn(h, { step: 55 }); }
+    }
+  };
+  addEventListener('scroll', check, { passive: true });
+  addEventListener('resize', check);
+  addEventListener('load', check);
+  check();
+})();
+
+/* ---------- бриф: собираем текст и открываем WhatsApp ---------- */
+(() => {
+  const form = document.getElementById('briefForm');
+  if (!form) return;
+  const note = document.getElementById('briefNote');
+  const PHONE = '79020153104';
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    const name = (d.get('name') || '').toString().trim();
+    const task = (d.get('task') || '').toString().trim();
+    const consent = form.querySelector('[name=consent]').checked;
+
+    if (!name || !task || !d.get('time') || !d.get('budget')) {
+      note.textContent = 'заполните поля со звёздочкой';
+      return;
+    }
+    if (!consent) {
+      note.textContent = 'поставьте галочку согласия';
+      return;
+    }
+
+    const rows = [
+      'Здравствуйте! Заявка с сайта.',
+      '',
+      'Имя: ' + name,
+      d.get('email') ? 'Почта: ' + d.get('email') : '',
+      d.get('tg') ? 'Telegram: ' + d.get('tg') : '',
+      'Срок: ' + d.get('time'),
+      'Бюджет: ' + d.get('budget'),
+      '',
+      'Задача: ' + task,
+      '',
+      'Согласие на обработку персональных данных: да'
+    ].filter(Boolean);
+
+    note.textContent = 'открываю WhatsApp…';
+    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(rows.join('\n')), '_blank');
+  });
+})();
+/* ---------- работы: фото летит за курсором ---------- */
+(() => {
+  const list = document.getElementById('wlist');
+  const peek = document.getElementById('wpeek');
+  const img = document.getElementById('wpeekImg');
+  if (!list || !peek || !img) return;
+  if (matchMedia('(pointer:coarse)').matches || matchMedia('(max-width:900px)').matches) return;
+  let tx = 0, ty = 0, cx = 0, cy = 0, hot = false, raf2 = 0;
+  const loop = () => {
+    cx += (tx - cx) * 0.16;
+    cy += (ty - cy) * 0.16;
+    peek.style.left = cx + 'px';
+    peek.style.top = cy + 'px';
+    if (hot || Math.abs(tx - cx) > 0.4 || Math.abs(ty - cy) > 0.4) raf2 = requestAnimationFrame(loop);
+    else raf2 = 0;
+  };
+  const kick = () => { if (!raf2) raf2 = requestAnimationFrame(loop); };
+  list.addEventListener('mousemove', (e) => { tx = e.clientX; ty = e.clientY; kick(); });
+  list.querySelectorAll('.wrow').forEach((row) => {
+    row.addEventListener('mouseenter', () => {
+      const src = row.dataset.img;
+      if (src && img.getAttribute('src') !== src) img.src = src;
+      hot = true; peek.classList.add('on'); kick();
+    });
+    row.addEventListener('mouseleave', () => { hot = false; peek.classList.remove('on'); });
+  });
+})();
+
+/* ---------- вопросы: открыт только один ---------- */
+(() => {
+  const faq = document.querySelector('.faq');
+  if (!faq) return;
+  const items = [...faq.querySelectorAll('details')];
+  items.forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (!d.open) return;
+      items.forEach((o) => { if (o !== d) o.open = false; });
+    });
+  });
+})();
+
+/* ---------- плавная прокрутка (Lenis) ---------- */
+(() => {
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  if (!window.Lenis) return;
+  const lenis = new Lenis({ lerp: 0.15, wheelMultiplier: 1, smoothWheel: true, syncTouch: false, overscroll: false });
+  const rafLoop = (time) => { lenis.raf(time); requestAnimationFrame(rafLoop); };
+  requestAnimationFrame(rafLoop);
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (!href || href.length < 2) return;
+      const el = document.querySelector(href);
+      if (!el) return;
+      e.preventDefault();
+      lenis.scrollTo(el, { offset: -8, duration: 1.2 });
+    });
+  });
+  window.__lenis = lenis;
+})();
+</script>
+<script src="assets/tel.js"></script>
+</body>
+</html>

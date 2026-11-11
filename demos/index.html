@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Примеры работ</title>
+<style>
+  :root{--bg:#0f1113;--card:#171a1d;--ink:#f2f1ee;--muted:#9aa1a8;--accent:#c9a227;--line:rgba(242,241,238,.12)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:56px 20px 72px}
+  h1{font-size:clamp(28px,5vw,40px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+  .lead{color:var(--muted);margin:0 0 36px;max-width:56ch}
+  .list{display:grid;gap:12px}
+  a.card{display:flex;align-items:center;gap:16px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:inherit;text-decoration:none;transition:border-color .2s,transform .2s}
+  a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .card b{display:block;font-size:17px}
+  .card span{color:var(--muted);font-size:14px}
+  .mark{width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;color:#111;background:var(--accent)}
+  a.card .mark{font-size:18px;font-weight:800;color:#141414}
+  footer{margin-top:40px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Примеры работ</h1>
+  <p class="lead">Одностраничники для малого бизнеса: цена до начала работ, калькулятор, форма заявки с согласием на обработку данных. Всё открывается с телефона.</p>
+  <div class="list">
+    <a class="card" href="auto/"><span class="mark">А</span><span><b>Автосервис и шиномонтаж</b><span>Калькулятор переобувки, прайс, запись на время</span></span></a>
+    <a class="card" href="barber/"><span class="mark">Б</span><span><b>Барбершоп</b><span>Мастера, прайс, расчёт визита</span></span></a>
+    <a class="card" href="flowers/"><span class="mark">Ф</span><span><b>Цветочная мастерская</b><span>Букет дня, поводы, сборка букета</span></span></a>
+    <a class="card" href="salon/"><span class="mark">С</span><span><b>Салон красоты</b><span>Услуги, прайс, запись</span></span></a>
+  </div>
+  <footer>Каждый сайт настраивается под ваш бизнес: название, телефон, адрес.</footer>
+</div>
+</body>
+</html>
