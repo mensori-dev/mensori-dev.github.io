@@ -103,7 +103,7 @@ img{max-width:100%;display:block}
 
 /* ---------- вертикальная плашка по центру ---------- */
 .tall{display:block;max-width:min(620px,92%);margin:clamp(30px,5vh,56px) auto 0;position:relative;overflow:hidden;background:var(--bg-2)}
-.tall img{width:100%;height:clamp(360px,68vh,760px);object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.tall img{width:100%;height:auto;display:block;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
 .tall:hover img{transform:scale(1.03)}
 .tall::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.60) 100%)}
 .tall__cap{
