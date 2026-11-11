@@ -12,7 +12,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/site.css?v=20261128">
+<link rel="stylesheet" href="assets/site.css?v=20261129">
 <link rel="canonical" href="https://mensori-dev.github.io/">
 <meta property="og:site_name" content="MENSORIDEV">
 <meta property="og:locale" content="ru_RU">
@@ -83,15 +83,16 @@
   <div class="shell hero__inner">
   <span class="mono">Йошкар-Ола · сайты для малого бизнеса</span>
   <h1 class="caps caps--xl caps--center" data-spin style="margin-left:auto;margin-right:auto">
-    Делаю сайты так,<br> чтобы клиент понял всё<br> за один экран
+    Лендинг за 3 000 ₽.<br> Два-три дня.<br> Демо — до оплаты
   </h1>
   <p class="lead">
-    Чистый HTML, CSS и JavaScript. Без конструкторов, платных подписок и шаблонов,
-    которые разваливаются в телефоне. Три тысячи за лендинг — цена первых заказов. Два-три дня.
+    Чистый HTML, CSS и JavaScript — без конструкторов и подписок. В цену входит вёрстка,
+    адаптив, форма заявки, кнопки звонка и WhatsApp, публикация. Цена для первых заказов:
+    пока собираю отзывы — визитка и каталог дороже.
   </p>
   <div class="hero__cta">
-    <a class="btn magnet" href="#works">Смотреть работы <span class="btn__arrow">→</span></a>
-    <a class="btn btn--line magnet" href="tel:+79020153104">Позвонить</a>
+    <a class="btn magnet" href="#brief">Показать демо под мой бизнес <span class="btn__arrow">→</span></a>
+    <a class="btn btn--line magnet" href="uslugi.html">Сколько стоит</a>
   </div>
   </div>
   <div class="hero__scroll" aria-hidden="true">
@@ -663,9 +664,9 @@
       </label>
 
       <label class="fld">
-        <span>Сколько времени на проект<i>*</i></span>
+        <span>Сколько времени на проект</span>
         <span class="sel">
-          <select name="time" required>
+          <select name="time">
             <option value="">выберите срок</option>
             <option>Срочно, 1–3 дня</option>
             <option>До 2 недель</option>
@@ -678,10 +679,10 @@
       </label>
 
       <label class="fld">
-        <span>Какой бюджет проекта<i>*</i></span>
+        <span>Какой бюджет проекта</span>
         <span class="fld__pair">
           <span class="sel">
-            <select name="budget" required>
+            <select name="budget">
               <option value="">выберите бюджет</option>
               <option>3 000 – 8 000 ₽</option>
               <option>8 000 – 20 000 ₽</option>
@@ -711,6 +712,7 @@
         <button class="btn magnet" type="submit">Отправить в WhatsApp</button>
         <span class="form__note" id="briefNote">откроется чат с готовым текстом</span>
       </div>
+      <p class="form__trust">Хватит имени и задачи — остальное спрошу сам. Без рассылок, без звонков «просто узнать» и без передачи номера кому-то ещё.</p>
     </form>
   </div>
 </section>
@@ -1571,8 +1573,8 @@ const wordsIn = (el, opts) => {
     const task = (d.get('task') || '').toString().trim();
     const consent = form.querySelector('[name=consent]').checked;
 
-    if (!name || !task || !d.get('time') || !d.get('budget')) {
-      note.textContent = 'заполните поля со звёздочкой';
+    if (!name || !task) {
+      note.textContent = 'напишите имя и задачу — этого хватит';
       return;
     }
     let budget = (d.get('budget') || '').toString();
@@ -1595,8 +1597,8 @@ const wordsIn = (el, opts) => {
       'Имя: ' + name,
       d.get('email') ? 'Почта: ' + d.get('email') : '',
       d.get('tg') ? 'Telegram: ' + d.get('tg') : '',
-      'Срок: ' + d.get('time'),
-      'Бюджет: ' + budget,
+      d.get('time') ? 'Срок: ' + d.get('time') : '',
+      budget ? 'Бюджет: ' + budget : '',
       '',
       'Задача: ' + task,
       '',
