@@ -1195,7 +1195,7 @@ footer a:hover{color:var(--accent)}
   box-shadow:0 50px 120px rgba(0,0,0,.62);
 }
 .mtile{
-  background-image:url("works/salon.jpg");
+  background-image:url("works/salon.webp");
   background-size:300% 300%;
   background-position:calc(var(--c,0) * 50%) calc(var(--r,0) * 50%);
   will-change:transform,opacity;
