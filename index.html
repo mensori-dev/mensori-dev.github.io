@@ -12,7 +12,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=20261112">
 </head>
 <body>
 
@@ -109,7 +109,7 @@
 
 <!-- ============ СЦЕНА 1 ============ -->
 <section class="scene" data-parallax>
-  <img class="scene__img" src="assets/works/band-auto.jpg" alt="Сайт автосервиса и шиномонтажа" decoding="async">
+  <img class="scene__img" src="assets/works/band-auto.jpg" alt="Сайт автосервиса и шиномонтажа">
   <span class="scene__top mono" style="color:rgba(255,255,255,.75)">автосервис · шиномонтаж</span>
   <span class="stamp" aria-hidden="true"><span>без</span><span>конструкторов</span></span>
   <div class="scene__inner">
@@ -199,7 +199,7 @@
 
 <!-- ============ СЦЕНА 2 ============ -->
 <section class="scene" data-parallax>
-  <img class="scene__img" src="assets/works/band-barber.jpg" alt="Сайт барбершопа" decoding="async">
+  <img class="scene__img" src="assets/works/band-barber.jpg" alt="Сайт барбершопа">
   <span class="scene__top mono" style="color:rgba(247,244,236,.75)">барбершоп</span>
   <div class="scene__inner">
     <h2 class="scene__cap">Без конструкторов и подписок</h2>
@@ -874,6 +874,8 @@ const checkChat = () => {
   const visible = Math.min(n, 1 + Math.round(p * (n - 1)));
   for (let i = 0; i < n; i++) chatMsgs[i].classList.toggle('on', i < visible);
   if (chatNote) chatNote.textContent = chatNotes[Math.min(visible, chatNotes.length) - 1];
+  const body = document.getElementById('chatBody');
+  if (body) body.classList.toggle('is-full', visible >= 4);
   if (p > 0.9 && chatChips) chatChips.hidden = false;
 };
 
@@ -959,25 +961,19 @@ const checkMosaic = (() => {
       t.style.opacity = (0.12 + 0.88 * e).toFixed(3);
     });
   };
-  /* на тач-экранах нет пинования: разлетаемся один раз при входе и собираемся */
-  const touch = matchMedia('(pointer:coarse)').matches;
-  if (touch) {
-    apply(0);
-    if (!('IntersectionObserver' in window)) apply(1);
-    else {
-      let opened = false;
-      new IntersectionObserver((es) => {
-        if (opened || !es[0].isIntersecting) return;
-        opened = true;
-        apply(1);
-      }, { threshold: 0.25 }).observe(sec);
-    }
-  }
+  /* на телефоне секция не пинована: куски собираются по мере въезда сетки в экран
+     и снова разлетаются, если прокрутить назад */
   return () => {
-    if (touch) return;
+    if (innerWidth <= 900) {
+      const g = grid.getBoundingClientRect();
+      const start = innerHeight * 0.94;
+      const span = Math.max(160, Math.min(innerHeight * 0.42, g.height));
+      apply(Math.min(1, Math.max(0, (start - g.top) / span)));
+      return;
+    }
     const r = sec.getBoundingClientRect();
     const travel = r.height - innerHeight;
-    if (innerWidth <= 900 || travel <= 0) { apply(1); return; }
+    if (travel <= 0) { apply(1); return; }
     apply(Math.min(1, Math.max(0, -r.top / travel)));
   };
 })();
