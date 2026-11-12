@@ -1241,13 +1241,17 @@ if (railBox && railBtn) {
 }
 /* ---------- язычок рельса и липкая WhatsApp: после первого экрана, но не на брифе ---------- */
 const briefSec = document.getElementById('brief');
+const footSec = document.querySelector('footer');
 const stickyWa = document.getElementById('waStick');
 const checkFloaters = () => {
   const br = briefSec ? briefSec.getBoundingClientRect() : null;
   const inBrief = br ? (br.top < innerHeight && br.bottom > 0) : false;
+  /* в футере липкая кнопка накрывает ссылки и копирайт — там её тоже убираем */
+  const fr = footSec ? footSec.getBoundingClientRect() : null;
+  const inFoot = fr ? (fr.top < innerHeight && fr.bottom > 0) : false;
   const on = scrollY > innerHeight * 0.6 && !inBrief;
   if (railBtn) railBtn.classList.toggle('is-on', on);
-  if (stickyWa) stickyWa.classList.toggle('is-on', on);
+  if (stickyWa) stickyWa.classList.toggle('is-on', on && !inFoot);
 };
 const onScroll = () => {
   if (raf) return;
