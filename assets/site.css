@@ -262,7 +262,7 @@ footer a:hover{color:var(--accent)}
   .scene__inner{padding:14px clamp(18px,4.2vw,64px) 48px}
   .scene__cap{font-size:clamp(26px,8.6vw,44px);max-width:14ch}
   .hero{min-height:92svh}
-  .hero h1 br{display:none}
+  .hero .lead{padding-inline:16px}
   .hero__scroll{display:none}
 }
 @media (prefers-reduced-motion:reduce){
