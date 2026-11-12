@@ -12,7 +12,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/site.css?v=20261212">
+<link rel="stylesheet" href="assets/site.css?v=20261112b">
 <link rel="canonical" href="https://mensori-dev.github.io/">
 <meta property="og:site_name" content="MENSORIDEV">
 <meta property="og:locale" content="ru_RU">
@@ -104,9 +104,10 @@
     пока собираю отзывы — визитка и каталог дороже.
   </p>
   <div class="hero__cta">
-    <a class="btn magnet" href="#brief">Показать демо под мой бизнес <span class="btn__arrow">→</span></a>
-    <a class="btn btn--line magnet" href="uslugi.html">Сколько стоит</a>
+    <button class="btn magnet" type="button" id="demoBtn" aria-haspopup="dialog" aria-controls="demoModal">Показать демо под мой бизнес <span class="btn__arrow">→</span></button>
+    <a class="btn btn--line magnet" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" data-src="hero">Написать в WhatsApp</a>
   </div>
+  <p class="hero__more"><a href="#price">сколько стоит — 3 000 ₽</a></p>
   </div>
   <div class="hero__scroll" aria-hidden="true">
     <i></i><span class="mono">листайте</span>
@@ -295,6 +296,7 @@
   <div class="shell">
     <p class="mono reveal">работы</p>
     <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:24ch">Четыре сайта, четыре характера — не один шаблон в разных цветах</h2>
+    <p class="lead reveal" style="margin-top:14px;max-width:52ch">Это демо-сайты: бизнесы вымышленные, но всё работает — откройте и потыкайте. Настоящий соберу под ваше дело.</p>
     <div class="wlist" id="wlist" style="margin-top:clamp(28px,4vh,48px)">
       <a class="wrow reveal" href="https://mensori-dev.github.io/demos/auto/" target="_blank" rel="noopener" data-img="assets/works/auto.webp">
         <span class="wrow__n mono">01</span>
@@ -481,7 +483,7 @@
         <div class="calc__sum" id="calcSum">3 000 ₽</div>
         <p class="calc__note" id="calcNote">Лендинг под ключ: вёрстка, адаптив, публикация.</p>
         <canvas class="calc__viz" id="calcBars" aria-hidden="true"></canvas>
-        <a class="btn" id="calcCta" href="tel:+79020153104">Обсудить задачу <span class="btn__arrow">→</span></a>
+        <a class="btn" id="calcCta" href="https://wa.me/79020153104" target="_blank" rel="noopener" data-src="calc">Обсудить задачу <span class="btn__arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -605,6 +607,7 @@
 
         <div class="about__facts">
           <div><span>чем работаю</span><span>HTML · CSS · JavaScript, без сборки и библиотек</span></div>
+          <div><span>статус</span><span>самозанятый, НПД — после оплаты чек в «Мой налог»</span></div>
           <div><span>срок</span><span>2–3 дня на лендинг</span></div>
           <div><span>оплата</span><span>демо бесплатно, 50 % на старте и 50 % на сдаче</span></div>
           <div><span>домен и хостинг</span><span>оформляются на вас</span></div>
@@ -636,7 +639,7 @@
 </section>
 
 <!-- ============ ПРАЙС-ПОЛОСА ============ -->
-<section class="sec sec--tight sec--line">
+<section class="sec sec--tight sec--line" id="price">
   <div class="shell">
     <h2 class="caps caps--md caps--center reveal">Сколько стоит</h2>
     <div class="priceband reveal">
@@ -800,6 +803,35 @@
   </div>
 </section>
 
+<!-- ============ ДЕМО: модалка ============ -->
+<div class="dm" id="demoModal" hidden>
+  <div class="dm__veil" data-dm-close></div>
+  <div class="dm__box" role="dialog" aria-modal="true" aria-labelledby="dmTitle">
+    <button class="dm__x" type="button" data-dm-close aria-label="Закрыть">×</button>
+    <span class="mono">[ демо ]</span>
+    <h2 id="dmTitle">Покажу демо с вашим названием</h2>
+    <p class="dm__lead">Выберите, что ближе к вашему делу, и впишите название — открою готовый сайт, где уже стоит ваша вывеска. Номер и оплата не нужны.</p>
+    <div class="dm__types" role="group" aria-label="Тип бизнеса">
+      <button type="button" data-demo="auto" aria-pressed="true">Автосервис</button>
+      <button type="button" data-demo="barber" aria-pressed="false">Барбершоп</button>
+      <button type="button" data-demo="flowers" aria-pressed="false">Цветы</button>
+      <button type="button" data-demo="salon" aria-pressed="false">Салон красоты</button>
+    </div>
+    <label class="fld">
+      <span>Название бизнеса</span>
+      <input type="text" id="dmName" maxlength="60" placeholder="например, «Шины на Ленинском»" autocomplete="organization">
+    </label>
+    <label class="fld">
+      <span>Телефон — необязательно</span>
+      <input type="tel" id="dmPhone" maxlength="20" placeholder="+7 ___ ___-__-__" inputmode="tel" autocomplete="tel">
+    </label>
+    <a class="btn magnet" id="dmGo" href="demos/auto/" target="_blank" rel="noopener">Открыть демо <span class="btn__arrow">→</span></a>
+    <p class="dm__hint">Демо — пример, а не ваш сайт: название и телефон в нём подставятся. Настоящий соберу за два-три дня, покажу до оплаты.</p>
+  </div>
+</div>
+
+<a class="wastick" id="waStick" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" data-src="sticky">Написать в WhatsApp</a>
+
 <footer>
   <div class="shell">
     <span>© 2026 mensoridev · сайты для малого бизнеса, Йошкар-Ола</span>
@@ -809,6 +841,24 @@
 
 <script src="assets/vendor/lenis.min.js"></script>
 <script>
+/* ---------- цели Метрики: без них не видно, что работает ---------- */
+const PHONE = '79020153104';
+const goal = (name, params) => { try { if (window.ym) ym(114196499, 'reachGoal', name, params); } catch (e) {} };
+document.addEventListener('click', (e) => {
+  const a = e.target.closest && e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href') || '';
+  if (href.indexOf('tel:') === 0) goal('tel_click', { from: a.dataset.src || 'link' });
+  else if (href.indexOf('wa.me') > -1) goal('wa_click', { from: a.dataset.src || 'link' });
+  else if (href.indexOf('demos/') > -1) goal('demo_click', { from: a.id === 'dmGo' ? 'modal' : 'link' });
+});
+let scrolled75 = false;
+addEventListener('scroll', () => {
+  if (scrolled75) return;
+  const h = document.documentElement.scrollHeight - innerHeight;
+  if (h > 0 && scrollY / h > 0.75) { scrolled75 = true; goal('scroll_75'); }
+}, { passive: true });
+
 /* ---------- шапка и прогресс ---------- */
 const topEl = document.getElementById('top');
 const prog = document.getElementById('progress');
@@ -1189,9 +1239,19 @@ if (railBox && railBtn) {
   });
   addEventListener('keydown', (e) => { if (e.key === 'Escape') setRail(false); });
 }
+/* ---------- язычок рельса и липкая WhatsApp: после первого экрана, но не на брифе ---------- */
+const briefSec = document.getElementById('brief');
+const stickyWa = document.getElementById('waStick');
+const checkFloaters = () => {
+  const br = briefSec ? briefSec.getBoundingClientRect() : null;
+  const inBrief = br ? (br.top < innerHeight && br.bottom > 0) : false;
+  const on = scrollY > innerHeight * 0.6 && !inBrief;
+  if (railBtn) railBtn.classList.toggle('is-on', on);
+  if (stickyWa) stickyWa.classList.toggle('is-on', on);
+};
 const onScroll = () => {
   if (raf) return;
-  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); });
+  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkFloaters(); });
 };
 /* рельс обновляем отдельно и по времени: он должен работать и без кадров */
 let railT = 0;
@@ -1202,7 +1262,7 @@ addEventListener('scroll', () => {
 addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
 addEventListener('load', onScroll);
-onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkRail();
+onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkRail(); checkFloaters();
 
 /* ---------- курсор ---------- */
 const cur = document.getElementById('cursor');
@@ -1255,8 +1315,11 @@ if (fine) {
 const calcState = { type: 3000, pages: 0, pwa: 0, rush: 1 };
 const calcSum = document.getElementById('calcSum');
 const calcNote = document.getElementById('calcNote');
+const calcCta = document.getElementById('calcCta');
 const fmtRub = (n) => Math.round(n).toLocaleString('ru-RU').replace(/\u00a0/g, ' ') + ' ₽';
 const calcTitles = { 3000: 'Лендинг', 8000: 'Сайт-визитка', 20000: 'Каталог с фильтрами' };
+const calcPageTitles = { 1500: 'одна страница сверх основной', 4500: 'три-четыре страницы сверх основной' };
+let calcUsed = false;
 
 /* сумма пересчитывается на глазах, а не прыгает */
 let sumShown = 3000, sumRaf = 0;
@@ -1290,6 +1353,17 @@ const renderCalc = () => {
   if (calcState.pwa) parts.push('PWA');
   if (calcState.rush > 1) parts.push('срочно');
   calcNote.textContent = parts.join(' + ') + '. Срок уточню при разговоре; в цену входят вёрстка, адаптив и публикация.';
+  if (calcCta) {
+    const chosen = [calcTitles[calcState.type]];
+    if (calcState.pages) chosen.push(calcPageTitles[calcState.pages]);
+    if (calcState.pwa) chosen.push('иконка на телефон (PWA)');
+    if (calcState.rush > 1) chosen.push('срочно, за два дня');
+    const totalText = fmtRub(total);
+    calcCta.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(
+      'Здравствуйте! Собрал расчёт на сайте.\n\nНужно: ' + chosen.join(', ') + '.\n' +
+      'На калькуляторе вышло ' + totalText + ' — реально уложиться в эту сумму и срок?'
+    );
+  }
   drawBars([calcState.type, calcState.pages, calcState.pwa, Math.round(base * (calcState.rush - 1))]);
 };
 
@@ -1360,6 +1434,7 @@ document.querySelectorAll('.seg').forEach((seg) => {
   seg.addEventListener('click', (e) => {
     const btn = e.target.closest('button');
     if (!btn) return;
+    if (!calcUsed) { calcUsed = true; goal('calc_use'); }
     seg.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
     calcState[key] = parseFloat(btn.dataset.v);
     renderCalc();
@@ -1579,7 +1654,21 @@ const wordsIn = (el, opts) => {
   const form = document.getElementById('briefForm');
   if (!form) return;
   const note = document.getElementById('briefNote');
-  const PHONE = '79020153104';
+
+  /* ошибки: подсвечиваем само поле и подводим к нему, а не только пишем под кнопкой */
+  const nameEl = form.querySelector('[name=name]');
+  const taskEl = form.querySelector('[name=task]');
+  const consentEl = form.querySelector('[name=consent]');
+  const markBad = (el, on) => {
+    if (!el) return;
+    el.setAttribute('aria-invalid', on ? 'true' : 'false');
+    const box = el.closest('.fld, .consent');
+    if (box) box.classList.toggle('is-bad', on);
+  };
+  form.querySelectorAll('input, textarea, select').forEach((el) => {
+    el.addEventListener('input', () => markBad(el, false));
+    el.addEventListener('change', () => markBad(el, false));
+  });
 
   /* необязательные поля: показываем по кнопке */
   const moreBtn = document.getElementById('moreBtn');
@@ -1616,23 +1705,26 @@ const wordsIn = (el, opts) => {
     const d = new FormData(form);
     const name = (d.get('name') || '').toString().trim();
     const task = (d.get('task') || '').toString().trim();
-    const consent = form.querySelector('[name=consent]').checked;
+    const consent = consentEl.checked;
+    const bad = [];
 
-    if (!name || !task) {
-      note.textContent = 'напишите имя и задачу — этого хватит';
-      return;
-    }
+    if (!name) bad.push(nameEl);
+    if (!task) bad.push(taskEl);
     let budget = (d.get('budget') || '').toString();
     if (budget === '__custom') {
       const own = (d.get('budgetOwn') || '').toString().replace(/\D/g, '');
-      if (!own) {
-        note.textContent = 'впишите свою сумму';
-        return;
-      }
-      budget = 'своя сумма — ' + own.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
+      if (!own) bad.push(bOwn);
+      else budget = 'своя сумма — ' + own.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
     }
-    if (!consent) {
-      note.textContent = 'поставьте галочку согласия';
+    if (!consent) bad.push(consentEl);
+
+    if (bad.length) {
+      [nameEl, taskEl, bOwn, consentEl].forEach((el) => markBad(el, bad.indexOf(el) > -1));
+      note.textContent = bad.length === 1 && bad[0] === consentEl
+        ? 'поставьте галочку согласия'
+        : 'заполните отмеченные поля — и всё уйдёт в WhatsApp';
+      bad[0].scrollIntoView({ block: 'center', behavior: 'smooth' });
+      try { bad[0].focus({ preventScroll: true }); } catch (_) { bad[0].focus(); }
       return;
     }
 
@@ -1651,9 +1743,57 @@ const wordsIn = (el, opts) => {
     ].filter(Boolean);
 
     note.textContent = 'открываю WhatsApp…';
+    goal('brief_submit');
     window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(rows.join('\n')), '_blank');
   });
 })();
+/* ---------- демо: модалка с названием бизнеса ---------- */
+(() => {
+  const btn = document.getElementById('demoBtn');
+  const modal = document.getElementById('demoModal');
+  if (!btn || !modal) return;
+  const go = document.getElementById('dmGo');
+  const nameEl = document.getElementById('dmName');
+  const phoneEl = document.getElementById('dmPhone');
+  const types = [...modal.querySelectorAll('[data-demo]')];
+  let kind = 'auto';
+  let lastFocus = null;
+
+  const sync = () => {
+    const p = new URLSearchParams();
+    const n = nameEl.value.trim();
+    const ph = phoneEl.value.trim();
+    if (n) p.set('n', n);
+    if (ph) p.set('p', ph);
+    go.href = 'demos/' + kind + '/' + (p.toString() ? '?' + p.toString() : '');
+  };
+
+  const open = (on) => {
+    modal.hidden = !on;
+    document.body.style.overflow = on ? 'hidden' : '';
+    if (window.__lenis) (on ? window.__lenis.stop() : window.__lenis.start());
+    if (on) {
+      lastFocus = document.activeElement;
+      sync();
+      setTimeout(() => nameEl.focus(), 40);
+    } else if (lastFocus) {
+      lastFocus.focus();
+    }
+  };
+
+  btn.addEventListener('click', () => open(true));
+  modal.addEventListener('click', (e) => { if (e.target.closest('[data-dm-close]')) open(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) open(false); });
+  types.forEach((t) => t.addEventListener('click', () => {
+    kind = t.dataset.demo;
+    types.forEach((x) => x.setAttribute('aria-pressed', String(x === t)));
+    sync();
+  }));
+  nameEl.addEventListener('input', sync);
+  phoneEl.addEventListener('input', sync);
+  sync();
+})();
+
 /* ---------- работы: фото летит за курсором ---------- */
 (() => {
   const list = document.getElementById('wlist');
