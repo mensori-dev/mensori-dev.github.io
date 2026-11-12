@@ -12,7 +12,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/site.css?v=20261129">
+<link rel="stylesheet" href="assets/site.css?v=20261212">
 <link rel="canonical" href="https://mensori-dev.github.io/">
 <meta property="og:site_name" content="MENSORIDEV">
 <meta property="og:locale" content="ru_RU">
@@ -159,7 +159,7 @@
   <span class="scene__top mono" style="color:rgba(255,255,255,.75)">автосервис · шиномонтаж</span>
   <span class="stamp" aria-hidden="true"><span>без</span><span>конструкторов</span></span>
   <div class="scene__inner">
-    <h2 class="scene__cap">Цена переобувки считается до звонка</h2>
+    <h2 class="scene__cap">Клиент видит цену до звонка</h2>
     <p class="scene__sub">Калькулятор на главной: клиент выбирает радиус и услугу, видит сумму и приходит уже готовым. Без «уточните по телефону».</p>
   </div>
 </section>
@@ -667,54 +667,58 @@
       </label>
 
       <label class="fld">
-        <span>Ваша почта</span>
-        <input type="email" name="email" placeholder="mail@example.com">
-      </label>
-
-      <label class="fld">
-        <span>Ваш Telegram</span>
-        <input type="text" name="tg" placeholder="@username">
-      </label>
-
-      <label class="fld">
-        <span>Сколько времени на проект</span>
-        <span class="sel">
-          <select name="time">
-            <option value="">выберите срок</option>
-            <option>Срочно, 1–3 дня</option>
-            <option>До 2 недель</option>
-            <option>Месяц</option>
-            <option>Не горит</option>
-          </select>
-          <button type="button" class="sel__btn" aria-haspopup="listbox" aria-expanded="false"><span class="sel__val">выберите срок</span></button>
-          <span class="sel__list" role="listbox" hidden></span>
-        </span>
-      </label>
-
-      <label class="fld">
-        <span>Какой бюджет проекта</span>
-        <span class="fld__pair">
-          <span class="sel">
-            <select name="budget">
-              <option value="">выберите бюджет</option>
-              <option>3 000 – 8 000 ₽</option>
-              <option>8 000 – 20 000 ₽</option>
-              <option>20 000 – 40 000 ₽</option>
-              <option>Больше 40 000 ₽</option>
-              <option>Пока не знаю</option>
-              <option value="__custom">Своя сумма</option>
-            </select>
-            <button type="button" class="sel__btn" aria-haspopup="listbox" aria-expanded="false"><span class="sel__val">выберите бюджет</span></button>
-            <span class="sel__list" role="listbox" hidden></span>
-          </span>
-          <input class="fld__own" name="budgetOwn" type="text" inputmode="numeric" maxlength="9" placeholder="впишите сумму, ₽" hidden>
-        </span>
-      </label>
-
-      <label class="fld">
         <span>Что нужно сделать<i>*</i></span>
         <textarea name="task" placeholder="кратко пропишите, что именно необходимо" required></textarea>
       </label>
+
+      <button type="button" class="form__more-btn" id="moreBtn" aria-expanded="false" aria-controls="formMore">другой способ связи и детали — необязательно</button>
+
+      <div class="form__more" id="formMore" hidden>
+        <label class="fld">
+          <span>Ваша почта</span>
+          <input type="email" name="email" placeholder="mail@example.com">
+        </label>
+
+        <label class="fld">
+          <span>Ваш Telegram</span>
+          <input type="text" name="tg" placeholder="@username">
+        </label>
+
+        <label class="fld">
+          <span>Сколько времени на проект</span>
+          <span class="sel">
+            <select name="time">
+              <option value="">выберите срок</option>
+              <option>Срочно, 1–3 дня</option>
+              <option>До 2 недель</option>
+              <option>Месяц</option>
+              <option>Не горит</option>
+            </select>
+            <button type="button" class="sel__btn" aria-haspopup="listbox" aria-expanded="false"><span class="sel__val">выберите срок</span></button>
+            <span class="sel__list" role="listbox" hidden></span>
+          </span>
+        </label>
+
+        <label class="fld">
+          <span>Какой бюджет проекта</span>
+          <span class="fld__pair">
+            <span class="sel">
+              <select name="budget">
+                <option value="">выберите бюджет</option>
+                <option>3 000 – 8 000 ₽</option>
+                <option>8 000 – 20 000 ₽</option>
+                <option>20 000 – 40 000 ₽</option>
+                <option>Больше 40 000 ₽</option>
+                <option>Пока не знаю</option>
+                <option value="__custom">Своя сумма</option>
+              </select>
+              <button type="button" class="sel__btn" aria-haspopup="listbox" aria-expanded="false"><span class="sel__val">выберите бюджет</span></button>
+              <span class="sel__list" role="listbox" hidden></span>
+            </span>
+            <input class="fld__own" name="budgetOwn" type="text" inputmode="numeric" maxlength="9" placeholder="впишите сумму, ₽" hidden>
+          </span>
+        </label>
+      </div>
 
       <label class="consent">
         <input type="checkbox" name="consent" required>
@@ -1566,6 +1570,24 @@ const wordsIn = (el, opts) => {
   if (!form) return;
   const note = document.getElementById('briefNote');
   const PHONE = '79020153104';
+
+  /* необязательные поля: показываем по кнопке */
+  const moreBtn = document.getElementById('moreBtn');
+  const moreBox = document.getElementById('formMore');
+  if (moreBtn && moreBox) {
+    moreBtn.addEventListener('click', () => {
+      const open = moreBox.hidden;
+      moreBox.hidden = !open;
+      moreBtn.setAttribute('aria-expanded', String(open));
+      moreBtn.textContent = open
+        ? 'скрыть дополнительное'
+        : 'другой способ связи и детали — необязательно';
+      if (open) {
+        const first = moreBox.querySelector('input, select, textarea');
+        if (first) first.focus();
+      }
+    });
+  }
 
   /* своя сумма: поле появляется, только когда выбрано «Своя сумма» */
   const bSel = form.querySelector('[name=budget]');

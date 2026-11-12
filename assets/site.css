@@ -809,6 +809,10 @@ footer a:hover{color:var(--accent)}
 .form__foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:clamp(10px,2vh,18px)}
 .form__note{font:500 11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .form__trust{margin:16px 0 0;max-width:62ch;font-size:12.5px;line-height:1.6;color:var(--muted)}
+.form__more{display:flex;flex-direction:column;gap:clamp(14px,2.2vh,22px)}
+.form__more[hidden]{display:none}
+.form__more-btn{align-self:flex-start;background:none;border:0;border-bottom:1px dashed rgba(244,243,239,.4);padding:0 0 3px;margin:2px 0 4px;font:500 11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.form__more-btn:hover,.form__more-btn:focus-visible{color:var(--ink);border-bottom-color:var(--ink)}
 @media (max-width:680px){
   .fld{grid-template-columns:1fr;gap:8px}
 }
