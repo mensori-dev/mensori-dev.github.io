@@ -54,15 +54,50 @@ img{max-width:100%;display:block}
 /* ---------- шапка ---------- */
 .top{position:fixed;top:0;left:0;right:0;z-index:40;border-bottom:1px solid transparent;transition:background .35s,border-color .35s}
 .top.is-solid{background:rgba(10,10,11,.97);border-bottom-color:var(--rule-2)}
-.top .shell{display:flex;align-items:center;gap:28px;height:76px}
+.top .shell{display:flex;align-items:center;gap:24px;height:76px}
 .logo{font-size:16px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;color:var(--accent)}
-.nav{display:flex;gap:26px;margin-left:auto}
-.nav a{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);position:relative;padding-bottom:3px}
+.nav{display:flex;gap:22px;margin-left:auto}
+.nav a{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);position:relative;padding-bottom:3px;white-space:nowrap}
 .nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--accent);transition:right .3s}
 .nav a:hover::after{right:0}
-.top .tel{font-size:13px;font-weight:600;letter-spacing:.02em;padding:9px 16px;border:1px solid var(--rule);transition:border-color .25s,color .25s}
+.top .tel{font-size:13px;font-weight:600;letter-spacing:.02em;padding:9px 16px;border:1px solid var(--rule);transition:border-color .25s,color .25s;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.tel__ico{display:none;width:15px;height:15px;fill:currentColor}
 .top .tel:hover{border-color:var(--accent);color:var(--accent)}
-@media (max-width:880px){.nav{display:none}.logo{display:inline-flex;align-items:center;min-height:44px}}
+/* телефон + мессенджеры одной группой у правого края */
+.top__cta{display:flex;align-items:center;gap:8px;flex:none}
+.top__msg{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--rule);color:var(--ink-2);transition:border-color .25s,color .25s;position:relative}
+/* зона нажатия чуть больше квадрата: пальцем попадать проще, вид не меняется */
+.top__msg::after{content:"";position:absolute;inset:-4px}
+.top__msg svg{width:17px;height:17px;display:block;fill:currentColor}
+.top .top__msg:hover{border-color:var(--accent);color:var(--accent)}
+/* шапка: часы убираем раньше, чем они начнут теснить телефон, меню — раньше, чем оно начнёт переноситься */
+@media (max-width:1360px){.clock{display:none}}
+@media (max-width:1180px){
+  .nav{gap:10px}
+  .nav a{font-size:10.5px;letter-spacing:0}
+  .top .shell{gap:14px}
+}
+@media (max-width:980px){.nav{display:none}.top__cta{margin-left:auto}}
+@media (max-width:880px){
+  .logo{display:inline-flex;align-items:center;min-height:44px}
+  .top .shell{gap:10px}
+  .top .tel{padding:8px 10px;font-size:12px;letter-spacing:0}
+  .top__msg{width:32px;height:32px}
+  .top__msg svg{width:15px;height:15px}
+}
+/* на узких телефонах номер коротко: иконка звонка вместо текста, иначе три кнопки не влезают */
+@media (max-width:430px){
+  .top .shell{gap:8px}
+  .top .tel{padding:7px 10px}
+  .top__msg{width:30px;height:30px}
+  .top__msg svg{width:14px;height:14px}
+  .logo{font-size:15px}
+}
+@media (max-width:344px){
+  .top .tel{width:30px;height:30px;padding:0;justify-content:center}
+  .tel__num{display:none}
+  .tel__ico{display:block}
+}
 
 /* ---------- hero ---------- */
 .hero{padding-top:clamp(110px,15vh,170px);padding-bottom:0;text-align:center;position:relative}
