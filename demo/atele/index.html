@@ -268,6 +268,73 @@
   .faq details[open] summary::after{transform:rotate(45deg)}
   .faq p{margin:0 0 20px;color:var(--ink-soft);max-width:60ch;font-size:.97rem}
 
+  /* ── запись ──────────────────────────────────────── */
+  .book__grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:clamp(12px,2vw,20px);
+    margin:clamp(20px,3vw,30px) 0 0;
+  }
+  .field{display:flex;flex-direction:column;min-width:0}
+  .field label{
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.78rem;letter-spacing:.02em;color:var(--muted);
+    margin-bottom:6px;
+  }
+  .field input,.field select{
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.95rem;color:var(--ink);
+    background:transparent;border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:12px 14px;width:100%;
+  }
+  .field input::placeholder{color:color-mix(in srgb, var(--muted) 70%, transparent)}
+  .field.is-bad input,.field.is-bad select{
+    border-color:var(--accent);
+    background:color-mix(in srgb, var(--accent) 6%, transparent);
+  }
+  .field-error{
+    display:none;margin:6px 0 0;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.76rem;color:var(--accent);
+  }
+  .field.is-bad .field-error{display:block}
+
+  .form-consent{
+    grid-column:1 / -1;
+    display:flex;gap:10px;align-items:flex-start;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.82rem;color:var(--ink-soft);cursor:pointer;
+  }
+  .form-consent input{
+    margin:3px 0 0;width:16px;height:16px;flex:0 0 auto;
+    accent-color:var(--accent);cursor:pointer;
+  }
+  .form-consent a{color:var(--accent);text-underline-offset:2px}
+  .form-consent.is-bad{color:var(--accent)}
+
+  .book__actions{
+    grid-column:1 / -1;
+    display:flex;align-items:center;gap:16px 22px;flex-wrap:wrap;
+    margin-top:6px;
+  }
+  .book__actions .btn{cursor:pointer}
+  .form-note{
+    margin:0;max-width:40ch;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.78rem;color:var(--muted);
+  }
+  .form-note.is-ok{color:var(--ink-soft)}
+  .form-note.is-bad{color:var(--accent)}
+
+  /* ловушка для спам-ботов: люди её не видят */
+  .hp{
+    position:absolute;left:-9999px;top:0;
+    width:1px;height:1px;overflow:hidden;
+  }
+  @media (max-width:560px){
+    .book__grid{grid-template-columns:1fr}
+  }
+
   /* ── финальный призыв ────────────────────────────── */
   .cta{
     border-top:1px solid var(--line);
@@ -369,6 +436,7 @@
       <a href="#how">Как работаем</a>
       <a href="#works">Работы</a>
       <a href="#faq">Вопросы</a>
+      <a href="#book">Запись</a>
     </nav>
     <a class="top__phone js-tel js-phone-text" href="tel:+79276802355">+7 927 680-23-55</a>
   </div>
@@ -536,6 +604,62 @@
     </div>
   </section>
 
+  <section id="book">
+    <div class="wrap row">
+      <div class="row__aside rise">
+        <span class="num">05</span>
+        <h2>Запись</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="rise">
+        <p class="lead">Оставьте заявку — подскажем, когда принести вещь и сколько это займёт.</p>
+        <form class="book__grid" id="bookForm" novalidate>
+          <div class="field" data-field="name">
+            <label for="f-name">Как к вам обращаться</label>
+            <input id="f-name" name="name" type="text" placeholder="Имя" required autocomplete="name">
+            <p class="field-error">Напишите имя — чтобы знать, как к вам обращаться</p>
+          </div>
+          <div class="field" data-field="phone">
+            <label for="f-phone">Телефон</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="+7 ___ ___-__-__" required autocomplete="tel" inputmode="tel">
+            <p class="field-error">Проверьте номер: нужно 10 цифр</p>
+          </div>
+          <div class="field">
+            <label for="f-svc">Что нужно</label>
+            <select id="f-svc" name="service">
+              <option>Подгонка по фигуре</option>
+              <option>Ремонт одежды</option>
+              <option>Пошив по меркам</option>
+              <option>Шторы и текстиль</option>
+              <option>Не знаю, нужна примерка</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-time">Когда удобно принести вещь</label>
+            <select id="f-time" name="time">
+              <option>Сегодня</option>
+              <option>Завтра</option>
+              <option>На этой неделе</option>
+              <option>Скажите, когда свободнее</option>
+            </select>
+          </div>
+          <label class="form-consent" id="consentBox" for="f-consent">
+            <input id="f-consent" type="checkbox" name="consent" required>
+            <span>Согласен с <a href="./privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></span>
+          </label>
+          <div class="hp" aria-hidden="true">
+            <label for="f-company">Компания</label>
+            <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="book__actions">
+            <button class="btn" type="submit">Записаться на примерку</button>
+            <p class="form-note" id="formNote">Это демо-форма: заявка никуда не отправляется. Фото вещи можно прислать в WhatsApp.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section class="cta">
     <div class="wrap cta__in">
       <div class="rise">
@@ -558,6 +682,7 @@
       <span class="js-city">Йошкар-Ола</span>
       <span class="js-addr"></span>
       <a class="js-tel js-phone-text" href="tel:+79276802355">+7 927 680-23-55</a>
+      <a href="./privacy.html">Политика обработки данных</a>
     </div>
     <div class="demo-note">
       Демонстрационная страница. Собрана <a href="https://mensori-dev.github.io" target="_blank" rel="noopener">MENSORIDEV</a>:
@@ -615,6 +740,62 @@
       a.href = coldWa;
       a.dataset.src = 'demo_cold_wa';
     });
+  }
+
+  /* форма записи: проверка полей и имитация отправки */
+  var form = document.getElementById('bookForm');
+  if (form) {
+    var formNote = document.getElementById('formNote');
+    function mark(field, bad) {
+      var box = form.querySelector('[data-field="' + field + '"]');
+      if (box) box.classList.toggle('is-bad', bad);
+      var input = form.querySelector('[name="' + field + '"]');
+      if (input) input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nameVal = form.querySelector('[name="name"]').value.trim();
+      var phoneVal = form.querySelector('[name="phone"]').value.trim();
+      var consent = form.querySelector('[name="consent"]');
+      var box = document.getElementById('consentBox');
+      var trap = form.querySelector('[name="company"]');
+      var badName = nameVal.length < 2;
+      var badPhone = phoneVal.replace(/\D/g, '').length < 10;
+      var badConsent = !consent || !consent.checked;
+      mark('name', badName);
+      mark('phone', badPhone);
+      if (box) box.classList.toggle('is-bad', badConsent);
+      if (badName || badPhone || badConsent) {
+        var msgs = [];
+        if (badName) msgs.push('не хватает имени');
+        if (badPhone) msgs.push('проверьте телефон — нужно 10 цифр');
+        if (badConsent) msgs.push('нужна галочка согласия');
+        formNote.textContent = 'Заявка не ушла: ' + msgs.join(', ') + '.';
+        formNote.classList.add('is-bad');
+        formNote.classList.remove('is-ok');
+        var first = badName ? '[name="name"]' : (badPhone ? '[name="phone"]' : '[name="consent"]');
+        form.querySelector(first).focus();
+        return;
+      }
+      /* скрытое поле заполняют только боты — молча выходим */
+      if (trap && trap.value) { form.reset(); return; }
+      formNote.textContent = 'Спасибо, ' + nameVal + '! В демо заявка не уходит, а на реальном сайте мы бы уже написали вам в WhatsApp.';
+      formNote.classList.remove('is-bad');
+      formNote.classList.add('is-ok');
+      form.reset();
+    });
+    form.querySelectorAll('input,select').forEach(function (el) {
+      var clear = function () { mark(el.name, false); };
+      el.addEventListener('input', clear);
+      el.addEventListener('change', clear);
+    });
+    var consentEl = form.querySelector('[name="consent"]');
+    if (consentEl) {
+      consentEl.addEventListener('change', function () {
+        var b = document.getElementById('consentBox');
+        if (b) b.classList.remove('is-bad');
+      });
+    }
   }
 
   // появление блоков при прокрутке
