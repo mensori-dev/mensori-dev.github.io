@@ -345,7 +345,7 @@
       <a href="#works">Работы</a>
       <a href="#faq">Вопросы</a>
     </nav>
-    <a class="top__phone js-phone-text" href="tel:+79276802355">+7 927 680-23-55</a>
+    <a class="top__phone js-tel js-phone-text" href="tel:+79276802355">+7 927 680-23-55</a>
   </div>
 </header>
 
@@ -532,7 +532,7 @@
       <span class="js-name">Арт-ателье 12</span>
       <span class="js-city">Йошкар-Ола</span>
       <span class="js-addr"></span>
-      <a class="js-phone-text" href="tel:+79276802355">+7 927 680-23-55</a>
+      <a class="js-tel js-phone-text" href="tel:+79276802355">+7 927 680-23-55</a>
     </div>
     <div class="demo-note">
       Демонстрационная страница. Собрана <a href="https://mensori-dev.github.io" target="_blank" rel="noopener">MENSORIDEV</a>:
@@ -559,10 +559,13 @@
   }
   if (phone) {
     var digits = phone.replace(/[^\d+]/g, '');
+    /* «8 999…» и «+7 999…» приводим к одному виду: иначе ломается ссылка wa.me */
+    if (/^\+?[78]\d{10}$/.test(digits)) digits = '+7' + digits.slice(-10);
     document.querySelectorAll('.js-tel').forEach(function (a) { a.setAttribute('href', 'tel:' + digits); });
     document.querySelectorAll('.js-wa').forEach(function (a) { a.setAttribute('href', 'https://wa.me/' + digits.replace('+', '')); });
     document.querySelectorAll('.js-phone-text').forEach(function (e) {
-      var t = phone.replace(/^\+7/, '+7 ');
+      var d = digits.replace('+', '');
+      var t = d.length === 11 ? '+7 ' + d.slice(1, 4) + ' ' + d.slice(4, 7) + '-' + d.slice(7, 9) + '-' + d.slice(9) : phone;
       if (e.tagName === 'A') { e.textContent = t; } else { e.textContent = t; }
     });
   }

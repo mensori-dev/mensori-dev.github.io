@@ -816,6 +816,7 @@
       <button type="button" data-demo="barber" aria-pressed="false">Барбершоп</button>
       <button type="button" data-demo="flowers" aria-pressed="false">Цветы</button>
       <button type="button" data-demo="salon" aria-pressed="false">Салон красоты</button>
+      <button type="button" data-demo="atele" aria-pressed="false">Ателье</button>
     </div>
     <label class="fld">
       <span>Название бизнеса</span>
@@ -850,7 +851,7 @@ document.addEventListener('click', (e) => {
   const href = a.getAttribute('href') || '';
   if (href.indexOf('tel:') === 0) goal('tel_click', { from: a.dataset.src || 'link' });
   else if (href.indexOf('wa.me') > -1) goal('wa_click', { from: a.dataset.src || 'link' });
-  else if (href.indexOf('demos/') > -1) goal('demo_click', { from: a.id === 'dmGo' ? 'modal' : 'link' });
+  else if (href.indexOf('demos/') > -1 || href.indexOf('demo/atele') > -1) goal('demo_click', { from: a.id === 'dmGo' ? 'modal' : 'link' });
 });
 let scrolled75 = false;
 addEventListener('scroll', () => {
@@ -1763,6 +1764,8 @@ const wordsIn = (el, opts) => {
   const nameEl = document.getElementById('dmName');
   const phoneEl = document.getElementById('dmPhone');
   const types = [...modal.querySelectorAll('[data-demo]')];
+  /* ателье лежит отдельно от папки demos/: ссылку уже отправляли клиенту, путь не меняем */
+  const DIR = { atele: 'demo/atele/' };
   let kind = 'auto';
   let lastFocus = null;
 
@@ -1772,7 +1775,7 @@ const wordsIn = (el, opts) => {
     const ph = phoneEl.value.trim();
     if (n) p.set('n', n);
     if (ph) p.set('p', ph);
-    go.href = 'demos/' + kind + '/' + (p.toString() ? '?' + p.toString() : '');
+    go.href = (DIR[kind] || 'demos/' + kind + '/') + (p.toString() ? '?' + p.toString() : '');
   };
 
   const open = (on) => {
