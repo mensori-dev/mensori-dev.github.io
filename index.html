@@ -69,6 +69,7 @@
   <a href="#process"><span class="rail__lb">Как работаю</span><span class="rail__bar"></span></a>
   <a href="#about"><span class="rail__lb">Про меня</span><span class="rail__bar"></span></a>
   <a href="#contact"><span class="rail__lb">Контакты</span><span class="rail__bar"></span></a>
+  <a href="#brief"><span class="rail__lb">Заявка</span><span class="rail__bar"></span></a>
 </nav>
 <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__ring"></span><span class="cursor__dot"></span></div>
 
@@ -82,6 +83,7 @@
       <a href="#about"><i>04</i>Про меня</a>
       <a href="uslugi.html"><i>05</i>Цены</a>
       <a href="#contact"><i>06</i>Контакты</a>
+      <a href="#brief"><i>07</i>Заявка</a>
     </nav>
     <span class="clock" id="clock"></span>
     <div class="top__cta">
@@ -116,7 +118,7 @@
     <a class="btn btn--line magnet" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" data-src="hero">Написать в WhatsApp</a>
     <a class="btn btn--line magnet" href="https://t.me/mensorip" target="_blank" rel="noopener" data-src="hero">Telegram</a>
   </div>
-  <p class="hero__more"><a href="#price">сколько стоит — 3 000 ₽</a></p>
+  <p class="hero__more"><a href="#price">сколько стоит — 3 000 ₽</a> · <a href="#brief">заявка в два поля →</a></p>
   </div>
   <div class="hero__scroll" aria-hidden="true">
     <i></i><span class="mono">листайте</span>
@@ -663,6 +665,7 @@
       <span class="p">3 000 ₽</span>
       <span class="t">лендинг под ключ. Цена первых заказов — держу её низкой, пока портфолио небольшое. Визитка и каталог дороже, точную сумму назову после разговора.</span>
     </div>
+    <p class="reveal" style="margin:clamp(22px,3.4vh,34px) auto 0;max-width:62ch;border:1px solid var(--rule);background:var(--bg-2);padding:clamp(16px,2.6vw,24px);font-size:13px;line-height:1.6;color:var(--muted);text-align:left">Отзывов пока нет — я начал в 2026-м. Поэтому цена первых заказов 3 000 ₽, демо до оплаты и 50 % на старте.</p>
     <div class="hero__cta reveal" style="margin-top:clamp(24px,4vh,38px)">
       <a class="btn btn--line magnet" href="uslugi.html">Полный прайс <span class="btn__arrow">→</span></a>
     </div>
@@ -762,6 +765,16 @@
 
       <p class="form__trust">Хватит имени и задачи — остальное спрошу сам. Без рассылок, без звонков «просто узнать» и без передачи номера кому-то ещё.</p>
     </form>
+
+    <div id="briefFallback" hidden style="margin-top:clamp(22px,3vh,32px);border-top:1px solid var(--rule);padding-top:clamp(16px,2.6vh,24px)">
+      <p class="mono">не открылось? отправьте иначе:</p>
+      <pre id="briefFallbackText" style="margin:12px 0 0;padding:14px 16px;border:1px dashed rgba(244,243,239,.34);font:13px/1.55 ui-monospace,Consolas,monospace;color:var(--ink-2);white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto"></pre>
+      <div class="form__foot">
+        <button class="btn btn--line" type="button" id="briefCopy">Скопировать текст</button>
+        <a class="btn btn--line" href="https://t.me/mensorip" target="_blank" rel="noopener" data-src="brief_fallback">Написать в Telegram</a>
+        <button class="btn btn--line" type="button" id="briefReopen">Открыть WhatsApp ещё раз</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1228,7 +1241,7 @@ const checkBand = (() => {
 /* ---------- видео на первом экране: не декодируем, когда его не видно ---------- */
 (() => {
   const v = document.querySelector('.hero__bg');
-  if (!v || !('IntersectionObserver' in window)) return;
+  if (!v || v.tagName !== 'VIDEO' || !('IntersectionObserver' in window)) return;
   new IntersectionObserver((es) => {
     const vis = es[0].isIntersecting;
     if (vis) { if (v.paused) v.play().catch(() => {}); }
@@ -1686,6 +1699,54 @@ const wordsIn = (el, opts) => {
   const form = document.getElementById('briefForm');
   if (!form) return;
   const note = document.getElementById('briefNote');
+  const fallback = document.getElementById('briefFallback');
+  const fallbackText = document.getElementById('briefFallbackText');
+  const copyBtn = document.getElementById('briefCopy');
+  const reopenBtn = document.getElementById('briefReopen');
+  let lastText = '';
+
+  /* запасной выход: текст заявки остаётся на экране, даже если WhatsApp не открылся */
+  let toast = null, toastT = 0;
+  const say = (text) => {
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      (document.body || document.documentElement).appendChild(toast);
+    }
+    toast.textContent = text;
+    toast.classList.add('on');
+    clearTimeout(toastT);
+    toastT = setTimeout(() => toast.classList.remove('on'), 2400);
+  };
+  const copyText = () => {
+    if (!lastText) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(lastText).then(
+        () => say('скопировано'),
+        () => say('не скопировалось — выделите текст выше')
+      );
+      return;
+    }
+    say('не скопировалось — выделите текст выше');
+  };
+  const showFallback = (text) => {
+    lastText = text;
+    if (!fallback) return;
+    if (fallbackText) fallbackText.textContent = text;
+    fallback.hidden = false;
+  };
+  /* цель — именно использование запасного пути, а не каждая отправка брифа */
+  const fallbackUsed = (how) => goal('brief_fallback', { how });
+  if (copyBtn) copyBtn.addEventListener('click', () => { copyText(); fallbackUsed('copy'); });
+  if (reopenBtn) reopenBtn.addEventListener('click', () => {
+    if (!lastText) return;
+    fallbackUsed('wa_again');
+    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(lastText), '_blank');
+  });
+  if (fallback) {
+    const tg = fallback.querySelector('a[href*="t.me"]');
+    if (tg) tg.addEventListener('click', () => fallbackUsed('telegram'));
+  }
 
   /* ошибки: подсвечиваем само поле и подводим к нему, а не только пишем под кнопкой */
   const nameEl = form.querySelector('[name=name]');
@@ -1776,7 +1837,9 @@ const wordsIn = (el, opts) => {
 
     note.textContent = 'открываю WhatsApp…';
     goal('brief_submit');
-    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(rows.join('\n')), '_blank');
+    const text = rows.join('\n');
+    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(text), '_blank');
+    showFallback(text);
   });
 })();
 /* ---------- демо: модалка с названием бизнеса ---------- */

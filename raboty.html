@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Примеры работ — Mensoridev</title>
-<meta name="description" content="Четыре сайта для малого бизнеса: автосервис, барбершоп, цветочная мастерская, салон красоты. Открываются с телефона прямо сейчас.">
+<meta name="description" content="Пять сайтов для малого бизнеса: автосервис, барбершоп, цветочная мастерская, салон красоты, ателье. Открываются с телефона прямо сейчас.">
 <meta name="theme-color" content="#f2f2f0">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -29,6 +29,24 @@
 .dpick__fld input:focus{outline:none;border-color:var(--accent);background:rgba(244,243,239,.07)}
 .dpick__go{justify-self:start}
 .dpick__hint{margin:0;font-size:12px;line-height:1.45;color:var(--muted);max-width:70ch}
+/* ссылка на карточке и кнопка «хочу такой же» */
+.wcard__site{display:flex;flex-direction:column;color:inherit;text-decoration:none}
+.wcard__site:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.wcard__want{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px clamp(16px,2.6vw,26px);margin-top:auto;
+  border-top:1px solid var(--rule-2);color:var(--accent);
+  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  letter-spacing:.14em;text-transform:uppercase;
+  transition:background .25s,color .25s,border-color .25s;
+}
+.wcard__want:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.works-brief{
+  display:inline-block;margin-top:18px;padding-bottom:4px;
+  border-bottom:1px solid currentColor;color:var(--accent);
+  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  letter-spacing:.16em;text-transform:uppercase;
+}
 @media (max-width:700px){
   .dpick__row{grid-template-columns:1fr}
   .dpick__go{justify-self:stretch;justify-content:center}
@@ -40,7 +58,7 @@
 <meta property="og:url" content="https://mensori-dev.github.io/raboty.html">
 <meta property="og:image" content="https://mensori-dev.github.io/assets/works/salon.webp">
 <meta property="og:title" content="Примеры работ — Mensoridev">
-<meta property="og:description" content="Четыре сайта для малого бизнеса: автосервис, барбершоп, цветочная мастерская, салон красоты. Открываются с телефона прямо сейчас.">
+<meta property="og:description" content="Пять сайтов для малого бизнеса: автосервис, барбершоп, цветочная мастерская, салон красоты, ателье. Открываются с телефона прямо сейчас.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Yandex.Metrika counter -->
@@ -69,6 +87,7 @@
       <a href="index.html#about"><i>04</i>Про меня</a>
       <a href="uslugi.html"><i>05</i>Цены</a>
       <a href="index.html#contact"><i>06</i>Контакты</a>
+      <a href="index.html#brief"><i>07</i>Заявка</a>
     </nav>
     <div class="top__cta">
       <a class="tel" href="tel:+79020153104" aria-label="Позвонить: +7 902 015-31-04"><svg class="tel__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span class="tel__num">+7 902 015-31-04</span></a>
@@ -92,6 +111,7 @@
       Так будет выглядеть ваш сайт с вашим названием и телефоном — покажу до оплаты.
     </p>
     <p class="works-hint">Карточки ниже кликабельны — сайт открывается по нажатию, в том числе с телефона.</p>
+    <a class="works-brief" href="index.html#brief">Или сразу заявка — два поля →</a>
   </div>
 </section>
 
@@ -132,51 +152,66 @@
 <section class="sec sec--tight">
   <div class="shell">
     <div class="wgrid">
-      <a class="wcard reveal" href="https://mensori-dev.github.io/demos/auto/" target="_blank" rel="noopener">
-        <img src="assets/works/auto.webp" alt="Сайт автосервиса и шиномонтажа" loading="lazy">
-        <div class="wcard__cap">
-          <span class="mono">автосервис · шиномонтаж</span>
-          <h3>Шиномонтаж с калькулятором</h3>
-          <p>Тёмная тема, цена переобувки считается до звонка.</p>
-          <span class="wcard__open">Открыть демо →</span>
-        </div>
-      </a>
-      <a class="wcard reveal" href="https://mensori-dev.github.io/demos/barber/" target="_blank" rel="noopener">
-        <img src="assets/works/barber.webp" alt="Сайт барбершопа" loading="lazy">
-        <div class="wcard__cap">
-          <span class="mono">барбершоп</span>
-          <h3>Мастера и прайс строками</h3>
-          <p>Прайс с номерами, монограммы мастеров, расчёт визита.</p>
-          <span class="wcard__open">Открыть демо →</span>
-        </div>
-      </a>
-      <a class="wcard reveal" href="https://mensori-dev.github.io/demos/flowers/" target="_blank" rel="noopener">
-        <img src="assets/works/flowers.webp" alt="Сайт цветочной мастерской" loading="lazy">
-        <div class="wcard__cap">
-          <span class="mono">цветочная мастерская</span>
-          <h3>Сборка букета по бюджету</h3>
-          <p>Светлая палитра, подбор по поводу и сумме.</p>
-          <span class="wcard__open">Открыть демо →</span>
-        </div>
-      </a>
-      <a class="wcard reveal" href="https://mensori-dev.github.io/demos/salon/" target="_blank" rel="noopener">
-        <img src="assets/works/salon.webp" alt="Сайт салона красоты" loading="lazy">
-        <div class="wcard__cap">
-          <span class="mono">салон красоты</span>
-          <h3>Прайс и запись в один экран</h3>
-          <p>Крупный шрифт, спокойные цвета, минимум кликов.</p>
-          <span class="wcard__open">Открыть демо →</span>
-        </div>
-      </a>
-      <a class="wcard reveal" href="https://mensori-dev.github.io/demo/atele/" target="_blank" rel="noopener">
-        <img src="assets/works/atele.webp" alt="Сайт ателье" loading="lazy">
-        <div class="wcard__cap">
-          <span class="mono">ателье</span>
-          <h3>Пошив и ремонт одежды</h3>
-          <p>Услуги, сроки и фото работ — без звонка "уточните цену".</p>
-          <span class="wcard__open">Открыть демо →</span>
-        </div>
-      </a>
+      <div class="wcard reveal">
+        <a class="wcard__site" href="https://mensori-dev.github.io/demos/auto/" target="_blank" rel="noopener">
+          <img src="assets/works/auto.webp" alt="Сайт автосервиса и шиномонтажа" loading="lazy">
+          <div class="wcard__cap">
+            <span class="mono">автосервис · шиномонтаж</span>
+            <h3>Шиномонтаж с калькулятором</h3>
+            <p>Тёмная тема, цена переобувки считается до звонка.</p>
+            <span class="wcard__open">Открыть демо →</span>
+          </div>
+        </a>
+        <a class="wcard__want" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%BE%D0%BD%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D1%81%D1%8C%20%D0%B4%D0%B5%D0%BC%D0%BE%20%C2%AB%D0%A8%D0%B8%D0%BD%D0%BE%D0%BC%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%20%D1%81%20%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D0%BE%D0%BC%C2%BB%20%E2%80%94%20%D1%85%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D0%BA%D0%BE%D0%B9%20%D0%B6%D0%B5%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" data-src="demo_want">Хочу такой же →</a>
+      </div>
+      <div class="wcard reveal">
+        <a class="wcard__site" href="https://mensori-dev.github.io/demos/barber/" target="_blank" rel="noopener">
+          <img src="assets/works/barber.webp" alt="Сайт барбершопа" loading="lazy">
+          <div class="wcard__cap">
+            <span class="mono">барбершоп</span>
+            <h3>Мастера и прайс строками</h3>
+            <p>Прайс с номерами, монограммы мастеров, расчёт визита.</p>
+            <span class="wcard__open">Открыть демо →</span>
+          </div>
+        </a>
+        <a class="wcard__want" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%BE%D0%BD%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D1%81%D1%8C%20%D0%B4%D0%B5%D0%BC%D0%BE%20%C2%AB%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%B0%20%D0%B8%20%D0%BF%D1%80%D0%B0%D0%B9%D1%81%20%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B0%D0%BC%D0%B8%C2%BB%20%E2%80%94%20%D1%85%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D0%BA%D0%BE%D0%B9%20%D0%B6%D0%B5%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" data-src="demo_want">Хочу такой же →</a>
+      </div>
+      <div class="wcard reveal">
+        <a class="wcard__site" href="https://mensori-dev.github.io/demos/flowers/" target="_blank" rel="noopener">
+          <img src="assets/works/flowers.webp" alt="Сайт цветочной мастерской" loading="lazy">
+          <div class="wcard__cap">
+            <span class="mono">цветочная мастерская</span>
+            <h3>Сборка букета по бюджету</h3>
+            <p>Светлая палитра, подбор по поводу и сумме.</p>
+            <span class="wcard__open">Открыть демо →</span>
+          </div>
+        </a>
+        <a class="wcard__want" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%BE%D0%BD%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D1%81%D1%8C%20%D0%B4%D0%B5%D0%BC%D0%BE%20%C2%AB%D0%A1%D0%B1%D0%BE%D1%80%D0%BA%D0%B0%20%D0%B1%D1%83%D0%BA%D0%B5%D1%82%D0%B0%20%D0%BF%D0%BE%20%D0%B1%D1%8E%D0%B4%D0%B6%D0%B5%D1%82%D1%83%C2%BB%20%E2%80%94%20%D1%85%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D0%BA%D0%BE%D0%B9%20%D0%B6%D0%B5%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" data-src="demo_want">Хочу такой же →</a>
+      </div>
+      <div class="wcard reveal">
+        <a class="wcard__site" href="https://mensori-dev.github.io/demos/salon/" target="_blank" rel="noopener">
+          <img src="assets/works/salon.webp" alt="Сайт салона красоты" loading="lazy">
+          <div class="wcard__cap">
+            <span class="mono">салон красоты</span>
+            <h3>Прайс и запись в один экран</h3>
+            <p>Крупный шрифт, спокойные цвета, минимум кликов.</p>
+            <span class="wcard__open">Открыть демо →</span>
+          </div>
+        </a>
+        <a class="wcard__want" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%BE%D0%BD%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D1%81%D1%8C%20%D0%B4%D0%B5%D0%BC%D0%BE%20%C2%AB%D0%9F%D1%80%D0%B0%D0%B9%D1%81%20%D0%B8%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D0%B2%20%D0%BE%D0%B4%D0%B8%D0%BD%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%C2%BB%20%E2%80%94%20%D1%85%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D0%BA%D0%BE%D0%B9%20%D0%B6%D0%B5%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" data-src="demo_want">Хочу такой же →</a>
+      </div>
+      <div class="wcard reveal">
+        <a class="wcard__site" href="https://mensori-dev.github.io/demo/atele/" target="_blank" rel="noopener">
+          <img src="assets/works/atele.webp" alt="Сайт ателье" loading="lazy">
+          <div class="wcard__cap">
+            <span class="mono">ателье</span>
+            <h3>Пошив и ремонт одежды</h3>
+            <p>Услуги, сроки и фото работ — без звонка "уточните цену".</p>
+            <span class="wcard__open">Открыть демо →</span>
+          </div>
+        </a>
+        <a class="wcard__want" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%BE%D0%BD%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D1%81%D1%8C%20%D0%B4%D0%B5%D0%BC%D0%BE%20%C2%AB%D0%9F%D0%BE%D1%88%D0%B8%D0%B2%20%D0%B8%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%BE%D0%B4%D0%B5%D0%B6%D0%B4%D1%8B%C2%BB%20%E2%80%94%20%D1%85%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D0%BA%D0%BE%D0%B9%20%D0%B6%D0%B5%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" data-src="demo_want">Хочу такой же →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -350,7 +385,7 @@ checkReveal();
 })();
 
 /* карточки сетки: отдельная цель demo_click_card, чтобы в отчёте не сливалась с блоком */
-document.querySelectorAll('.wgrid a[href]').forEach((a) => {
+document.querySelectorAll('.wgrid .wcard__site').forEach((a) => {
   a.addEventListener('click', () => {
     try { if (window.ym) ym(114196499, 'reachGoal', 'demo_click_card', { from: 'card' }); } catch (e) {}
   });
