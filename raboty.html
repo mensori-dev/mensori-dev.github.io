@@ -341,10 +341,10 @@ checkReveal();
   sync();
 })();
 
-/* карточки сетки: та же цель, но с пометкой card */
+/* карточки сетки: отдельная цель demo_click_card, чтобы в отчёте не сливалась с блоком */
 document.querySelectorAll('.wgrid a[href]').forEach((a) => {
   a.addEventListener('click', () => {
-    try { if (window.ym) ym(114196499, 'reachGoal', 'demo_click', { from: 'card' }); } catch (e) {}
+    try { if (window.ym) ym(114196499, 'reachGoal', 'demo_click_card', { from: 'card' }); } catch (e) {}
   });
 });
 </script>
