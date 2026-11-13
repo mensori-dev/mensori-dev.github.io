@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Арт-ателье 12 — пошив и ремонт одежды в Йошкар-Оле</title>
+<meta name="description" content="Ателье в Йошкар-Оле: подгонка по фигуре, ремонт одежды, пошив по меркам, шторы. Цену называем до начала работы.">
+<meta name="theme-color" content="#f6f1e7">
+<style>
+  :root{
+    --paper:#f6f1e7;
+    --paper-2:#efe7d8;
+    --ink:#181512;
+    --ink-soft:#4b433a;
+    --muted:#7c7164;
+    --line:#d8cdb9;
+    --accent:#a8442c;
+    --accent-soft:#c96a4f;
+    --radius:2px;
+    --pad:clamp(18px, 4vw, 56px);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(16px,1.05vw + 12px,18px);
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  .label{
+    font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+    font-size:.7rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .wrap{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding-inline:var(--pad);
+  }
+
+  /* ── шапка ───────────────────────────────────────── */
+  .top{
+    position:sticky;top:0;z-index:40;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .top__in{
+    display:flex;align-items:center;gap:clamp(12px,3vw,40px);
+    min-height:62px;
+  }
+  .brand{
+    display:flex;flex-direction:column;line-height:1.1;
+    text-decoration:none;flex:0 0 auto;
+  }
+  .brand b{
+    font-weight:400;font-size:1.06rem;letter-spacing:.01em;
+    font-variant-numeric:lining-nums;
+  }
+  .brand span{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .top nav{margin-left:auto;display:flex;gap:clamp(10px,2vw,26px)}
+  .top nav a{
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink-soft);
+    padding:6px 0;border-bottom:1px solid transparent;
+  }
+  .top nav a:hover{border-color:var(--accent);color:var(--ink)}
+  .top__phone{
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.85rem;text-decoration:none;white-space:nowrap;
+    border-bottom:1px solid var(--line);padding-bottom:2px;
+  }
+  .top__phone:hover{border-color:var(--accent)}
+  @media (max-width:900px){ .top nav{display:none} }
+
+  /* ── обложка ─────────────────────────────────────── */
+  .hero{padding:clamp(34px,7vw,86px) 0 clamp(28px,5vw,56px)}
+  .hero__kicker{display:flex;align-items:center;gap:14px;margin:0 0 clamp(18px,3vw,30px)}
+  .hero__kicker::after{content:"";flex:1;height:1px;background:var(--line)}
+  .hero h1{
+    margin:0;
+    font-weight:400;
+    font-size:clamp(2.5rem,8.2vw,6.4rem);
+    line-height:.96;
+    letter-spacing:-.022em;
+    text-wrap:balance;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--accent);
+  }
+  .hero__lead{
+    margin:clamp(22px,3.4vw,34px) 0 0;
+    max-width:44ch;
+    font-size:clamp(1.02rem,1.1vw + .8rem,1.24rem);
+    color:var(--ink-soft);
+  }
+  .hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,3.6vw,36px)}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.9rem;letter-spacing:.02em;
+    padding:14px 22px;border-radius:var(--radius);
+    text-decoration:none;border:1px solid var(--ink);
+    background:var(--ink);color:var(--paper);
+    transition:transform .16s ease, background .16s ease, color .16s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn--ghost:hover{border-color:var(--ink)}
+  .btn svg{width:16px;height:16px;flex:0 0 auto}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:0;margin:clamp(30px,5vw,52px) 0 0;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:0;
+  }
+  .facts div{
+    padding:18px clamp(8px,2vw,22px) 18px 0;
+    border-right:1px solid var(--line);
+  }
+  .facts div:last-child{border-right:0}
+  .facts div:not(:first-child){padding-left:clamp(12px,2.4vw,26px)}
+  .facts b{display:block;font-weight:400;font-size:.98rem}
+  .facts span{display:block;margin-top:4px;font-size:.8rem;color:var(--muted);font-family:"Segoe UI",system-ui,sans-serif}
+  @media (max-width:640px){
+    .facts{grid-template-columns:1fr}
+    .facts div{border-right:0;border-bottom:1px solid var(--line);padding:14px 0}
+    .facts div:not(:first-child){padding-left:0}
+    .facts div:last-child{border-bottom:0}
+  }
+
+  /* ── секции: редакционная сетка ──────────────────── */
+  section{border-top:1px solid var(--line)}
+  .row{
+    display:grid;grid-template-columns:132px 1fr;
+    gap:clamp(20px,4vw,50px);
+    padding-block:clamp(34px,6vw,72px);
+  }
+  .row__aside{position:relative}
+  .row__aside .num{
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.72rem;letter-spacing:.16em;color:var(--muted);
+  }
+  .row__aside h2{
+    margin:10px 0 0;
+    font-weight:400;font-size:1.06rem;line-height:1.3;
+  }
+  .row__aside .rule{width:34px;height:1px;background:var(--ink);margin-top:14px}
+  @media (max-width:820px){
+    .row{grid-template-columns:1fr;gap:18px}
+    .row__aside{display:flex;align-items:baseline;gap:12px}
+    .row__aside .rule{display:none}
+    .row__aside h2{margin:0;font-size:.95rem;color:var(--muted)}
+  }
+
+  .lead{
+    font-size:clamp(1.16rem,1.4vw + .8rem,1.6rem);
+    line-height:1.36;letter-spacing:-.01em;
+    max-width:34ch;margin:0 0 clamp(24px,4vw,40px);
+  }
+
+  /* ── услуги: список с номерами ───────────────────── */
+  .services{list-style:none;margin:0;padding:0;counter-reset:s}
+  .services li{
+    counter-increment:s;
+    display:grid;grid-template-columns:56px 1fr;gap:clamp(10px,2vw,26px);
+    padding:clamp(16px,2.4vw,24px) 0;
+    border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .services li:last-child{border-bottom:1px solid var(--line)}
+  .services li::before{
+    content:"0" counter(s);
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.74rem;letter-spacing:.1em;color:var(--muted);
+    padding-top:.35em;
+  }
+  .services b{font-weight:400;font-size:1.1rem;display:block}
+  .services p{margin:6px 0 0;color:var(--ink-soft);max-width:52ch;font-size:.98rem}
+  @media (max-width:560px){
+    .services li{grid-template-columns:34px 1fr}
+  }
+
+  /* ── шаги ────────────────────────────────────────── */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,34px);margin:0;padding:0;list-style:none}
+  .steps li{border-top:2px solid var(--ink);padding-top:16px}
+  .steps .n{font-family:"Segoe UI",system-ui,sans-serif;font-size:.72rem;letter-spacing:.16em;color:var(--accent)}
+  .steps b{display:block;margin:8px 0 6px;font-weight:400;font-size:1.08rem}
+  .steps p{margin:0;color:var(--ink-soft);font-size:.95rem}
+  @media (max-width:760px){
+    .steps{grid-template-columns:1fr;gap:22px}
+  }
+
+  /* ── цитата-обещание ─────────────────────────────── */
+  .promise{
+    margin:clamp(24px,4vw,40px) 0 0;
+    padding:clamp(22px,4vw,34px) 0 0;
+    border-top:1px dashed var(--line);
+    font-size:clamp(1.05rem,1.2vw + .8rem,1.34rem);
+    line-height:1.5;max-width:46ch;
+  }
+  .promise b{font-weight:400;background:linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 18%, transparent) 62%)}
+
+  /* ── галерея-заглушки ────────────────────────────── */
+  .shots{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:clamp(8px,1.4vw,14px);
+  }
+  .shot{
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:
+      repeating-linear-gradient(45deg, transparent 0 9px, color-mix(in srgb, var(--line) 55%, transparent) 9px 10px),
+      var(--paper-2);
+    display:flex;align-items:flex-end;
+    min-height:160px;
+  }
+  .shot:nth-child(1){grid-column:span 4;aspect-ratio:16/10}
+  .shot:nth-child(2){grid-column:span 2;aspect-ratio:4/5}
+  .shot:nth-child(3){grid-column:span 2;aspect-ratio:4/5}
+  .shot:nth-child(4){grid-column:span 4;aspect-ratio:16/10}
+  .shot span{
+    display:block;width:100%;padding:14px;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);
+    background:linear-gradient(transparent, color-mix(in srgb, var(--paper) 85%, transparent));
+  }
+  @media (max-width:700px){
+    .shots{grid-template-columns:1fr 1fr}
+    .shot:nth-child(n){grid-column:span 1;aspect-ratio:4/5}
+  }
+
+  /* ── вопросы ─────────────────────────────────────── */
+  .faq{border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{
+    list-style:none;cursor:pointer;
+    display:flex;gap:16px;align-items:baseline;
+    padding:18px 0;font-size:1.02rem;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{
+    content:"+";
+    margin-left:auto;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    color:var(--muted);font-size:1.1rem;line-height:1;
+    transition:transform .2s ease;
+  }
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq p{margin:0 0 20px;color:var(--ink-soft);max-width:60ch;font-size:.97rem}
+
+  /* ── финальный призыв ────────────────────────────── */
+  .cta{
+    border-top:1px solid var(--line);
+    background:var(--paper-2);
+  }
+  .cta__in{
+    padding-block:clamp(40px,7vw,84px);
+    display:grid;grid-template-columns:1.15fr .85fr;
+    gap:clamp(24px,5vw,60px);align-items:end;
+  }
+  .cta h2{
+    margin:0;
+    font-weight:400;
+    font-size:clamp(1.9rem,4.4vw,3.4rem);
+    line-height:1.04;letter-spacing:-.02em;text-wrap:balance;
+  }
+  .cta p{margin:14px 0 0;color:var(--ink-soft);max-width:36ch}
+  .cta__acts{display:flex;flex-direction:column;gap:10px}
+  .cta__acts .btn{justify-content:center}
+  .cta__note{margin:2px 0 0;font-size:.82rem;color:var(--muted);text-align:center;font-family:"Segoe UI",system-ui,sans-serif}
+  @media (max-width:760px){
+    .cta__in{grid-template-columns:1fr;align-items:start}
+  }
+
+  footer{border-top:1px solid var(--line)}
+  .foot{
+    display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;
+    padding:22px 0 28px;font-size:.82rem;color:var(--muted);
+    font-family:"Segoe UI",system-ui,sans-serif;
+  }
+  .foot a{color:var(--muted)}
+
+  /* ── мобильная полоса действий ───────────────────── */
+  .bar{
+    position:sticky;bottom:0;z-index:50;
+    display:none;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    background:color-mix(in srgb, var(--paper) 94%, transparent);
+    backdrop-filter:saturate(150%) blur(12px);
+    border-top:1px solid var(--line);
+  }
+  .bar .btn{flex:1;justify-content:center;padding:13px 10px;font-size:.86rem}
+  @media (max-width:760px){
+    .bar{display:flex}
+  }
+
+  /* ── появление блоков ────────────────────────────── */
+  .rise{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease}
+  .rise.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rise{opacity:1;transform:none;transition:none}
+  }
+
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  .demo-note{
+    border-top:1px solid var(--line);
+    padding:12px 0;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.74rem;color:var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top">
+      <b class="js-name">Арт-ателье 12</b>
+      <span class="js-city">Йошкар-Ола</span>
+    </a>
+    <nav>
+      <a href="#services">Услуги</a>
+      <a href="#how">Как работаем</a>
+      <a href="#works">Работы</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="top__phone js-phone-text" href="tel:+79276802355">+7 927 680-23-55</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero__kicker label rise">Ателье · пошив и ремонт одежды</p>
+      <h1 class="rise">Одежда, которая<br>садится <em>по&nbsp;вам</em></h1>
+      <p class="hero__lead rise">
+        Подгоняем по фигуре, ремонтируем и шьём по меркам.
+        Цену называем после примерки — до того, как вещь ушла в работу.
+      </p>
+      <div class="hero__actions rise">
+        <a class="btn js-wa" href="https://wa.me/79276802355" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6a11 11 0 0 1-4.2-3.8c-.5-.7-.9-1.5-.9-2.2 0-.6.3-1.4.7-1.7.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6.2.4.9 1.5 1.9 2.1.6.4 1.1.6 1.3.7.2 0 .3 0 .5-.2l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.3.1.4.3.1.2.1.7-.1 1.2Z"/></svg>
+          Написать в WhatsApp
+        </a>
+        <a class="btn btn--ghost js-tel" href="tel:+79276802355">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h1a1 1 0 0 1 1 .8l.5 2.8a1 1 0 0 1-.5 1L7 9c.9 2 2 3.1 4 4l1.4-1.5a1 1 0 0 1 1-.3l2.8.6a1 1 0 0 1 .8 1v1a2.5 2.5 0 0 1-2.5 2.5C9.6 16.3 6.7 13.4 4 5.5Z"/></svg>
+          Позвонить
+        </a>
+      </div>
+
+      <div class="facts rise">
+        <div><b>Примерка — 15 минут</b><span>смотрим вещь и говорим, что нужно</span></div>
+        <div><b>Цена до начала работы</b><span>без «уточним, когда разберём»</span></div>
+        <div><b>Можно со своей тканью</b><span>подскажем, сколько взять</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap row">
+      <div class="row__aside rise">
+        <span class="num">01</span>
+        <h2>Что делаем</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="rise">
+        <p class="lead">Всё, от замены молнии до вещи, сшитой с нуля по вашим меркам.</p>
+        <ol class="services">
+          <li>
+            <div>
+              <b>Подгонка по фигуре</b>
+              <p>Ушить, укоротить, поправить плечи, пройму и посадку — чтобы вещь сидела, а не «болталась».</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Ремонт одежды</b>
+              <p>Заменить молнию, подкладку, подшить низ, починить швы и фурнитуру.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Пошив по меркам</b>
+              <p>Платья, юбки, брюки, рубашки: снимаем мерки, строим лекала под вашу фигуру.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Перекрой и обновление</b>
+              <p>Из старой вещи — вещь, которую снова носят: меняем силуэт, длину, фасон.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Шторы и текстиль</b>
+              <p>Подшив, подхваты, чехлы, карнизы. Приедем с образцами? Уточним при примерке.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="promise">
+          Не обещаем невозможного: если вещь не спасти или ремонт выйдет дороже новой,
+          <b>скажем об этом сразу</b>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap row">
+      <div class="row__aside rise">
+        <span class="num">02</span>
+        <h2>Как работаем</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="rise">
+        <p class="lead">Три шага, без сюрпризов по срокам и цене.</p>
+        <ol class="steps">
+          <li>
+            <div class="n">01</div>
+            <b>Примерка и оценка</b>
+            <p>Смотрим вещь, обсуждаем, что поправить. Сразу называем цену и срок.</p>
+          </li>
+          <li>
+            <div class="n">02</div>
+            <b>Работа</b>
+            <p>Пишем, когда забирать. Если срок сдвигается — предупреждаем заранее.</p>
+          </li>
+          <li>
+            <div class="n">03</div>
+            <b>Вторая примерка</b>
+            <p>Если что-то не село — доводим, пока не сядет. Это входит в работу.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="wrap row">
+      <div class="row__aside rise">
+        <span class="num">03</span>
+        <h2>Работы</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="rise">
+        <p class="lead">Здесь будут фотографии ваших вещей.</p>
+        <div class="shots">
+          <div class="shot"><span>Место под фото. Ваши работы</span></div>
+          <div class="shot"><span>Место под фото</span></div>
+          <div class="shot"><span>Место под фото</span></div>
+          <div class="shot"><span>Место под фото. Фото «до / после»</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap row">
+      <div class="row__aside rise">
+        <span class="num">04</span>
+        <h2>Вопросы</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="rise">
+        <p class="lead">Самое частое — что спрашивают в WhatsApp.</p>
+        <div class="faq">
+          <details open>
+            <summary>Нужна ли запись?</summary>
+            <p>Можно прийти в рабочее время, но лучше написать в WhatsApp: подскажем, когда свободнее, и не придётся ждать.</p>
+          </details>
+          <details>
+            <summary>Можно ли принести свою ткань?</summary>
+            <p>Да. Если ткань уже есть — скажите длину и метраж, подскажем, хватит ли на модель. Если не хватит, поможем выбрать.</p>
+          </details>
+          <details>
+            <summary>Сколько времени занимает?</summary>
+            <p>Мелкий ремонт — обычно в течение дня. Пошив и перекрой — от нескольких дней, зависит от объёма. Срок называем на примерке.</p>
+          </details>
+          <details>
+            <summary>Можно оценить по фотографии?</summary>
+            <p>По фото скажем примерную вилку, чтобы вы понимали порядок цен. Точную цену — только когда вещь в руках и видно материал.</p>
+          </details>
+          <details>
+            <summary>Что если после ремонта не понравится?</summary>
+            <p>Приходите на примерку до того, как заберёте вещь: поправим. Мы не отдаём вещь, пока вы не скажете, что всё хорошо.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta__in">
+      <div class="rise">
+        <h2>Приходите<br>с вещью —<br>разберёмся на месте</h2>
+        <p>Напишите, что нужно поправить: подскажем цену и когда принести.</p>
+      </div>
+      <div class="cta__acts rise">
+        <a class="btn js-wa" href="https://wa.me/79276802355" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        <a class="btn btn--ghost js-tel" href="tel:+79276802355"><span class="js-phone-text">+7 927 680-23-55</span></a>
+        <p class="cta__note">Ответим в течение дня</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span class="js-name">Арт-ателье 12</span>
+      <span class="js-city">Йошкар-Ола</span>
+      <span class="js-addr"></span>
+      <a class="js-phone-text" href="tel:+79276802355">+7 927 680-23-55</a>
+    </div>
+    <div class="demo-note">
+      Демонстрационная страница. Собрана <a href="https://mensoridev.github.io" target="_blank" rel="noopener">MENSORIDEV</a>:
+      тексты и фото — под ваш бизнес.
+    </div>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn js-wa" href="https://wa.me/79276802355" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn--ghost js-tel" href="tel:+79276802355">Позвонить</a>
+</div>
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var name = q.get('n');
+  var phone = q.get('p');
+  var addr = q.get('a');
+
+  if (name) {
+    document.title = name + ' — Йошкар-Ола';
+    document.querySelectorAll('.js-name').forEach(function (e) { e.textContent = name; });
+  }
+  if (phone) {
+    var digits = phone.replace(/[^\d+]/g, '');
+    document.querySelectorAll('.js-tel').forEach(function (a) { a.setAttribute('href', 'tel:' + digits); });
+    document.querySelectorAll('.js-wa').forEach(function (a) { a.setAttribute('href', 'https://wa.me/' + digits.replace('+', '')); });
+    document.querySelectorAll('.js-phone-text').forEach(function (e) {
+      var t = phone.replace(/^\+7/, '+7 ');
+      if (e.tagName === 'A') { e.textContent = t; } else { e.textContent = t; }
+    });
+  }
+  if (addr) {
+    document.querySelectorAll('.js-addr').forEach(function (e) { e.textContent = addr; });
+  }
+
+  // появление блоков при прокрутке
+  var items = document.querySelectorAll('.rise');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
