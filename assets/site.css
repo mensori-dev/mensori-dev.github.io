@@ -158,6 +158,21 @@ img{max-width:100%;display:block}
 .wcard__cap p{margin:8px 0 0;font-size:13.5px;color:var(--muted);max-width:34ch}
 @media (max-width:760px){.wgrid{grid-template-columns:1fr}}
 
+/* подпись в карточке-работе: видно, что это ссылка на живой сайт */
+.wcard__open{
+  display:inline-block;margin-top:12px;
+  font:600 10.5px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  transition:color .25s,transform .25s;
+}
+.wcard:hover .wcard__open,
+.wcard:focus-visible .wcard__open{color:var(--red);transform:translateX(4px)}
+.wcard:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+.works-hint{
+  margin:14px auto 0;max-width:46ch;text-align:center;
+  font-size:13px;line-height:1.5;color:var(--muted);
+}
+
 /* ---------- блоки «что входит» ---------- */
 .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(24px,4vw,60px);margin-top:clamp(30px,5vh,54px)}
 .feat{padding:clamp(20px,3vh,28px) 0;border-top:1px solid var(--rule)}
