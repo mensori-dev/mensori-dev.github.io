@@ -57,6 +57,7 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/114196499" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<script src="assets/goals.js"></script>
 </head>
 <body>
 
@@ -877,9 +878,8 @@
 
 <script src="assets/vendor/lenis.min.js"></script>
 <script>
-/* ---------- цели Метрики: без них не видно, что работает ---------- */
+/* ---------- цели Метрики: goal() живёт в assets/goals.js ---------- */
 const PHONE = '79020153104';
-const goal = (name, params) => { try { if (window.ym) ym(114196499, 'reachGoal', name, params); } catch (e) {} };
 document.addEventListener('click', (e) => {
   const a = e.target.closest && e.target.closest('a[href]');
   if (!a) return;
@@ -1741,11 +1741,12 @@ const wordsIn = (el, opts) => {
   if (reopenBtn) reopenBtn.addEventListener('click', () => {
     if (!lastText) return;
     fallbackUsed('wa_again');
+    goal('brief_more', { how: 'wa_again' });
     window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(lastText), '_blank');
   });
   if (fallback) {
     const tg = fallback.querySelector('a[href*="t.me"]');
-    if (tg) tg.addEventListener('click', () => fallbackUsed('telegram'));
+    if (tg) tg.addEventListener('click', () => { fallbackUsed('telegram'); goal('brief_more', { how: 'telegram' }); });
   }
 
   /* ошибки: подсвечиваем само поле и подводим к нему, а не только пишем под кнопкой */
@@ -1836,10 +1837,11 @@ const wordsIn = (el, opts) => {
     ].filter(Boolean);
 
     note.textContent = 'открываю WhatsApp…';
-    goal('brief_submit');
     const text = rows.join('\n');
     window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(text), '_blank');
     showFallback(text);
+    /* цель — фактическая отправка: форма прошла проверку и текст заявки готов, а не клик по кнопке */
+    goal('brief_submit');
   });
 })();
 /* ---------- демо: модалка с названием бизнеса ---------- */
@@ -1865,11 +1867,12 @@ const wordsIn = (el, opts) => {
     go.href = (DIR[kind] || 'demos/' + kind + '/') + (p.toString() ? '?' + p.toString() : '');
   };
 
-  const open = (on) => {
+  const open = (on, from) => {
     modal.hidden = !on;
     document.body.style.overflow = on ? 'hidden' : '';
     if (window.__lenis) (on ? window.__lenis.stop() : window.__lenis.start());
     if (on) {
+      goal('demo_open', { from: from || 'link' });
       lastFocus = document.activeElement;
       sync();
       setTimeout(() => nameEl.focus(), 40);
@@ -1878,7 +1881,7 @@ const wordsIn = (el, opts) => {
     }
   };
 
-  btn.addEventListener('click', () => open(true));
+  btn.addEventListener('click', () => open(true, 'btn'));
   modal.addEventListener('click', (e) => { if (e.target.closest('[data-dm-close]')) open(false); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) open(false); });
   types.forEach((t) => t.addEventListener('click', () => {

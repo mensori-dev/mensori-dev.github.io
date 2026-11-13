@@ -74,6 +74,7 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/114196499" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<script src="assets/goals.js"></script>
 </head>
 <body>
 
@@ -379,7 +380,7 @@ checkReveal();
   nameEl.addEventListener('input', sync);
   phoneEl.addEventListener('input', sync);
   go.addEventListener('click', () => {
-    try { if (window.ym) ym(114196499, 'reachGoal', 'demo_click', { from: 'raboty' }); } catch (e) {}
+    goal('demo_click', { from: 'raboty' });
   });
   sync();
 })();
@@ -387,7 +388,7 @@ checkReveal();
 /* карточки сетки: отдельная цель demo_click_card, чтобы в отчёте не сливалась с блоком */
 document.querySelectorAll('.wgrid .wcard__site').forEach((a) => {
   a.addEventListener('click', () => {
-    try { if (window.ym) ym(114196499, 'reachGoal', 'demo_click_card', { from: 'card' }); } catch (e) {}
+    goal('demo_click_card', { from: 'card' });
   });
 });
 </script>
