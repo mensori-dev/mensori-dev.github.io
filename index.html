@@ -1224,11 +1224,12 @@ const checkRail = () => {
 /* на телефоне рельс — шторка по тапу на язычок */
 const railBox = document.getElementById('rail');
 const railBtn = document.getElementById('railBtn');
+const setRail = (on) => {
+  if (!railBox || !railBtn) return;
+  railBox.classList.toggle('open', on);
+  railBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
+};
 if (railBox && railBtn) {
-  const setRail = (on) => {
-    railBox.classList.toggle('open', on);
-    railBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
-  };
   railBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     setRail(!railBox.classList.contains('open'));
@@ -1250,7 +1251,9 @@ const checkFloaters = () => {
   const fr = footSec ? footSec.getBoundingClientRect() : null;
   const inFoot = fr ? (fr.top < innerHeight && fr.bottom > 0) : false;
   const on = scrollY > innerHeight * 0.6 && !inBrief;
-  if (railBtn) railBtn.classList.toggle('is-on', on);
+  const onBtn = on && !inFoot;
+  if (railBtn) railBtn.classList.toggle('is-on', onBtn);
+  if (!onBtn && railBox && railBox.classList.contains('open')) setRail(false);
   if (stickyWa) stickyWa.classList.toggle('is-on', on && !inFoot);
 };
 const onScroll = () => {

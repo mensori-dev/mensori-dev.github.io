@@ -311,14 +311,14 @@ footer a:hover{color:var(--accent)}
 /* язычок выезжает только после первого экрана и прячется на брифе */
 .railbtn.is-on{opacity:1;pointer-events:auto;transform:translateY(-50%) translateX(0)}
 .railbtn span{display:block;width:11px;height:1px;background:rgba(244,243,239,.7);transition:background .2s}
-.railbtn[aria-expanded=true]{background:#1b1b1e;opacity:0;pointer-events:none}
+.railbtn[aria-expanded=true]{background:#1b1b1e}
 .railbtn[aria-expanded=true] span{background:var(--red)}
 @media (max-width:900px){
   .railbtn{display:flex}
   .rail{
     right:0;top:50%;transform:translate(105%,-50%);
     display:flex;flex-direction:column;align-items:stretch;gap:0;
-    padding:8px 0;background:#101012;border-left:1px solid var(--rule);
+    padding:8px 40px 8px 0;background:#101012;border-left:1px solid var(--rule);
     box-shadow:-24px 0 48px rgba(0,0,0,.7);
     pointer-events:none;transition:transform .32s cubic-bezier(.2,.8,.2,1);
   }
