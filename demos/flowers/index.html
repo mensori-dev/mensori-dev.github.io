@@ -254,7 +254,7 @@
     .promise__grid{gap:16px}
     footer{padding-bottom:96px}
     .cta-bar{
-      display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;
+      display:flex;flex-wrap:wrap;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;
       padding:10px 14px calc(10px + env(safe-area-inset-bottom));
       background:rgba(253,249,244,.95);border-top:1px solid var(--line);backdrop-filter:blur(10px);
     }
@@ -264,6 +264,24 @@
     html{scroll-behavior:auto}
     *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
     .rv{opacity:1;transform:none}
+  }
+
+  /* ---------- полоса сервиса: студия, не часть макета клиента ---------- */
+  .svcbar{
+    display:flex;align-items:center;justify-content:center;
+    min-height:40px;padding:8px 16px;
+    background:#14171a;color:#f3eee5;
+    font:13px/1.35 var(--sans);
+    text-align:center;text-decoration:none;
+  }
+  .svcbar b{font-weight:600;color:#f0c674;white-space:nowrap}
+  .svcbar:hover b{text-decoration:underline}
+  .cta-bar__note{
+    flex:1 0 100%;text-align:center;
+    font-size:12px;line-height:1.3;color:var(--muted);
+  }
+  @media (max-width:480px){
+    .svcbar{font-size:12px;padding:7px 12px}
   }
 </style>
 <link rel="canonical" href="https://mensori-dev.github.io/demos/flowers/">
@@ -277,6 +295,10 @@
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
+
+<a class="svcbar" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D0%BB%20%D0%B4%D0%B5%D0%BC%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0%20%E2%80%94%20%D1%85%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D0%BA%D0%BE%D0%B9%20%D0%B6%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" rel="noopener" data-src="demo_bar">
+  <span>Это демо-пример. Ваш сайт — 2–3 дня, 3 000 ₽. <b>Написать →</b></span>
+</a>
 
 <header class="top" id="topbar">
   <div class="wrap top__in">
@@ -616,6 +638,7 @@
 </footer>
 
 <div class="cta-bar">
+  <span class="cta-bar__note" hidden>телефон в демо</span>
   <a class="btn btn--ghost" href="tel:+79000000000" data-phone>Позвонить</a>
   <a class="btn btn--primary" href="#build">Собрать букет</a>
 </div>
@@ -803,6 +826,16 @@
       if (extra) el.appendChild(extra);
     });
     document.querySelectorAll('a[href^="tel:"]').forEach(function (a) { a.href = "tel:" + tel; });
+  }
+  /* без ?p= номер демонстрационный — плашку подписываем честно */
+  if (!ph) {
+    document.querySelectorAll(".cta-bar__note").forEach(function (el) { el.hidden = false; });
+    /* номер демо: tel не кликается */
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (el) {
+      el.removeAttribute("href");
+      el.title = "номер демонстрационный";
+      el.setAttribute("aria-disabled", "true");
+    });
   }
   if (ad) setAll("[data-addr]", ad);
   if (q.get("clean") === "1") {

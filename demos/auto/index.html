@@ -297,6 +297,24 @@
     footer{padding-bottom:96px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+
+  /* ---------- полоса сервиса: студия, не часть макета клиента ---------- */
+  .svcbar{
+    display:flex;align-items:center;justify-content:center;
+    min-height:40px;padding:8px 16px;
+    background:#14171a;color:#f3eee5;
+    font:13px/1.35 "Segoe UI",system-ui,-apple-system,sans-serif;
+    text-align:center;text-decoration:none;
+  }
+  .svcbar b{font-weight:600;color:#f0c674;white-space:nowrap}
+  .svcbar:hover b{text-decoration:underline}
+  .mob-cta__note{
+    grid-column:1/-1;text-align:center;
+    font-size:12px;line-height:1.3;color:var(--muted);
+  }
+  @media (max-width:480px){
+    .svcbar{font-size:12px;padding:7px 12px}
+  }
 </style>
 <link rel="canonical" href="https://mensori-dev.github.io/demos/auto/">
 <meta property="og:site_name" content="MENSORIDEV">
@@ -306,6 +324,10 @@
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
+
+<a class="svcbar" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D0%BB%20%D0%B4%D0%B5%D0%BC%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D0%B0%D0%B2%D1%82%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0%20%E2%80%94%20%D1%85%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D0%BA%D0%BE%D0%B9%20%D0%B6%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" rel="noopener" data-src="demo_bar">
+  <span>Это демо-пример. Ваш сайт — 2–3 дня, 3 000 ₽. <b>Написать →</b></span>
+</a>
 
 <header class="top">
   <div class="wrap top__in">
@@ -705,6 +727,7 @@
 </footer>
 
 <div class="mob-cta">
+  <span class="mob-cta__note" hidden>телефон в демо</span>
   <a class="btn btn--ghost" href="tel:+79000000000">Позвонить</a>
   <a class="btn btn--primary" href="#book">Записаться</a>
 </div>
@@ -836,6 +859,22 @@
     /* параметры приходят из ссылки — вырезаем теги, иначе это дырка для <img onerror=…> */
     var clean = function (s) { return (s || '').replace(/[<>"'`]/g, '').slice(0, 70); };
     name = clean(name); phone = clean(phone); addr = clean(addr);
+    /* без ?p= номер демонстрационный — плашку подписываем честно */
+    if (!phone) {
+      document.querySelectorAll('.mob-cta__note').forEach(function (e) { e.hidden = false; });
+      /* номер демо: tel не кликается, WhatsApp демо ведёт в студию */
+      document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
+        a.removeAttribute('href');
+        a.title = 'номер демонстрационный';
+        a.setAttribute('aria-disabled', 'true');
+      });
+      var coldWa = 'https://wa.me/79020153104?text=' + encodeURIComponent(
+        'Здравствуйте! Смотрел демо сайта автосервиса — хочу такой же для своего бизнеса');
+      document.querySelectorAll('a[href*="wa.me"]:not(.svcbar)').forEach(function (a) {
+        a.href = coldWa;
+        a.dataset.src = 'demo_cold_wa';
+      });
+    }
     if (q.get('clean') === '1') {
       var dn = document.querySelector('.demo-note');
       if (dn) dn.remove();
@@ -854,7 +893,7 @@
     if (phone) {
       var digits = phone.replace(/[^\d+]/g, '');
       document.querySelectorAll('a[href^="tel:"]').forEach(function (a) { a.href = 'tel:' + digits; });
-      document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
+      document.querySelectorAll('a[href*="wa.me"]:not(.svcbar)').forEach(function (a) {
         a.href = 'https://wa.me/' + digits.replace(/\D/g, '');
       });
       document.querySelectorAll('.top__phone').forEach(function (a) {

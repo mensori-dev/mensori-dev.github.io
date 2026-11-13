@@ -303,11 +303,17 @@
   /* ── мобильная полоса действий ───────────────────── */
   .bar{
     position:sticky;bottom:0;z-index:50;
-    display:none;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    display:none;flex-wrap:wrap;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
     background:color-mix(in srgb, var(--paper) 94%, transparent);
     backdrop-filter:saturate(150%) blur(12px);
     border-top:1px solid var(--line);
   }
+  .bar__note{
+    flex:1 0 100%;text-align:center;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:.74rem;color:var(--muted);
+  }
+  .bar [hidden]{display:none}
   .bar .btn{flex:1;justify-content:center;padding:13px 10px;font-size:.86rem}
   @media (max-width:760px){
     .bar{display:flex}
@@ -329,9 +335,28 @@
     font-family:"Segoe UI",system-ui,sans-serif;
     font-size:.74rem;color:var(--muted);
   }
+
+  /* ── полоса сервиса: студия, не часть макета клиента ── */
+  .svcbar{
+    display:flex;align-items:center;justify-content:center;
+    min-height:40px;padding:8px 16px;
+    background:#14171a;color:#f3eee5;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    font-size:13px;line-height:1.35;text-align:center;
+    text-decoration:none;
+  }
+  .svcbar b{font-weight:600;color:#f0c674;white-space:nowrap}
+  .svcbar:hover b{text-decoration:underline}
+  @media (max-width:480px){
+    .svcbar{font-size:12px;padding:7px 12px}
+  }
 </style>
 </head>
 <body>
+
+<a class="svcbar" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D0%BB%20%D0%B4%D0%B5%D0%BC%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%B5%20%E2%80%94%20%D1%85%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D0%BA%D0%BE%D0%B9%20%D0%B6%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" rel="noopener" data-src="demo_bar">
+  <span>Демо-шаблон ателье. Ваш сайт — 2–3 дня, 3 000 ₽. <b>Написать →</b></span>
+</a>
 
 <header class="top">
   <div class="wrap top__in">
@@ -542,6 +567,7 @@
 </footer>
 
 <div class="bar">
+  <span class="bar__note" hidden>телефон в демо</span>
   <a class="btn js-wa" href="https://wa.me/79276802355" target="_blank" rel="noopener">WhatsApp</a>
   <a class="btn btn--ghost js-tel" href="tel:+79276802355">Позвонить</a>
 </div>
@@ -571,6 +597,24 @@
   }
   if (addr) {
     document.querySelectorAll('.js-addr').forEach(function (e) { e.textContent = addr; });
+  }
+
+  /* без ?p= номер демонстрационный: к чужому WhatsApp не уводим, плашку подписываем */
+  if (!phone) {
+    document.querySelectorAll('.bar .js-wa').forEach(function (a) { a.hidden = true; });
+    document.querySelectorAll('.bar__note').forEach(function (e) { e.hidden = false; });
+    /* номер демо: tel не кликается, WhatsApp демо ведёт в студию */
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
+      a.removeAttribute('href');
+      a.title = 'номер демонстрационный';
+      a.setAttribute('aria-disabled', 'true');
+    });
+    var coldWa = 'https://wa.me/79020153104?text=' + encodeURIComponent(
+      'Здравствуйте! Смотрел демо сайта ателье — хочу такой же для своего бизнеса');
+    document.querySelectorAll('a[href*="wa.me"]:not(.svcbar)').forEach(function (a) {
+      a.href = coldWa;
+      a.dataset.src = 'demo_cold_wa';
+    });
   }
 
   // появление блоков при прокрутке
