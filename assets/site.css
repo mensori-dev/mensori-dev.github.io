@@ -847,6 +847,8 @@ footer a:hover{color:var(--accent)}
 .consent a{color:var(--ink);text-decoration:underline}
 .form__foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:clamp(10px,2vh,18px)}
 .form__note{font:500 11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.form__tg{font:500 11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule);padding-bottom:2px}
+.form__tg:hover{color:var(--ink);border-color:var(--ink)}
 .form__trust{margin:16px 0 0;max-width:62ch;font-size:12.5px;line-height:1.6;color:var(--muted)}
 .form__next{margin:4px 0 0}
 .form__next-t{display:block;margin-bottom:10px;color:var(--muted)}
@@ -1405,15 +1407,22 @@ footer a:hover{color:var(--accent)}
 .wastick{display:none}
 @media (max-width:900px){
   .wastick{
-    display:flex;align-items:center;justify-content:center;
+    display:flex;gap:8px;
     position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:56;
-    height:52px;padding:0 18px;background:var(--accent);color:var(--bg);
-    font:600 12px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;
-    box-shadow:0 14px 34px rgba(0,0,0,.55);
     opacity:0;transform:translateY(130%);pointer-events:none;
     transition:opacity .3s ease,transform .3s cubic-bezier(.2,.8,.2,1);
   }
   .wastick.is-on{opacity:1;transform:translateY(0);pointer-events:auto}
+  .wastick a{
+    flex:1 1 0;display:flex;align-items:center;justify-content:center;
+    height:52px;padding:0 12px;background:var(--accent);color:var(--bg);
+    font:600 12px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;
+    box-shadow:0 14px 34px rgba(0,0,0,.55);
+  }
+  .wastick a + a{
+    background:rgba(17,17,17,.88);color:var(--ink);border:1px solid rgba(244,243,239,.32);
+    box-shadow:0 14px 34px rgba(0,0,0,.55);
+  }
 }
 
 .fld.is-bad input,.fld.is-bad textarea,.fld.is-bad .sel__btn{border-color:var(--red);background:rgba(255,74,53,.1)}
