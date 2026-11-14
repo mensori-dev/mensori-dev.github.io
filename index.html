@@ -225,23 +225,24 @@
 </section>
 
 <!-- ============ СЛОВА-ЭТАПЫ ============ -->
-<section class="words">
+<section class="words" id="process">
   <div class="shell">
-    <p class="mono reveal" style="margin-bottom:clamp(20px,4vh,40px)">как делается сайт</p>
+    <p class="mono reveal" style="margin-bottom:clamp(20px,4vh,40px)">как работаем вместе</p>
     <div class="words__wrap">
       <div class="words__list" id="words">
         <button class="words__item" type="button" data-step="0"><span class="i">01</span>разговор</button>
-        <button class="words__item" type="button" data-step="1"><span class="i">02</span>структура</button>
-        <button class="words__item" type="button" data-step="2"><span class="i">03</span>дизайн</button>
+        <button class="words__item" type="button" data-step="1"><span class="i">02</span>структура и дизайн</button>
+        <button class="words__item" type="button" data-step="2"><span class="i">03</span>демо</button>
         <button class="words__item" type="button" data-step="3"><span class="i">04</span>вёрстка</button>
-        <button class="words__item" type="button" data-step="4"><span class="i">05</span>запуск</button>
+        <button class="words__item" type="button" data-step="4"><span class="i">05</span>запуск и передача</button>
       </div>
       <div class="wstep" id="wstep"></div>
     </div>
     <p class="words__note reveal">
-      Ни один шаг не пропускается: сначала понимаю задачу и раскладываю её на блоки,
-      потом рисую, потом собираю и проверяю на телефоне. Правки по утверждённому
-      объёму — без доплат.
+      Ни один шаг не пропускается: сначала разговор и структура, потом демо по ссылке.
+      Демо — до денег: 50 % на старте работ, остаток при сдаче. Дальше вёрстка,
+      проверка на телефоне и запуск с передачей файлов и доступов. Правки
+      по утверждённому объёму — без доплат.
     </p>
   </div>
 </section>
@@ -266,90 +267,53 @@
   </div>
 </section>
 
-<!-- ============ КИНОЛЕНТА: кадры выезжают по одному на весь экран ============ -->
-<section class="reel" id="reel" style="--n:5" aria-label="Работы: пять кадров">
+<!-- ============ РАБОТЫ: интро и одна лента, кадры ведут на демо ============ -->
+<section class="sec sec--tight" id="works">
+  <div class="shell">
+    <p class="mono reveal">работы</p>
+    <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:24ch">Пять сайтов, пять характеров — не один шаблон в разных цветах</h2>
+    <p class="lead reveal" style="margin-top:14px;max-width:52ch">Это демо-сайты: бизнесы вымышленные, но всё работает — откройте и потыкайте. Настоящий соберу под ваше дело.</p>
+    <p style="margin-top:clamp(20px,3vh,30px)" class="reveal">
+      <a class="btn btn--line magnet" href="raboty.html">Что внутри каждого <span class="btn__arrow">→</span></a>
+    </p>
+  </div>
+</section>
+
+<section class="reel" id="reel" style="--n:5" aria-label="Работы: пять кадров, каждый открывает демо">
   <div class="reel__stage">
     <div class="reel__top">
       <span class="mono">[ работы ]</span>
       <span class="mono reel__num" id="reelNum">01 / 05</span>
     </div>
 
-    <figure class="reel__item">
-      <img src="assets/works/auto.webp" alt="Сайт автосервиса" loading="lazy">
-      <figcaption><span class="reel__k">01 · автосервис</span><span class="reel__t">Калькулятор переобувки</span></figcaption>
-    </figure>
-
-    <figure class="reel__item">
-      <img src="assets/works/barber.webp" alt="Сайт барбершопа" loading="lazy">
-      <figcaption><span class="reel__k">02 · барбершоп</span><span class="reel__t">Мастера и прайс строками</span></figcaption>
-    </figure>
-
-    <figure class="reel__item">
-      <img src="assets/works/flowers.webp" alt="Сайт цветочной мастерской" loading="lazy">
-      <figcaption><span class="reel__k">03 · цветы</span><span class="reel__t">Сборка букета по бюджету</span></figcaption>
-    </figure>
-
-    <figure class="reel__item">
-      <img src="assets/works/salon.webp" alt="Сайт салона красоты" loading="lazy">
-      <figcaption><span class="reel__k">04 · салон красоты</span><span class="reel__t">Запись в один экран</span></figcaption>
-    </figure>
-
-    <figure class="reel__item">
-      <img class="reel__img--phone" src="assets/works/phone-flowers.webp" alt="Мобильная версия сайта цветочной мастерской" loading="lazy">
-      <figcaption><span class="reel__k">05 · мобильная версия</span><span class="reel__t">Фотографии, а не сток</span></figcaption>
-    </figure>
-
-    <span class="reel__hint">листайте — кадры сменяются</span>
-  </div>
-</section>
-
-<!-- ============ РАБОТЫ ============ -->
-<section class="sec" id="works">
-  <div class="shell">
-    <p class="mono reveal">работы</p>
-    <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:24ch">Пять сайтов, пять характеров — не один шаблон в разных цветах</h2>
-    <p class="lead reveal" style="margin-top:14px;max-width:52ch">Это демо-сайты: бизнесы вымышленные, но всё работает — откройте и потыкайте. Настоящий соберу под ваше дело.</p>
-    <div class="wlist" id="wlist" style="margin-top:clamp(28px,4vh,48px)">
-      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/auto/" target="_blank" rel="noopener" data-img="assets/works/auto.webp">
-        <span class="wrow__n mono">01</span>
-        <span class="wrow__t">Шиномонтаж с калькулятором</span>
-        <span class="wrow__d">автосервис</span>
-        <span class="wrow__y mono">2026</span>
-        <span class="wrow__a">↗</span>
+    <div class="reel__track">
+      <a class="reel__item" href="https://mensori-dev.github.io/demos/auto/" target="_blank" rel="noopener">
+        <img src="assets/works/auto.webp" alt="Сайт автосервиса" loading="lazy">
+        <span class="reel__cap"><span class="reel__k">01 · автосервис</span><span class="reel__t">Калькулятор переобувки</span></span>
       </a>
-      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/barber/" target="_blank" rel="noopener" data-img="assets/works/barber.webp">
-        <span class="wrow__n mono">02</span>
-        <span class="wrow__t">Мастера и прайс строками</span>
-        <span class="wrow__d">барбершоп</span>
-        <span class="wrow__y mono">2026</span>
-        <span class="wrow__a">↗</span>
+
+      <a class="reel__item" href="https://mensori-dev.github.io/demos/barber/" target="_blank" rel="noopener">
+        <img src="assets/works/barber.webp" alt="Сайт барбершопа" loading="lazy">
+        <span class="reel__cap"><span class="reel__k">02 · барбершоп</span><span class="reel__t">Мастера и прайс строками</span></span>
       </a>
-      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/flowers/" target="_blank" rel="noopener" data-img="assets/works/flowers.webp">
-        <span class="wrow__n mono">03</span>
-        <span class="wrow__t">Мастерская с подбором букета</span>
-        <span class="wrow__d">цветы</span>
-        <span class="wrow__y mono">2026</span>
-        <span class="wrow__a">↗</span>
+
+      <a class="reel__item" href="https://mensori-dev.github.io/demos/flowers/" target="_blank" rel="noopener">
+        <img src="assets/works/flowers.webp" alt="Сайт цветочной мастерской" loading="lazy">
+        <span class="reel__cap"><span class="reel__k">03 · цветы</span><span class="reel__t">Сборка букета по бюджету</span></span>
       </a>
-      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/salon/" target="_blank" rel="noopener" data-img="assets/works/salon.webp">
-        <span class="wrow__n mono">04</span>
-        <span class="wrow__t">Прайс и запись в один экран</span>
-        <span class="wrow__d">салон красоты</span>
-        <span class="wrow__y mono">2026</span>
-        <span class="wrow__a">↗</span>
+
+      <a class="reel__item" href="https://mensori-dev.github.io/demos/salon/" target="_blank" rel="noopener">
+        <img class="reel__img--phone" src="assets/works/phone-salon.webp" alt="Мобильная версия сайта салона красоты: прайс и запись в один экран" loading="lazy">
+        <span class="reel__cap"><span class="reel__k">04 · салон красоты</span><span class="reel__t">Запись в один экран</span></span>
       </a>
-      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/atele/" target="_blank" rel="noopener" data-img="assets/works/atele.webp">
-        <span class="wrow__n mono">05</span>
-        <span class="wrow__t">Пошив и ремонт одежды</span>
-        <span class="wrow__d">ателье</span>
-        <span class="wrow__y mono">2026</span>
-        <span class="wrow__a">↗</span>
+
+      <a class="reel__item" href="https://mensori-dev.github.io/demos/atele/" target="_blank" rel="noopener">
+        <img src="assets/works/atele.webp" alt="Сайт ателье: пошив и ремонт одежды" loading="lazy">
+        <span class="reel__cap"><span class="reel__k">05 · ателье</span><span class="reel__t">Пошив и ремонт одежды</span></span>
       </a>
     </div>
-    <div class="wpeek" id="wpeek" aria-hidden="true"><img id="wpeekImg" src="assets/works/auto.webp" alt=""></div>
-    <p style="margin-top:clamp(26px,4vh,40px)" class="reveal">
-      <a class="btn btn--line magnet" href="raboty.html">Что внутри каждого <span class="btn__arrow">→</span></a>
-    </p>
+
+    <span class="reel__hint">листайте — кадры сменяются</span>
   </div>
 </section>
 
@@ -640,36 +604,6 @@
   </div>
 </section>
 
-<!-- ============ КАК РАБОТАЕМ ============ -->
-<section class="sec" id="process">
-  <div class="shell">
-    <p class="mono reveal">как работаем вместе</p>
-    <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:20ch">Четыре шага — от разговора до ссылки</h2>
-    <div class="steps">
-      <div class="step reveal">
-        <span class="n mono">01</span>
-        <h3>Разговор</h3>
-        <p>Задаю вопросы, пока задача не станет понятной. Сразу говорю, если браться не стоит.</p>
-      </div>
-      <div class="step reveal">
-        <span class="n mono">02</span>
-        <h3>Демо</h3>
-        <p>Показываю черновик по ссылке — на своём телефоне, без установок.</p>
-      </div>
-      <div class="step reveal">
-        <span class="n mono">03</span>
-        <h3>Оплата</h3>
-        <p>Демо — до денег. Дальше 50 % на старте работ, остаток — на сдаче. Файлы и доступы — после полной оплаты.</p>
-      </div>
-      <div class="step reveal">
-        <span class="n mono">04</span>
-        <h3>Передача</h3>
-        <p>Домен и хостинг на вас. Объясняю, как менять цены и тексты.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ БРИФ ============ -->
 <section class="brief" id="brief">
   <div class="shell">
@@ -947,12 +881,25 @@ const reelItems = [...document.querySelectorAll('.reel__item')];
 const reelNum = document.getElementById('reelNum');
 const checkReel = () => {
   if (!reel || !reelItems.length) return;
+  const n = reelItems.length;
+  if (matchMedia('(max-width:760px)').matches) {
+    const track = reel.querySelector('.reel__track');
+    if (!track) return;
+    const mid = track.getBoundingClientRect().left + track.clientWidth / 2;
+    let best = 0, bestD = 1e9;
+    reelItems.forEach((el, i) => {
+      const b = el.getBoundingClientRect();
+      const d = Math.abs(b.left + b.width / 2 - mid);
+      if (d < bestD) { bestD = d; best = i; }
+    });
+    if (reelNum) reelNum.textContent = String(best + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
+    return;
+  }
   if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
   const r = reel.getBoundingClientRect();
   const travel = r.height - innerHeight;
   if (travel <= 0) return;
   const p = Math.min(1, Math.max(0, -r.top / travel));
-  const n = reelItems.length;
   for (let i = 0; i < n; i++) {
     const local = p * (n - 1) - i;                    // 0 — кадр по центру экрана
     const cl = Math.min(1, Math.max(-1, local));
@@ -966,6 +913,10 @@ const checkReel = () => {
     reelNum.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
   }
 };
+
+/* на телефоне лента — обычная свайп-карусель: счётчик идёт за прокруткой */
+const reelTrack = reel && reel.querySelector('.reel__track');
+if (reelTrack) reelTrack.addEventListener('scroll', checkReel, { passive: true });
 
 /* ---------- залипание: сайт стоит, текст заливается ---------- */
 const pinStage = document.querySelector('.pin__stage');
@@ -1482,19 +1433,19 @@ const wstep = document.getElementById('wstep');
 const STEPS = [
   { name: 'разговор', time: '30 минут · бесплатно',
     items: ['Созвон или переписка — как удобнее', 'Вопросы о задаче и о том, кто ваши клиенты',
-            'Ориентир по цене и срокам сразу', 'После разговора вы ничем не обязаны'] },
-  { name: 'структура', time: '1 день',
-    items: ['Карта страниц и разделов', 'Список блоков на каждом экране',
-            'Черновые тексты вместо «рыбы»', 'Состав согласуем до дизайна'] },
-  { name: 'дизайн', time: '1–2 дня',
-    items: ['Первый экран — как сайт встретит клиента', 'Палитра, шрифты, сетка',
-            'Мобильный макет отдельно', 'Правки по утверждённому объёму — без доплат'] },
+            'Ориентир по цене и срокам сразу', 'Сразу скажу, если браться не стоит'] },
+  { name: 'структура и дизайн', time: '1–2 дня',
+    items: ['Карта страниц, блоки и черновые тексты вместо «рыбы»', 'Состав согласуем до дизайна',
+            'Первый экран, палитра, шрифты, сетка', 'Правки по утверждённому объёму — без доплат'] },
+  { name: 'демо', time: '1 день',
+    items: ['Черновик по ссылке — на своём телефоне, без установок', 'Демо — до денег: сначала смотрите, потом решаете',
+            '50 % на старте работ', 'Остаток — при сдаче'] },
   { name: 'вёрстка', time: '1–2 дня',
     items: ['Чистый HTML, CSS и JavaScript, без сборки', 'Адаптив от 320 до 2560 px',
             'Формы, кнопки звонка, калькуляторы', 'Проверка в Chrome, Firefox и на Android'] },
-  { name: 'запуск', time: '1 день',
-    items: ['Домен и хостинг оформляю на вас', 'SSL, почта, редиректы',
-            'Метрика и карта сайта', 'Передача файлов, доступов и короткой инструкции'] },
+  { name: 'запуск и передача', time: '1 день',
+    items: ['Домен и хостинг оформляются на вас', 'SSL, почта, редиректы, Метрика и карта сайта',
+            'Ещё раз проверяю на телефоне и показываю, где что лежит', 'Файлы и доступы — после полной оплаты'] },
 ];
 
 let stepShown = -1;
@@ -1867,34 +1818,6 @@ const wordsIn = (el, opts) => {
   nameEl.addEventListener('input', sync);
   phoneEl.addEventListener('input', sync);
   sync();
-})();
-
-/* ---------- работы: фото летит за курсором ---------- */
-(() => {
-  const list = document.getElementById('wlist');
-  const peek = document.getElementById('wpeek');
-  const img = document.getElementById('wpeekImg');
-  if (!list || !peek || !img) return;
-  if (matchMedia('(pointer:coarse)').matches || matchMedia('(max-width:900px)').matches) return;
-  let tx = 0, ty = 0, cx = 0, cy = 0, hot = false, raf2 = 0;
-  const loop = () => {
-    cx += (tx - cx) * 0.16;
-    cy += (ty - cy) * 0.16;
-    peek.style.left = cx + 'px';
-    peek.style.top = cy + 'px';
-    if (hot || Math.abs(tx - cx) > 0.4 || Math.abs(ty - cy) > 0.4) raf2 = requestAnimationFrame(loop);
-    else raf2 = 0;
-  };
-  const kick = () => { if (!raf2) raf2 = requestAnimationFrame(loop); };
-  list.addEventListener('mousemove', (e) => { tx = e.clientX; ty = e.clientY; kick(); });
-  list.querySelectorAll('.wrow').forEach((row) => {
-    row.addEventListener('mouseenter', () => {
-      const src = row.dataset.img;
-      if (src && img.getAttribute('src') !== src) img.src = src;
-      hot = true; peek.classList.add('on'); kick();
-    });
-    row.addEventListener('mouseleave', () => { hot = false; peek.classList.remove('on'); });
-  });
 })();
 
 /* ---------- вопросы: открыт только один ---------- */
