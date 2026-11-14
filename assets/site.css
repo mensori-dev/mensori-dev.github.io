@@ -47,7 +47,7 @@ img{max-width:100%;display:block}
 .lead--center{text-align:center;margin-left:auto;margin-right:auto}
 
 .mono{
-  font:600 10.5px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
   letter-spacing:.26em;text-transform:uppercase;color:var(--muted);
 }
 
@@ -74,27 +74,27 @@ img{max-width:100%;display:block}
 @media (max-width:1360px){.clock{display:none}}
 @media (max-width:1180px){
   .nav{gap:10px}
-  .nav a{font-size:10.5px;letter-spacing:0}
+  .nav a{font-size:11px;letter-spacing:0}
   .top .shell{gap:14px}
 }
 @media (max-width:980px){.nav{display:none}.top__cta{margin-left:auto}}
 @media (max-width:880px){
   .logo{display:inline-flex;align-items:center;min-height:44px}
   .top .shell{gap:10px}
-  .top .tel{padding:8px 10px;font-size:12px;letter-spacing:0}
-  .top__msg{width:32px;height:32px}
+  .top .tel{padding:8px 10px;font-size:12px;letter-spacing:0;min-height:44px}
+  .top__msg{width:44px;height:44px}
   .top__msg svg{width:15px;height:15px}
 }
 /* на узких телефонах номер коротко: иконка звонка вместо текста, иначе три кнопки не влезают */
 @media (max-width:430px){
   .top .shell{gap:8px}
   .top .tel{padding:7px 10px}
-  .top__msg{width:30px;height:30px}
+  .top__msg{width:44px;height:44px}
   .top__msg svg{width:14px;height:14px}
   .logo{font-size:15px}
 }
 @media (max-width:430px){
-  .top .tel{width:30px;height:30px;padding:0;justify-content:center}
+  .top .tel{width:44px;height:44px;padding:0;justify-content:center}
   .tel__num{display:none}
   .tel__ico{display:block}
 }
@@ -161,7 +161,7 @@ img{max-width:100%;display:block}
 /* подпись в карточке-работе: видно, что это ссылка на живой сайт */
 .wcard__open{
   display:inline-block;margin-top:12px;
-  font:600 10.5px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
   letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
   transition:color .25s,transform .25s;
 }
@@ -233,7 +233,7 @@ footer a:hover{color:var(--accent)}
 .legal a{color:var(--accent);border-bottom:1px solid var(--rule)}
 
 .ptable{width:100%;border-collapse:collapse;font-size:15px;margin-top:14px}
-.ptable th{text-align:left;padding:0 16px 14px 0;border-bottom:1px solid var(--rule);font:600 10.5px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.ptable th{text-align:left;padding:0 16px 14px 0;border-bottom:1px solid var(--rule);font:600 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .ptable td{padding:18px 16px 18px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
 .ptable td:first-child{font-weight:600}
 .ptable td:last-child{text-align:right;white-space:nowrap;font:600 15px/1.4 ui-monospace,Consolas,monospace;color:var(--accent)}
@@ -332,7 +332,7 @@ footer a:hover{color:var(--accent)}
 }
 .rail__lb{
   position:absolute;right:100%;top:50%;margin-right:22px;pointer-events:none;
-  font:600 10px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
   white-space:nowrap;opacity:0;transform:translate(8px,-50%);
   transition:opacity .3s,transform .34s cubic-bezier(.2,.8,.2,1);
   text-shadow:0 2px 12px rgba(0,0,0,.9);
@@ -342,13 +342,11 @@ footer a:hover{color:var(--accent)}
 /* на телефоне рельс — шторка: язычок справа, тап — список разделов словами */
 /* на телефоне в шапке кнопка «разделы»: открывает шторку со списком */
 .railbtn{
-  display:none;position:relative;width:36px;height:36px;padding:0;gap:4px;flex-direction:column;align-items:center;justify-content:center;
+  display:none;position:relative;width:44px;height:44px;padding:0;gap:4px;flex-direction:column;align-items:center;justify-content:center;
   background:none;border:1px solid var(--rule);border-radius:9px;
   transition:background .2s,border-color .2s;
   -webkit-tap-highlight-color:transparent;touch-action:manipulation;
 }
-/* палец бьёт не в 36, а в 44 пикселя */
-.railbtn::after{content:"";position:absolute;inset:-4px}
 .railbtn span{display:block;width:13px;height:1px;background:rgba(244,243,239,.7);transition:background .2s}
 .railbtn[aria-expanded=true]{background:#1b1b1e;border-color:rgba(244,243,239,.32)}
 .railbtn[aria-expanded=true] span{background:var(--red)}
@@ -364,14 +362,14 @@ footer a:hover{color:var(--accent)}
   }
   .rail.open{opacity:1;transform:translateY(0);pointer-events:auto}
   .rail a{
-    display:flex;flex-direction:row-reverse;align-items:center;justify-content:flex-start;gap:12px;
+    display:flex;flex-direction:row-reverse;align-items:center;justify-content:flex-start;gap:12px;min-height:44px;
     padding:11px 14px;border-radius:8px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
   }
   .rail__bar{width:12px;height:2px;background:rgba(244,243,239,.45);transition:width .25s,background .25s}
   .rail a.is-on .rail__bar{width:20px;background:var(--red)}
   .rail__lb{
     position:static;margin:0;opacity:.6;transform:none;white-space:nowrap;
-    font-size:10px;letter-spacing:.1em;color:var(--ink);text-shadow:none;
+    font-size:11px;letter-spacing:.1em;color:var(--ink);text-shadow:none;
   }
   .rail a.is-on .rail__lb{opacity:1;color:var(--red)}
 }
@@ -461,7 +459,7 @@ footer a:hover{color:var(--accent)}
 .faq summary::before{
   counter-increment:q;content:counter(q,decimal-leading-zero);
   position:absolute;left:0;top:clamp(18px,2.6vh,24px);
-  font:600 10.5px/1.7 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font:600 11px/1.7 ui-monospace,"Cascadia Mono",Consolas,monospace;
   letter-spacing:.2em;color:var(--muted);transition:color .3s;
 }
 .faq summary:hover{color:var(--accent)}
@@ -570,7 +568,7 @@ footer a:hover{color:var(--accent)}
 }
 .wstep__time{
   display:inline-block;margin-top:16px;
-  font:600 10.5px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
   letter-spacing:.2em;text-transform:uppercase;color:var(--red);
 }
 @media (max-width:900px){
@@ -599,7 +597,7 @@ footer a:hover{color:var(--accent)}
 /* меты проектов */
 .wcard__meta{
   display:flex;flex-wrap:wrap;gap:clamp(12px,2vw,26px);margin-top:12px;
-  font:600 9.5px/1 ui-monospace,Consolas,monospace;letter-spacing:.18em;
+  font:600 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.18em;
   text-transform:uppercase;color:rgba(255,255,255,.5);
 }
 .wcard__meta b{display:block;margin-top:6px;font-weight:600;color:rgba(255,255,255,.92);letter-spacing:.06em}
@@ -677,7 +675,7 @@ footer a:hover{color:var(--accent)}
   }
 }
 
-.nav a i{font-style:normal;color:var(--red);font-size:9.5px;letter-spacing:.1em;margin-right:7px;vertical-align:super}
+.nav a i{font-style:normal;color:var(--red);font-size:11px;letter-spacing:.1em;margin-right:7px;vertical-align:super}
 
 .contact{border-top:1px solid var(--rule)}
 
@@ -714,7 +712,7 @@ footer a:hover{color:var(--accent)}
 .ablks{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);margin-top:clamp(6px,1.6vh,14px)}
 .ablk{padding:clamp(20px,3.2vh,32px) clamp(14px,2.2vw,26px) clamp(22px,3.4vh,34px) 0;border-bottom:1px solid var(--rule-2);border-right:1px solid var(--rule-2)}
 .ablk:nth-child(2n){border-right:0;padding-right:0;padding-left:clamp(14px,2.2vw,26px)}
-.ablk__n{display:block;color:var(--red);margin-bottom:clamp(14px,2.4vh,22px);font-size:10.5px;letter-spacing:.24em}
+.ablk__n{display:block;color:var(--red);margin-bottom:clamp(14px,2.4vh,22px);font-size:11px;letter-spacing:.24em}
 .ablk h3{margin:0 0 10px;font-size:clamp(16px,1.9vw,23px);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1.12;color:var(--ink)}
 .ablk p{margin:0!important;color:var(--muted);font-size:14.5px!important;line-height:1.5!important;max-width:32ch!important}
 @media (max-width:680px){
@@ -754,7 +752,7 @@ footer a:hover{color:var(--accent)}
 }
 .about__counter b{font-size:clamp(32px,5vw,62px);line-height:.85;letter-spacing:-.04em;font-weight:800}
 .about__counter span{
-  font:600 10.5px/1.45 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font:600 11px/1.45 ui-monospace,"Cascadia Mono",Consolas,monospace;
   letter-spacing:.16em;text-transform:uppercase;color:rgba(10,10,11,.72);
 }
 .about__lead{
@@ -779,7 +777,7 @@ footer a:hover{color:var(--accent)}
   color:var(--ink);outline:none;transition:border-color .2s,background .2s;appearance:none;
 }
 .fld textarea{min-height:120px;resize:vertical}
-.fld input::placeholder,.fld textarea::placeholder{color:rgba(244,243,239,.38);text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+.fld input::placeholder,.fld textarea::placeholder{color:rgba(244,243,239,.5);text-transform:uppercase;letter-spacing:.06em;font-size:13px}
 .fld select{
   text-transform:uppercase;letter-spacing:.06em;font-size:13px;
   background-image:linear-gradient(45deg,transparent 49%,var(--ink) 50%),linear-gradient(-45deg,transparent 49%,var(--ink) 50%);
@@ -847,7 +845,7 @@ footer a:hover{color:var(--accent)}
 @keyframes checkPop{from{transform:scale(.2);opacity:0}to{transform:none;opacity:1}}
 .fld__pair{display:grid;gap:10px}
 .fld__own[hidden]{display:none}
-.consent{display:flex;align-items:flex-start;gap:10px;margin:6px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5}
+.consent{display:flex;align-items:flex-start;gap:10px;margin:6px 0 0;padding:3px 0;min-height:44px;font-size:12.5px;color:var(--muted);line-height:1.5}
 .consent input{width:16px;height:16px;margin:2px 0 0;accent-color:var(--ink);flex:none}
 .consent a{color:var(--ink);text-decoration:underline}
 .form__foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:clamp(10px,2vh,18px)}
@@ -924,7 +922,7 @@ footer a:hover{color:var(--accent)}
   display:flex;flex-direction:column;gap:8px;
 }
 .reel__k{
-  font:600 10.5px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
   letter-spacing:.24em;text-transform:uppercase;color:var(--red);
 }
 .reel__t{
@@ -933,7 +931,7 @@ footer a:hover{color:var(--accent)}
 }
 .reel__hint{
   position:absolute;left:50%;bottom:clamp(14px,3vh,26px);transform:translateX(-50%);
-  font:600 10px/1 ui-monospace,Consolas,monospace;letter-spacing:.22em;text-transform:uppercase;
+  font:600 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.22em;text-transform:uppercase;
   color:rgba(244,243,239,.35);z-index:6;
 }
 @media (max-width:760px){
@@ -1025,7 +1023,7 @@ footer a:hover{color:var(--accent)}
 .chatpin__head{display:flex;align-items:center;gap:9px;padding:8px 16px 14px;border-bottom:1px solid var(--rule-2);flex:none}
 .chatpin__av{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--red);color:#0a0a0b;font:800 12px/1 ui-sans-serif,system-ui,sans-serif}
 .chatpin__who{display:flex;flex-direction:column;font-size:12.5px;font-weight:600;line-height:1.25}
-.chatpin__who i{font-style:normal;font:400 10px/1.3 ui-monospace,Consolas,monospace;color:var(--red);letter-spacing:.08em}
+.chatpin__who i{font-style:normal;font:400 11px/1.3 ui-monospace,Consolas,monospace;color:var(--red);letter-spacing:.08em}
 .chatpin__body{display:flex;flex-direction:column;justify-content:flex-start;gap:8px;padding:14px 12px;overflow:hidden;flex:1;min-height:0;}
 .chatpin__body.is-full{justify-content:flex-end;
   -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 40px);
@@ -1176,7 +1174,7 @@ footer a:hover{color:var(--accent)}
 .layer{position:absolute;inset:0;display:grid;place-items:center;transform-style:preserve-3d;will-change:transform}
 .lcard{position:relative;background:var(--bg-2);border:1px solid rgba(244,243,239,.22);box-shadow:0 30px 80px rgba(0,0,0,.55)}
 .lcard .mono{
-  position:absolute;left:11px;top:9px;font-size:9px;letter-spacing:.22em;color:var(--muted);
+  position:absolute;left:11px;top:9px;font-size:11px;letter-spacing:.22em;color:var(--muted);
 }
 .lcard--grid{
   width:70%;height:80%;background:transparent;border-style:dashed;border-color:rgba(244,243,239,.20);
@@ -1301,7 +1299,7 @@ footer a:hover{color:var(--accent)}
 }
 
 /* ---------- toast: phone copied (desktop) ---------- */
-.copy-toast{position:fixed;left:50%;bottom:26px;z-index:80;transform:translate(-50%,14px);padding:13px 20px;background:#151517;border:1px solid var(--rule);color:var(--ink);font:600 10.5px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .28s ease,transform .28s ease}
+.copy-toast{position:fixed;left:50%;bottom:26px;z-index:80;transform:translate(-50%,14px);padding:13px 20px;background:#151517;border:1px solid var(--rule);color:var(--ink);font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .28s ease,transform .28s ease}
 .copy-toast.on{opacity:1;transform:translate(-50%,0)}
 /* ---------- страница «партнёрам» ---------- */
 .part{padding:clamp(110px,15vh,170px) var(--pad) clamp(40px,7vh,80px);max-width:var(--maxw);margin:0 auto}
@@ -1323,7 +1321,7 @@ footer a:hover{color:var(--accent)}
 /* ведомость */
 .ledge{width:100%;border-collapse:collapse;text-transform:uppercase}
 .ledge th{
-  font:600 10px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.16em;
+  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.16em;
   color:var(--muted);text-align:left;font-weight:600;
   padding:0 0 14px;border-bottom:1px solid var(--rule);
 }
@@ -1337,14 +1335,14 @@ footer a:hover{color:var(--accent)}
 .ledge small{display:block;text-transform:none;letter-spacing:0;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:8px}
 .ledge em{font-style:normal;font-size:clamp(18px,2.6vw,30px);font-weight:800;letter-spacing:-.03em;color:var(--red);line-height:1.05}
 .ledge em span{
-  display:inline-block;font-size:10.5px;letter-spacing:.14em;color:var(--muted);
+  display:inline-block;font-size:11px;letter-spacing:.14em;color:var(--muted);
   font-weight:600;margin-top:6px;text-transform:uppercase;
 }
 
 /* шаги */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.6vw,34px)}
 .steps li{border-top:1px solid var(--rule);padding-top:clamp(14px,2.4vh,22px)}
-.steps i{font:600 10px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.16em;color:var(--red);font-style:normal}
+.steps i{font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.16em;color:var(--red);font-style:normal}
 .steps b{display:block;font-size:clamp(15px,1.7vw,20px);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.15;margin:12px 0 10px}
 .steps p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.6}
 
