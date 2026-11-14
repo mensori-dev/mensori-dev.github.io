@@ -63,7 +63,6 @@
 
 <div class="progress" id="progress"></div>
 
-<button class="railbtn" id="railBtn" type="button" aria-label="Разделы" aria-controls="rail" aria-expanded="false"><span></span><span></span><span></span></button>
 <nav class="rail" id="rail" aria-label="Быстрый переход по разделам">
   <a href="#works"><span class="rail__lb">Работы</span><span class="rail__bar"></span></a>
   <a href="#calc"><span class="rail__lb">Калькулятор</span><span class="rail__bar"></span></a>
@@ -95,6 +94,7 @@
       <a class="top__msg" href="https://t.me/mensorip" target="_blank" rel="noopener" aria-label="Написать в Telegram" title="Telegram" data-src="top">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.94 4.3 18.7 19.2c-.24 1.08-.88 1.35-1.79.84l-4.94-3.64-2.38 2.29c-.26.26-.48.48-.99.48l.35-5.02 9.13-8.25c.4-.35-.09-.55-.62-.2L6.18 12.98 1.3 11.45c-1.06-.33-1.08-1.06.22-1.57L20.58 2.7c.88-.33 1.65.2 1.36 1.6z"/></svg>
       </a>
+      <button class="railbtn" id="railBtn" type="button" aria-label="Разделы" aria-controls="rail" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -227,7 +227,7 @@
 <!-- ============ СЛОВА-ЭТАПЫ ============ -->
 <section class="words">
   <div class="shell">
-    <p class="mono reveal" style="margin-bottom:clamp(20px,4vh,40px)">пять шагов</p>
+    <p class="mono reveal" style="margin-bottom:clamp(20px,4vh,40px)">как делается сайт</p>
     <div class="words__wrap">
       <div class="words__list" id="words">
         <button class="words__item" type="button" data-step="0"><span class="i">01</span>разговор</button>
@@ -316,7 +316,6 @@
         <span class="wrow__d">автосервис</span>
         <span class="wrow__y mono">2026</span>
         <span class="wrow__a">↗</span>
-        <img class="wrow__img" src="assets/works/auto.webp" alt="Сайт автосервиса" decoding="async">
       </a>
       <a class="wrow reveal" href="https://mensori-dev.github.io/demos/barber/" target="_blank" rel="noopener" data-img="assets/works/barber.webp">
         <span class="wrow__n mono">02</span>
@@ -324,7 +323,6 @@
         <span class="wrow__d">барбершоп</span>
         <span class="wrow__y mono">2026</span>
         <span class="wrow__a">↗</span>
-        <img class="wrow__img" src="assets/works/barber.webp" alt="Сайт барбершопа" decoding="async">
       </a>
       <a class="wrow reveal" href="https://mensori-dev.github.io/demos/flowers/" target="_blank" rel="noopener" data-img="assets/works/flowers.webp">
         <span class="wrow__n mono">03</span>
@@ -332,7 +330,6 @@
         <span class="wrow__d">цветы</span>
         <span class="wrow__y mono">2026</span>
         <span class="wrow__a">↗</span>
-        <img class="wrow__img" src="assets/works/flowers.webp" alt="Сайт цветочной мастерской" decoding="async">
       </a>
       <a class="wrow reveal" href="https://mensori-dev.github.io/demos/salon/" target="_blank" rel="noopener" data-img="assets/works/salon.webp">
         <span class="wrow__n mono">04</span>
@@ -340,15 +337,13 @@
         <span class="wrow__d">салон красоты</span>
         <span class="wrow__y mono">2026</span>
         <span class="wrow__a">↗</span>
-        <img class="wrow__img" src="assets/works/salon.webp" alt="Сайт салона красоты" decoding="async">
       </a>
-      <a class="wrow reveal" href="https://mensori-dev.github.io/demo/atele/" target="_blank" rel="noopener" data-img="assets/works/atele.webp">
+      <a class="wrow reveal" href="https://mensori-dev.github.io/demos/atele/" target="_blank" rel="noopener" data-img="assets/works/atele.webp">
         <span class="wrow__n mono">05</span>
         <span class="wrow__t">Пошив и ремонт одежды</span>
         <span class="wrow__d">ателье</span>
         <span class="wrow__y mono">2026</span>
         <span class="wrow__a">↗</span>
-        <img class="wrow__img" src="assets/works/atele.webp" alt="Сайт ателье" decoding="async">
       </a>
     </div>
     <div class="wpeek" id="wpeek" aria-hidden="true"><img id="wpeekImg" src="assets/works/auto.webp" alt=""></div>
@@ -367,10 +362,12 @@
         <h2 class="caps caps--lg reveal">На телефоне — та же страница, а не сжатая копия</h2>
         <p class="lead reveal" style="margin-top:14px;max-width:34ch">Блоки переставляются, а на узком экране выстраиваются в одну колонку: ничего не вылезает за край, кнопки не липнут друг к другу, цена видна без горизонтальной прокрутки.</p>
       </div>
-      <div class="mosaic__grid" id="mosaicGrid" aria-hidden="true">
-        <i class="mtile" style="--c:0;--r:0"></i><i class="mtile" style="--c:1;--r:0"></i><i class="mtile" style="--c:2;--r:0"></i>
-        <i class="mtile" style="--c:0;--r:1"></i><i class="mtile" style="--c:1;--r:1"></i><i class="mtile" style="--c:2;--r:1"></i>
-        <i class="mtile" style="--c:0;--r:2"></i><i class="mtile" style="--c:1;--r:2"></i><i class="mtile" style="--c:2;--r:2"></i>
+      <div class="mosaic__phone" id="mosaicPhone" role="img" aria-label="Мобильная версия сайта цветочной мастерской: куски экрана собираются в целую страницу">
+        <div class="mosaic__grid" id="mosaicGrid" aria-hidden="true">
+          <i class="mtile" style="--c:0;--r:0"></i><i class="mtile" style="--c:1;--r:0"></i><i class="mtile" style="--c:2;--r:0"></i>
+          <i class="mtile" style="--c:0;--r:1"></i><i class="mtile" style="--c:1;--r:1"></i><i class="mtile" style="--c:2;--r:1"></i>
+          <i class="mtile" style="--c:0;--r:2"></i><i class="mtile" style="--c:1;--r:2"></i><i class="mtile" style="--c:2;--r:2"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -504,36 +501,6 @@
         <p class="calc__note" id="calcNote">Лендинг под ключ: вёрстка, адаптив, публикация.</p>
         <canvas class="calc__viz" id="calcBars" aria-hidden="true"></canvas>
         <a class="btn" id="calcCta" href="https://wa.me/79020153104" target="_blank" rel="noopener" data-src="calc">Обсудить задачу <span class="btn__arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ КАК РАБОТАЕМ ============ -->
-<section class="sec" id="process">
-  <div class="shell">
-    <p class="mono reveal">порядок работы</p>
-    <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:20ch">Четыре шага — от разговора до ссылки</h2>
-    <div class="steps">
-      <div class="step reveal">
-        <span class="n mono">01</span>
-        <h3>Разговор</h3>
-        <p>Задаю вопросы, пока задача не станет понятной. Сразу говорю, если браться не стоит.</p>
-      </div>
-      <div class="step reveal">
-        <span class="n mono">02</span>
-        <h3>Демо</h3>
-        <p>Показываю черновик по ссылке — на своём телефоне, без установок.</p>
-      </div>
-      <div class="step reveal">
-        <span class="n mono">03</span>
-        <h3>Оплата</h3>
-        <p>Демо — до денег. Дальше 50 % на старте работ, остаток — на сдаче. Файлы и доступы — после полной оплаты.</p>
-      </div>
-      <div class="step reveal">
-        <span class="n mono">04</span>
-        <h3>Передача</h3>
-        <p>Домен и хостинг на вас. Объясняю, как менять цены и тексты.</p>
       </div>
     </div>
   </div>
@@ -673,6 +640,36 @@
   </div>
 </section>
 
+<!-- ============ КАК РАБОТАЕМ ============ -->
+<section class="sec" id="process">
+  <div class="shell">
+    <p class="mono reveal">как работаем вместе</p>
+    <h2 class="caps caps--lg reveal" style="margin-top:18px;max-width:20ch">Четыре шага — от разговора до ссылки</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="n mono">01</span>
+        <h3>Разговор</h3>
+        <p>Задаю вопросы, пока задача не станет понятной. Сразу говорю, если браться не стоит.</p>
+      </div>
+      <div class="step reveal">
+        <span class="n mono">02</span>
+        <h3>Демо</h3>
+        <p>Показываю черновик по ссылке — на своём телефоне, без установок.</p>
+      </div>
+      <div class="step reveal">
+        <span class="n mono">03</span>
+        <h3>Оплата</h3>
+        <p>Демо — до денег. Дальше 50 % на старте работ, остаток — на сдаче. Файлы и доступы — после полной оплаты.</p>
+      </div>
+      <div class="step reveal">
+        <span class="n mono">04</span>
+        <h3>Передача</h3>
+        <p>Домен и хостинг на вас. Объясняю, как менять цены и тексты.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ БРИФ ============ -->
 <section class="brief" id="brief">
   <div class="shell">
@@ -731,8 +728,6 @@
                 <option value="">выберите бюджет</option>
                 <option>3 000 – 8 000 ₽</option>
                 <option>8 000 – 20 000 ₽</option>
-                <option>20 000 – 40 000 ₽</option>
-                <option>Больше 40 000 ₽</option>
                 <option>Пока не знаю</option>
                 <option value="__custom">Своя сумма</option>
               </select>
@@ -864,11 +859,6 @@
   </div>
 </div>
 
-<div class="wastick" id="waStick">
-  <a href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" data-src="sticky">WhatsApp</a>
-  <a href="https://t.me/mensorip" target="_blank" rel="noopener" data-src="sticky">Telegram</a>
-</div>
-
 <footer>
   <div class="shell">
     <span>© 2026 mensoridev · сайты для малого бизнеса, Йошкар-Ола</span>
@@ -887,7 +877,7 @@ document.addEventListener('click', (e) => {
   if (href.indexOf('tel:') === 0) goal('tel_click', { from: a.dataset.src || 'link' });
   else if (href.indexOf('wa.me') > -1) goal('wa_click', { from: a.dataset.src || 'link' });
   else if (href.indexOf('t.me') > -1) goal('tg_click', { from: a.dataset.src || 'link' });
-  else if (href.indexOf('demos/') > -1 || href.indexOf('demo/atele') > -1) goal('demo_click', { from: a.id === 'dmGo' ? 'modal' : 'link' });
+  else if (href.indexOf('demos/') > -1) goal('demo_click', { from: a.id === 'dmGo' ? 'modal' : 'link' });
 });
 let scrolled75 = false;
 addEventListener('scroll', () => {
@@ -1096,28 +1086,30 @@ const checkLayers = (() => {
   };
 })();
 
-/* ---------- мозаика: куски слетаются на место ---------- */
+/* ---------- мозаика: куски экрана слетаются в телефон ---------- */
 const checkMosaic = (() => {
   const sec = document.getElementById('mosaic');
+  const phone = document.getElementById('mosaicPhone');
   const grid = document.getElementById('mosaicGrid');
-  if (!sec || !grid) return () => {};
+  if (!sec || !phone || !grid) return () => {};
   const tiles = [...grid.children];
-  const SEED = [[-1.5,-1.2,1],[0,-1.7,-1],[1.4,-1.1,1],[-1.7,0,-1],[0,0,0],[1.7,0,1],[-1.4,1.2,1],[0,1.7,-1],[1.5,1.3,1]];
+  const SEED = [[-1.3,-1,1],[0,-1.5,-1],[1.2,-1,1],[-1.5,0,-1],[0,0,0],[1.5,0,1],[-1.2,1,1],[0,1.5,-1],[1.3,1,1]];
   const apply = (p) => {
     tiles.forEach((t, i) => {
       const s = SEED[i] || [0, 0, 1];
-      const k = Math.min(1, Math.max(0, (p - i * 0.035) / 0.62));
+      const k = Math.min(1, Math.max(0, (p - i * 0.03) / 0.66));
       const e = 1 - Math.pow(1 - k, 3);
       const off = 1 - e;
-      t.style.transform = 'translate3d(' + (s[0] * off * 96) + 'px,' + (s[1] * off * 96) + 'px,0) rotate(' + (s[2] * off * 10) + 'deg) scale(' + (0.84 + 0.16 * e) + ')';
-      t.style.opacity = (0.12 + 0.88 * e).toFixed(3);
+      t.style.transform = 'translate3d(' + (s[0] * off * 46) + 'px,' + (s[1] * off * 46) + 'px,0) rotate(' + (s[2] * off * 8) + 'deg) scale(' + (0.86 + 0.14 * e) + ')';
+      t.style.opacity = (0.1 + 0.9 * e).toFixed(3);
     });
+    phone.style.transform = 'translate3d(0,' + ((1 - Math.min(1, Math.max(0, (p - 0.1) / 0.9))) * 26) + 'px,0)';
   };
-  /* на телефоне секция не пинована: куски собираются по мере въезда сетки в экран
+  /* на телефоне секция не пинована: куски собираются по мере въезда телефона в экран
      и снова разлетаются, если прокрутить назад */
   return () => {
     if (innerWidth <= 900) {
-      const g = grid.getBoundingClientRect();
+      const g = phone.getBoundingClientRect();
       const start = innerHeight * 0.94;
       const span = Math.max(160, Math.min(innerHeight * 0.42, g.height));
       apply(Math.min(1, Math.max(0, (start - g.top) / span)));
@@ -1278,25 +1270,10 @@ if (railBox && railBtn) {
   });
   addEventListener('keydown', (e) => { if (e.key === 'Escape') setRail(false); });
 }
-/* ---------- язычок рельса и липкая WhatsApp: после первого экрана, но не на брифе ---------- */
-const briefSec = document.getElementById('brief');
-const footSec = document.querySelector('footer');
-const stickyWa = document.getElementById('waStick');
-const checkFloaters = () => {
-  const br = briefSec ? briefSec.getBoundingClientRect() : null;
-  const inBrief = br ? (br.top < innerHeight && br.bottom > 0) : false;
-  /* в футере липкая кнопка накрывает ссылки и копирайт — там её тоже убираем */
-  const fr = footSec ? footSec.getBoundingClientRect() : null;
-  const inFoot = fr ? (fr.top < innerHeight && fr.bottom > 0) : false;
-  const on = scrollY > innerHeight * 0.6 && !inBrief;
-  const onBtn = on && !inFoot;
-  if (railBtn) railBtn.classList.toggle('is-on', onBtn);
-  if (!onBtn && railBox && railBox.classList.contains('open')) setRail(false);
-  if (stickyWa) stickyWa.classList.toggle('is-on', on && !inFoot);
-};
+/* ---------- порядок вызовов при прокрутке ---------- */
 const onScroll = () => {
   if (raf) return;
-  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkFloaters(); });
+  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); });
 };
 /* рельс обновляем отдельно и по времени: он должен работать и без кадров */
 let railT = 0;
@@ -1307,7 +1284,7 @@ addEventListener('scroll', () => {
 addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
 addEventListener('load', onScroll);
-onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkRail(); checkFloaters();
+onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkRail();
 
 /* ---------- курсор ---------- */
 const cur = document.getElementById('cursor');
@@ -1853,8 +1830,6 @@ const wordsIn = (el, opts) => {
   const nameEl = document.getElementById('dmName');
   const phoneEl = document.getElementById('dmPhone');
   const types = [...modal.querySelectorAll('[data-demo]')];
-  /* ателье лежит отдельно от папки demos/: ссылку уже отправляли клиенту, путь не меняем */
-  const DIR = { atele: 'demo/atele/' };
   let kind = 'auto';
   let lastFocus = null;
 
@@ -1864,7 +1839,7 @@ const wordsIn = (el, opts) => {
     const ph = phoneEl.value.trim();
     if (n) p.set('n', n);
     if (ph) p.set('p', ph);
-    go.href = (DIR[kind] || 'demos/' + kind + '/') + (p.toString() ? '?' + p.toString() : '');
+    go.href = 'demos/' + kind + '/' + (p.toString() ? '?' + p.toString() : '');
   };
 
   const open = (on, from) => {
