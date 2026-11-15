@@ -620,7 +620,7 @@ footer a:hover{color:var(--accent)}
 
 /* ============ приёмы из референсов: капс в обрез, штамп, прайс строками ============ */
 .bleed{
-  display:block;white-space:nowrap;overflow:hidden;
+  display:block;white-space:nowrap;
   font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.84;
   font-size:clamp(52px,14vw,196px);
 }
@@ -720,6 +720,7 @@ footer a:hover{color:var(--accent)}
 }
 .doc__name b{display:block;font-weight:800;transform:translateY(var(--ny,0))}
 .doc__name b:last-child{
+  font-size:.9em;line-height:.9333;letter-spacing:-.02em;
   color:transparent;-webkit-text-stroke:2.2px rgba(244,243,239,.74);
   transition:color .55s ease,-webkit-text-stroke-color .55s ease;
 }

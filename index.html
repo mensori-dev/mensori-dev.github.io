@@ -12,7 +12,7 @@
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png?v=2" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="assets/site.css?v=20261115c">
+<link rel="stylesheet" href="assets/site.css?v=20261115d">
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 <link rel="canonical" href="https://mensori-dev.github.io/">
 <meta property="og:site_name" content="MENSORIDEV">
@@ -1169,7 +1169,9 @@ const checkLayers = (() => {
         el.style.transform = 'translate3d(' + (c.dx * m).toFixed(1) + 'px,' + (c.dy * m).toFixed(1) + 'px,' + c.z + 'px)' +
           ' rotateX(' + c.rx + 'deg) rotateY(' + c.ry + 'deg) scale(' + c.s + ')';
       } else if (state.mode === 'focus' && i === state.active) {
-        el.style.transform = 'translate3d(0,0,170px) scale(1.05)';
+        el.style.transform = innerWidth <= 900
+          ? 'translate3d(0,0,70px) scale(1.02)'
+          : 'translate3d(0,0,170px) scale(1.05)';
       } else if (state.mode === 'focus') {
         el.style.transform = 'translate3d(0,0,-90px) scale(.97)';
       } else {
