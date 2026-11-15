@@ -1715,7 +1715,7 @@ footer a:hover{color:var(--accent)}
 .hero--poster .hero__cta{margin:0;justify-content:flex-end}
 .hero__foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;
   margin-top:clamp(16px,2.8vh,28px);color:var(--muted)}
-.hero__foot .mono{color:inherit}
+.hero__foot .mono{color:inherit;margin-bottom:0}
 .hero__foot a:hover{color:var(--ink)}
 .hero__foot .btn__arrow{display:inline-block;transition:transform .25s}
 .hero__foot a:hover .btn__arrow{transform:translateY(2px)}
