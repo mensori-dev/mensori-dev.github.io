@@ -47,8 +47,8 @@ img{max-width:100%;display:block}
 .lead--center{text-align:center;margin-left:auto;margin-right:auto}
 
 .mono{
-  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
-  letter-spacing:.26em;text-transform:uppercase;color:var(--muted);
+  font:600 12px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  letter-spacing:.16em;text-transform:uppercase;color:#a5a5a7;
 }
 
 /* ---------- шапка ---------- */
@@ -736,16 +736,16 @@ footer a:hover{color:var(--accent)}
 }
 .doc__rows dt{
   flex:0 0 clamp(120px,24%,240px);
-  font:600 11px/1.7 ui-monospace,"Cascadia Mono",Consolas,monospace;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  font:600 12px/1.7 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  letter-spacing:.12em;text-transform:uppercase;color:#a9a9ab;
 }
 .doc__rows dd{
   margin:0;flex:1;min-width:0;display:flex;align-items:baseline;
   font-size:16px;font-weight:600;line-height:1.45;color:var(--ink);
 }
 .doc__rows dd::before{
-  content:"";flex:1;min-width:18px;margin:0 14px;transform:translateY(-3px);
-  border-bottom:1px dotted rgba(244,243,239,.26);
+  content:"";flex:1;min-width:18px;margin:0 14px;height:1px;align-self:center;
+  background-image:repeating-linear-gradient(to right,rgba(244,243,239,.3) 0 3px,transparent 3px 8px);
 }
 
 /* пункты */
@@ -1705,7 +1705,7 @@ footer a:hover{color:var(--accent)}
 .hero__meta .mono{display:block;margin:0}
 .hero__meta-r{color:var(--muted)}
 .hero--poster h1{margin:auto 0 clamp(18px,3.4vh,36px);max-width:none;
-  font-size:clamp(44px,9.6vw,150px);line-height:.9;letter-spacing:-.012em}
+  font-size:clamp(44px,9.6vw,150px);line-height:.95;letter-spacing:-.012em}
 .hero--poster h1 em{font-style:normal;color:var(--red)}
 .hero__base{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
   gap:18px 40px;padding-top:clamp(16px,2.8vh,26px);border-top:1px solid var(--rule)}
