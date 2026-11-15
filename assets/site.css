@@ -524,7 +524,7 @@ footer a:hover{color:var(--accent)}
 .words__item .i{
   position:absolute;left:0;top:.42em;
   font:600 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;color:var(--muted);
-  opacity:.75;transition:opacity .4s,color .4s;
+  opacity:.92;transition:opacity .4s,color .4s;
 }
 .words__item.is-on{color:var(--accent);transform:translateX(clamp(6px,1.4vw,20px))}
 .words__item.is-on .i{opacity:1}
@@ -932,7 +932,7 @@ footer a:hover{color:var(--accent)}
 .reel__hint{
   position:absolute;left:50%;bottom:clamp(14px,3vh,26px);transform:translateX(-50%);
   font:600 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(244,243,239,.35);z-index:6;
+  color:rgba(244,243,239,.52);z-index:6;
 }
 @media (max-width:760px){
   /* на телефоне лента — свайп-карусель в один экран, без залипания */
@@ -1101,6 +1101,7 @@ footer a:hover{color:var(--accent)}
 .pnote p{color:var(--muted);font-size:15px;line-height:1.6;margin:0 0 14px}
 .pnote b{color:var(--ink);font-weight:700}
 .prices__cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:clamp(20px,4vh,40px) 0 clamp(40px,7vh,70px)}
+.prices__cta--head{margin:clamp(22px,3.6vh,34px) 0 0}
 @media (max-width:680px){
   .bp{flex-direction:column;gap:10px}
   .bp em{align-self:flex-start;color:var(--red)}
@@ -1378,6 +1379,13 @@ footer a:hover{color:var(--accent)}
 
 /* ---------- CRO: демо-модалка, липкая WhatsApp, ошибки полей ---------- */
 .btn{cursor:pointer}
+/* кнопки первого экрана одной высоты: у <button> свой line-height, у <a> наследуется от body */
+.hero__cta .btn{line-height:1.62}
+/* на телефоне главное действие — одно: WhatsApp во всю ширину, демо под ним */
+@media (max-width:560px){
+  .hero .hero__cta{flex-direction:column;align-items:stretch}
+  .hero .hero__cta .btn{width:100%;justify-content:center}
+}
 .hero__more{margin:16px 0 0;font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .hero__more a{border-bottom:1px solid var(--rule);padding-bottom:3px}
 .hero__more a:hover{color:var(--ink);border-color:var(--ink)}
