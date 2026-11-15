@@ -866,46 +866,46 @@ footer a:hover{color:var(--accent)}
 .doc.is-armed .doc__body{opacity:0;transform:translateY(26px)}
 .doc.is-armed.is-seen .doc__body{
   opacity:1;transform:none;
-  transition:transform .95s cubic-bezier(.2,.8,.2,1),opacity .65s ease;
+  transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .55s ease;
 }
 .doc.is-armed .doc__rows > div{opacity:0;transform:translateY(9px)}
 .doc.is-armed.is-seen .doc__rows > div{
   opacity:1;transform:none;
-  transition:opacity .5s ease calc(var(--i,0)*55ms + 240ms),
-             transform .55s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*55ms + 240ms),
+  transition:opacity .45s ease calc(var(--i,0)*45ms + 170ms),
+             transform .5s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*45ms + 170ms),
              background .2s ease;
 }
 .doc.is-armed .doc__rows dd::before{transform:translateY(-3px) scaleX(0);transform-origin:left center}
 .doc.is-armed.is-seen .doc__rows dd::before{
   transform:translateY(-3px) scaleX(1);
-  transition:transform .7s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*55ms + 300ms),border-color .25s ease;
+  transition:transform .6s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*45ms + 220ms),border-color .25s ease;
 }
 .doc.is-armed .doc__notes li{opacity:0;transform:translateY(12px)}
 .doc.is-armed.is-seen .doc__notes li{
   opacity:1;transform:none;
-  transition:opacity .5s ease calc(var(--i,0)*75ms + 500ms),
-             transform .6s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*75ms + 500ms);
+  transition:opacity .45s ease calc(var(--i,0)*60ms + 360ms),
+             transform .52s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*60ms + 360ms);
 }
 
 /* шапка, имя, подвал */
 .doc.is-armed .doc__head{opacity:0;transform:translateY(-6px)}
-.doc.is-armed.is-seen .doc__head{opacity:1;transform:none;transition:opacity .5s ease .06s,transform .6s ease .06s}
+.doc.is-armed.is-seen .doc__head{opacity:1;transform:none;transition:opacity .45s ease .04s,transform .5s ease .04s}
 .doc.is-armed .doc__id{opacity:0}
 .doc.is-armed.is-seen .doc__id{opacity:1;transition:opacity .5s ease}
 .doc.is-armed .doc__name b{--ny:38px;opacity:0}
 .doc.is-armed.is-seen .doc__name b{
   --ny:0;opacity:1;
-  transition:opacity .6s ease .04s,transform .95s cubic-bezier(.16,.9,.2,1) .04s,
+  transition:opacity .55s ease .03s,transform .8s cubic-bezier(.16,.9,.2,1) .03s,
              color .7s ease,-webkit-text-stroke-color .7s ease;
 }
 .doc.is-armed.is-seen .doc__name b:last-child{
-  transition:opacity .6s ease .16s,transform .95s cubic-bezier(.16,.9,.2,1) .16s,
+  transition:opacity .55s ease .12s,transform .8s cubic-bezier(.16,.9,.2,1) .12s,
              color .7s ease,-webkit-text-stroke-color .7s ease;
 }
 .doc.is-armed .doc__role{opacity:0;transform:translateY(10px)}
-.doc.is-armed.is-seen .doc__role{opacity:1;transform:none;transition:opacity .5s ease .42s,transform .6s ease .42s}
+.doc.is-armed.is-seen .doc__role{opacity:1;transform:none;transition:opacity .45s ease .3s,transform .52s ease .3s}
 .doc.is-armed .doc__foot{opacity:0;transform:translateY(10px)}
-.doc.is-armed.is-seen .doc__foot{opacity:1;transform:none;transition:opacity .6s ease .78s,transform .7s cubic-bezier(.2,.8,.2,1) .78s}
+.doc.is-armed.is-seen .doc__foot{opacity:1;transform:none;transition:opacity .5s ease .6s,transform .6s cubic-bezier(.2,.8,.2,1) .6s}
 
 @media (max-width:880px){
   .doc{transform:none}

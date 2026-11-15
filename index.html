@@ -108,7 +108,7 @@
 <section class="hero hero--poster">
   <div class="shell hero__p">
     <div class="hero__meta">
-      <span class="mono">Йошкар-Ола · сайты для малого бизнеса</span>
+      <span class="mono">удалённо · сайты для малого бизнеса</span>
       <span class="mono hero__meta-r">демо — до оплаты</span>
     </div>
 
@@ -1485,10 +1485,10 @@ if (railBox && railBtn) {
       for (const e of es) {
         if (!e.isIntersecting) continue;
         doc.classList.add('is-seen');
-        setTimeout(slam, 1000);
+        setTimeout(slam, 850);
         ioDoc.disconnect();
       }
-    }, { threshold: 0.3, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0.22, rootMargin: '0px 0px -6% 0px' });
     ioDoc.observe(doc);
 
     if (sign) {
@@ -1497,7 +1497,7 @@ if (railBox && railBtn) {
           if (!e.isIntersecting) continue;
           ioSign.disconnect();
           /* лист сначала доезжает, потом перо идёт по бумаге */
-          setTimeout(drawSig, 420);
+          setTimeout(drawSig, 330);
         }
       }, { threshold: 0.55 });
       ioSign.observe(sign);
