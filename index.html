@@ -72,8 +72,8 @@
   <a href="#price"><span class="rail__lb">Цены</span><span class="rail__bar"></span></a>
   <a href="#brief"><span class="rail__lb">Заявка</span><span class="rail__bar"></span></a>
   <a href="#calc"><span class="rail__lb">Калькулятор</span><span class="rail__bar"></span></a>
-  <a href="#process"><span class="rail__lb">Как работаю</span><span class="rail__bar"></span></a>
   <a href="#about"><span class="rail__lb">Про меня</span><span class="rail__bar"></span></a>
+  <a href="#process"><span class="rail__lb">Как работаю</span><span class="rail__bar"></span></a>
   <a href="#contact"><span class="rail__lb">Контакты</span><span class="rail__bar"></span></a>
 </nav>
 <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__ring"></span><span class="cursor__dot"></span></div>
@@ -86,8 +86,8 @@
       <a href="uslugi.html"><i>02</i>Цены</a>
       <a href="#brief"><i>03</i>Заявка</a>
       <a href="#calc"><i>04</i>Калькулятор</a>
-      <a href="#process"><i>05</i>Как работаю</a>
-      <a href="#about"><i>06</i>Про меня</a>
+      <a href="#about"><i>05</i>Про меня</a>
+      <a href="#process"><i>06</i>Как работаю</a>
       <a href="#contact"><i>07</i>Контакты</a>
     </nav>
     <span class="clock" id="clock"></span>
@@ -441,6 +441,114 @@
   </div>
 </section>
 
+<!-- ============ ПРО МЕНЯ: личное дело ============ -->
+<section class="about" id="about">
+  <div class="about__glow" aria-hidden="true"></div>
+  <div class="shell">
+    <div class="about__head">
+      <p class="mono reveal">[ про меня ]</p>
+      <p class="mono reveal about__head-r">один человек вместо студии</p>
+    </div>
+
+    <div class="doc" id="doc">
+      <span class="doc__under" aria-hidden="true"></span>
+
+      <span class="doc__clip" aria-hidden="true">
+        <svg viewBox="0 0 42 96" fill="none">
+          <defs>
+            <linearGradient id="clipRed" x1="8" y1="4" x2="34" y2="92" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ff8674"/><stop offset=".4" stop-color="#ff4a35"/><stop offset="1" stop-color="#bf2a18"/>
+            </linearGradient>
+          </defs>
+          <path d="M8 84V26a13 13 0 0 1 26 0v46a7 7 0 0 1-14 0V34" stroke="url(#clipRed)" stroke-width="4.6" stroke-linecap="round"/>
+        </svg>
+      </span>
+
+      <span class="doc__punches" aria-hidden="true"><i></i><i></i></span>
+
+      <div class="doc__body">
+        <header class="doc__head">
+          <span class="doc__kicker">личное дело</span>
+          <span class="doc__no">№ 01 · 2026</span>
+        </header>
+
+        <div class="doc__id">
+          <h2 class="doc__name">Максим<br>Менсори</h2>
+          <p class="doc__role">сайты для малого бизнеса · Йошкар-Ола</p>
+        </div>
+
+        <dl class="doc__rows">
+          <div><dt>Чем работаю</dt><dd>HTML · CSS · JavaScript, без сборки и библиотек</dd></div>
+          <div><dt>Статус</dt><dd>самозанятый, НПД — чек в «Мой налог» после оплаты</dd></div>
+          <div><dt>Срок</dt><dd>2–3 дня на лендинг</dd></div>
+          <div><dt>Оплата</dt><dd>демо бесплатно, 50 % на старте и 50 % на сдаче</dd></div>
+          <div><dt>Домен и хостинг</dt><dd>оформляются на вас, напрямую и без наценки</dd></div>
+          <div><dt>Проектов</dt><dd>5 своих, все на чистом коде</dd></div>
+        </dl>
+
+        <ol class="doc__notes">
+          <li>
+            <span class="doc__n">01</span>
+            <h3>Разговариваю сам</h3>
+            <p>Один человек на весь заказ: разговор, макет, вёрстка, сдача. Всё в одной переписке, без «передам в отдел» и «уточню у коллеги».</p>
+          </li>
+          <li>
+            <span class="doc__n">02</span>
+            <h3>Собираю сам</h3>
+            <p>Сначала прототип, потом макет, потом код. Каждый шаг показываю до того, как он станет дороже в переделке.</p>
+          </li>
+          <li>
+            <span class="doc__n">03</span>
+            <h3>Файлы уходят вам</h3>
+            <p>Чистый HTML, CSS и JavaScript. Не сажаю на конструктор с подпиской и не привязываю к студии.</p>
+          </li>
+          <li>
+            <span class="doc__n">04</span>
+            <h3>Чего не делаю</h3>
+            <p>Не обещаю первые места в поиске, не рисую логотипы, не веду рекламу — и не беру задачи, в которых не разбираюсь.</p>
+          </li>
+        </ol>
+
+        <footer class="doc__foot">
+          <p class="doc__fine">Пункты 01–04 — не обещания, а то, как устроена работа. Одна подпись под каждым заказом.</p>
+
+          <div class="doc__sign">
+            <svg class="doc__sig" viewBox="0 0 360 130" aria-hidden="true">
+              <path pathLength="100" d="M18 96C28 56 42 32 58 30c14-2 2 44-16 54-12 6 10 12 28 4 14-6 20-32 32-30 12 2 4 30 16 28 12-2 20-24 32-22 12 2 6 24 18 22 12-2 18-18 30-16 24 4 54-2 84-12 16-6 30-16 44-26"/>
+              <circle cx="348" cy="32" r="3.4"/>
+            </svg>
+            <p class="doc__sign-cap"><span>Менсори М.</span><span>15.11.2026</span></p>
+          </div>
+        </footer>
+      </div>
+
+      <div class="doc__stamp" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none">
+          <defs>
+            <filter id="stampRough" x="-10%" y="-10%" width="120%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency=".055" numOctaves="2" seed="7" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+            <path id="stampTop" d="M26 100A74 74 0 0 1 174 100"/>
+            <path id="stampBot" d="M26 100A74 74 0 0 0 174 100"/>
+          </defs>
+          <g filter="url(#stampRough)" stroke="#ff4a35" stroke-width="2.6" fill="none">
+            <circle cx="100" cy="100" r="90"/>
+            <circle cx="100" cy="100" r="57"/>
+            <text fill="#ff4a35" stroke="none" font-size="14" letter-spacing="2.6" font-family="ui-sans-serif,system-ui,sans-serif">
+              <textPath href="#stampTop" startOffset="50%" text-anchor="middle">САМОЗАНЯТЫЙ · НПД</textPath>
+            </text>
+            <text fill="#ff4a35" stroke="none" font-size="13" letter-spacing="2.2" font-family="ui-sans-serif,system-ui,sans-serif">
+              <textPath href="#stampBot" startOffset="50%" text-anchor="middle">ЙОШКАР-ОЛА · 2026</textPath>
+            </text>
+            <text x="100" y="110" fill="#ff4a35" stroke="none" text-anchor="middle" font-size="42" font-weight="700" letter-spacing="1" font-family="ui-sans-serif,system-ui,sans-serif">М</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ СЛОВА-ЭТАПЫ ============ -->
 <section class="words" id="process">
   <div class="shell">
@@ -651,70 +759,6 @@
         <summary>Как считается предоплата?</summary>
         <div class="a">Сначала демо — бесплатно. Дальше 50 % на старте работ, остальные 50 % — при сдаче. Через Kwork — 100 % через площадку: деньги замораживаются и приходят после сдачи.</div>
       </details>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ПРО НАС ============ -->
-<section class="about" id="about">
-  <div class="shell">
-    <div class="about__head">
-      <span class="mono">[ про меня ]</span>
-      <span class="mono">Йошкар-Ола · с 2026</span>
-    </div>
-
-    <h2 class="about__name">
-      <span>Максим</span>
-      <span>Менсори</span>
-    </h2>
-
-    <div class="about__grid">
-      <div class="about__side">
-        <div class="about__counter">
-          <b>5</b>
-          <span>моих<br>проектов</span>
-        </div>
-        <div class="about__quote">
-          <span class="mono">[ принцип ]</span>
-          <p>Лучший сайт — тот, который не стыдно открыть при клиенте</p>
-          <span class="mono">никаких «потом доделаем»</span>
-        </div>
-      </div>
-
-      <div class="about__text">
-        <p class="about__lead">Сайты — это то, что я делаю сам и всерьёз, а не подработка по вечерам</p>
-
-        <div class="ablks">
-          <div class="ablk">
-            <span class="ablk__n mono">01</span>
-            <h3>Разговариваю сам</h3>
-            <p>Один человек на весь заказ: разговор, макет, вёрстка, сдача. Всё в одной переписке, без «передам в отдел» и «уточню у коллеги».</p>
-          </div>
-          <div class="ablk">
-            <span class="ablk__n mono">02</span>
-            <h3>Собираю сам</h3>
-            <p>Сначала прототип, потом макет, потом код. Каждый шаг показываю до того, как он станет дороже в переделке.</p>
-          </div>
-          <div class="ablk">
-            <span class="ablk__n mono">03</span>
-            <h3>Файлы уходят вам</h3>
-            <p>Чистый HTML, CSS и JavaScript. Не сажаю на конструктор с подпиской и не привязываю к студии.</p>
-          </div>
-          <div class="ablk">
-            <span class="ablk__n mono">04</span>
-            <h3>Чего не делаю</h3>
-            <p>Не обещаю первые места в поиске, не рисую логотипы, не веду рекламу — и не беру задачи, в которых не разбираюсь.</p>
-          </div>
-        </div>
-
-        <div class="about__facts">
-          <div><span>чем работаю</span><span>HTML · CSS · JavaScript, без сборки и библиотек</span></div>
-          <div><span>статус</span><span>самозанятый, НПД — после оплаты чек в «Мой налог»</span></div>
-          <div><span>срок</span><span>2–3 дня на лендинг</span></div>
-          <div><span>оплата</span><span>демо бесплатно, 50 % на старте и 50 % на сдаче</span></div>
-          <div><span>домен и хостинг</span><span>оформляются на вас</span></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1318,6 +1362,41 @@ if (railBox && railBtn) {
   });
   addEventListener('keydown', (e) => { if (e.key === 'Escape') setRail(false); });
 }
+/* ---------- личное дело: печать шлёпается, подпись прочерчивается ---------- */
+const doc = document.getElementById('doc');
+if (doc) {
+  if ('IntersectionObserver' in window) {
+    doc.classList.add('is-armed');
+    const io = new IntersectionObserver((es) => {
+      for (const e of es) {
+        if (!e.isIntersecting) continue;
+        doc.classList.add('is-on');
+        io.disconnect();
+      }
+    }, { threshold: 0.15, rootMargin: '0px 0px -12% 0px' });
+    io.observe(doc);
+  }
+  /* лист чуть поворачивается за курсором — только на мыши */
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+    let tiltRaf = 0, tx = 0, ty = 0;
+    doc.addEventListener('pointermove', (e) => {
+      const r = doc.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - .5) * 2.6;
+      ty = ((e.clientY - r.top) / r.height - .5) * -2.2;
+      if (tiltRaf) return;
+      tiltRaf = requestAnimationFrame(() => {
+        tiltRaf = 0;
+        doc.style.setProperty('--ry', tx.toFixed(2) + 'deg');
+        doc.style.setProperty('--rx', ty.toFixed(2) + 'deg');
+      });
+    });
+    doc.addEventListener('pointerleave', () => {
+      doc.style.setProperty('--ry', '0deg');
+      doc.style.setProperty('--rx', '0deg');
+    });
+  }
+}
+
 /* ---------- порядок вызовов при прокрутке ---------- */
 const onScroll = () => {
   if (raf) return;
