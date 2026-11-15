@@ -441,7 +441,7 @@
   </div>
 </section>
 
-<!-- ============ ПРО МЕНЯ: личное дело ============ -->
+<!-- ============ ПРО МЕНЯ: имя плакатом ============ -->
 <section class="about" id="about">
   <div class="about__glow" aria-hidden="true"></div>
   <div class="shell">
@@ -451,21 +451,6 @@
     </div>
 
     <div class="doc" id="doc">
-      <span class="doc__under" aria-hidden="true"></span>
-
-      <span class="doc__clip" aria-hidden="true">
-        <svg viewBox="0 0 42 96" fill="none">
-          <defs>
-            <linearGradient id="clipRed" x1="8" y1="4" x2="34" y2="92" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#ff8674"/><stop offset=".4" stop-color="#ff4a35"/><stop offset="1" stop-color="#bf2a18"/>
-            </linearGradient>
-          </defs>
-          <path d="M8 84V26a13 13 0 0 1 26 0v46a7 7 0 0 1-14 0V34" stroke="url(#clipRed)" stroke-width="4.6" stroke-linecap="round"/>
-        </svg>
-      </span>
-
-      <span class="doc__punches" aria-hidden="true"><i></i><i></i></span>
-
       <div class="doc__body">
         <header class="doc__head">
           <span class="doc__kicker">личное дело</span>
@@ -473,8 +458,69 @@
         </header>
 
         <div class="doc__id">
-          <h2 class="doc__name">Максим<br>Менсори</h2>
-          <p class="doc__role">сайты для малого бизнеса · Йошкар-Ола</p>
+          <h2 class="doc__name"><b>Максим</b><b>Менсори</b></h2>
+          <p class="doc__role">сайты для малого бизнеса · удалённо по всей России</p>
+
+          <div class="doc__stampzone">
+            <button class="doc__stamp" id="docStamp" type="button" aria-label="Поставить печать ещё раз" title="Поставить печать ещё раз">
+              <svg viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                <defs>
+                  <filter id="stampRough" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="2" seed="7" result="n"/>
+                    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+                  </filter>
+                  <path id="stampTop" d="M28 100A72 72 0 0 1 172 100"/>
+                  <path id="stampBot" d="M28 100A72 72 0 0 0 172 100"/>
+                </defs>
+                <g filter="url(#stampRough)" stroke="#ff4a35" stroke-width="3.2" fill="none">
+                  <circle cx="100" cy="100" r="90"/>
+                  <circle cx="100" cy="100" r="50"/>
+                  <text fill="#ff4a35" stroke="none" font-size="18.5" font-weight="700" letter-spacing=".8" font-family="ui-sans-serif,system-ui,sans-serif">
+                    <textPath href="#stampTop" startOffset="50%" text-anchor="middle">САМОЗАНЯТЫЙ · НПД</textPath>
+                  </text>
+                  <text fill="#ff4a35" stroke="none" font-size="17.5" font-weight="700" letter-spacing=".6" font-family="ui-sans-serif,system-ui,sans-serif">
+                    <textPath href="#stampBot" startOffset="50%" text-anchor="middle">УДАЛЁННО · 2026</textPath>
+                  </text>
+                  <text x="100" y="110" fill="#ff4a35" stroke="none" text-anchor="middle" font-size="46" font-weight="700" letter-spacing="1" font-family="ui-sans-serif,system-ui,sans-serif">М</text>
+                </g>
+              </svg>
+            </button>
+
+            <span class="doc__press" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none">
+                <defs>
+                  <linearGradient id="pressGrip" x1="66" y1="34" x2="140" y2="94" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#5d5d66"/><stop offset=".34" stop-color="#34343b"/><stop offset="1" stop-color="#0f0f11"/>
+                  </linearGradient>
+                  <linearGradient id="pressShaft" x1="86" y1="0" x2="114" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#6e727a"/><stop offset=".28" stop-color="#d5d8de"/><stop offset=".62" stop-color="#9aa0a8"/><stop offset="1" stop-color="#4d5157"/>
+                  </linearGradient>
+                  <linearGradient id="pressBody" x1="20" y1="120" x2="180" y2="186" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4a4a52"/><stop offset=".38" stop-color="#232327"/><stop offset="1" stop-color="#0c0c0e"/>
+                  </linearGradient>
+                  <linearGradient id="pressTop" x1="30" y1="108" x2="170" y2="152" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#5a5a63"/><stop offset=".5" stop-color="#2a2a30"/><stop offset="1" stop-color="#141416"/>
+                  </linearGradient>
+                  <linearGradient id="pressRubber" x1="20" y1="146" x2="180" y2="184" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#ff7a63"/><stop offset=".45" stop-color="#ff4a35"/><stop offset="1" stop-color="#b72a17"/>
+                  </linearGradient>
+                  <radialGradient id="pressGlow" cx=".5" cy="1" r=".7">
+                    <stop stop-color="#ff4a35" stop-opacity=".5"/><stop offset="1" stop-color="#ff4a35" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <ellipse cx="100" cy="192" rx="82" ry="10" fill="url(#pressGlow)"/>
+                <path d="M20 132v30a80 23 0 0 0 160 0v-30z" fill="url(#pressBody)"/>
+                <ellipse cx="100" cy="162" rx="80" ry="23" fill="url(#pressRubber)"/>
+                <ellipse cx="100" cy="158" rx="80" ry="23" fill="url(#pressBody)"/>
+                <ellipse cx="100" cy="132" rx="80" ry="23" fill="url(#pressTop)"/>
+                <rect x="86" y="86" width="28" height="44" rx="6" fill="url(#pressShaft)"/>
+                <ellipse cx="100" cy="88" rx="27" ry="9" fill="url(#pressTop)"/>
+                <ellipse cx="100" cy="62" rx="31" ry="26" fill="url(#pressGrip)"/>
+                <ellipse cx="88" cy="52" rx="9" ry="6" fill="#ffffff" opacity=".16"/>
+                <path d="M34 128a66 18 0 0 1 132 0" fill="none" stroke="#ffffff" stroke-opacity=".14" stroke-width="2"/>
+              </svg>
+            </span>
+          </div>
         </div>
 
         <dl class="doc__rows">
@@ -513,37 +559,47 @@
           <p class="doc__fine">Пункты 01–04 — не обещания, а то, как устроена работа. Одна подпись под каждым заказом.</p>
 
           <div class="doc__sign">
-            <svg class="doc__sig" viewBox="0 0 360 130" aria-hidden="true">
-              <path pathLength="100" d="M18 96C28 56 42 32 58 30c14-2 2 44-16 54-12 6 10 12 28 4 14-6 20-32 32-30 12 2 4 30 16 28 12-2 20-24 32-22 12 2 6 24 18 22 12-2 18-18 30-16 24 4 54-2 84-12 16-6 30-16 44-26"/>
-              <circle cx="348" cy="32" r="3.4"/>
+            <svg class="doc__sig" viewBox="0 0 480 210" aria-hidden="true">
+              <path class="doc__sigline" pathLength="100" d="M54 135Q86 58 119 9L125 88L167 10C163 40 152 78 137 120C130 141 126 155 125 169C124 181 126 196 134 200C146 203 158 201 166 190C171 182 173 172 172 167L12 180"/>
+              <path class="doc__sigline" pathLength="100" d="M12 180Q240 108 468 9"/>
+              <circle class="doc__sigdot" cx="468" cy="9" r="1.6"/>
+              <circle class="doc__sigpen" cx="0" cy="0" r="0"/>
             </svg>
             <p class="doc__sign-cap"><span>Менсори М.</span><span>15.11.2026</span></p>
           </div>
         </footer>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="doc__stamp" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none">
-          <defs>
-            <filter id="stampRough" x="-10%" y="-10%" width="120%" height="120%">
-              <feTurbulence type="fractalNoise" baseFrequency=".055" numOctaves="2" seed="7" result="n"/>
-              <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-            </filter>
-            <path id="stampTop" d="M26 100A74 74 0 0 1 174 100"/>
-            <path id="stampBot" d="M26 100A74 74 0 0 0 174 100"/>
-          </defs>
-          <g filter="url(#stampRough)" stroke="#ff4a35" stroke-width="2.6" fill="none">
-            <circle cx="100" cy="100" r="90"/>
-            <circle cx="100" cy="100" r="57"/>
-            <text fill="#ff4a35" stroke="none" font-size="14" letter-spacing="2.6" font-family="ui-sans-serif,system-ui,sans-serif">
-              <textPath href="#stampTop" startOffset="50%" text-anchor="middle">САМОЗАНЯТЫЙ · НПД</textPath>
-            </text>
-            <text fill="#ff4a35" stroke="none" font-size="13" letter-spacing="2.2" font-family="ui-sans-serif,system-ui,sans-serif">
-              <textPath href="#stampBot" startOffset="50%" text-anchor="middle">ЙОШКАР-ОЛА · 2026</textPath>
-            </text>
-            <text x="100" y="110" fill="#ff4a35" stroke="none" text-anchor="middle" font-size="42" font-weight="700" letter-spacing="1" font-family="ui-sans-serif,system-ui,sans-serif">М</text>
-          </g>
-        </svg>
+<!-- ============ ЦЕПОЧКА ПРОТИВ ОДНОГО ============ -->
+<section class="chain" id="chain">
+  <div class="shell">
+    <div class="chain__head">
+      <p class="mono reveal">[ цепочка ]</p>
+      <p class="mono reveal">пять человек или один</p>
+    </div>
+
+    <div class="chain__rows">
+      <div class="chain__row chain__row--many">
+        <span class="chain__lab">в студии</span>
+        <ol class="chain__links">
+          <li><b>менеджер</b><i>бриф</i></li>
+          <li><b>дизайнер</b><i>макет</i></li>
+          <li><b>верстальщик</b><i>код</i></li>
+          <li><b>тестировщик</b><i>правки</i></li>
+          <li><b>аккаунт</b><i>сдача</i></li>
+        </ol>
+        <span class="chain__out">4 передачи · 5 согласований</span>
+      </div>
+
+      <div class="chain__row chain__row--one">
+        <span class="chain__lab">здесь</span>
+        <ol class="chain__links">
+          <li class="chain__solo"><b>я</b><i>бриф · макет · код · сдача</i></li>
+        </ol>
+        <span class="chain__out chain__out--red">0 передач · один разговор</span>
       </div>
     </div>
   </div>
@@ -1362,22 +1418,97 @@ if (railBox && railBtn) {
   });
   addEventListener('keydown', (e) => { if (e.key === 'Escape') setRail(false); });
 }
-/* ---------- личное дело: печать шлёпается, подпись прочерчивается ---------- */
-const doc = document.getElementById('doc');
-if (doc) {
-  if ('IntersectionObserver' in window) {
+/* ---------- личное дело: лист заполняется по мере прокрутки ---------- */
+(() => {
+  const doc = document.getElementById('doc');
+  if (!doc) return;
+  const stamp = doc.querySelector('.doc__stamp');
+  const sign = doc.querySelector('.doc__sign');
+  const paths = [...doc.querySelectorAll('.doc__sigline')];
+  const pen = doc.querySelector('.doc__sigpen');
+  const dot = doc.querySelector('.doc__sigdot');
+  const still = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const mouse = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const sec = doc.closest('.about');
+
+  doc.querySelectorAll('.doc__rows > div').forEach((el, i) => el.style.setProperty('--i', i));
+  doc.querySelectorAll('.doc__notes li').forEach((el, i) => el.style.setProperty('--i', i));
+
+  /* удар печатью: сначала опускается сама печать, потом ложится оттиск */
+  let hitT = 0, landT = 0;
+  const slam = () => {
+    if (!stamp) return;
+    doc.classList.remove('is-pressed', 'is-stamped', 'is-hit');
+    void doc.offsetWidth;
+    doc.classList.add('is-pressed');
+    clearTimeout(hitT); clearTimeout(landT);
+    landT = setTimeout(() => {
+      doc.classList.add('is-stamped', 'is-hit');
+      hitT = setTimeout(() => doc.classList.remove('is-hit'), 380);
+    }, 1090);
+  };
+  if (stamp) stamp.addEventListener('click', slam);
+
+  /* подпись: перо идёт по контуру, штрих догоняет */
+  const ease = (t) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  let signed = false;
+  const drawSig = () => {
+    if (signed) return;
+    signed = true;
+    doc.classList.add('is-signed');
+    if (still || !pen || !paths.length) { if (dot) dot.style.opacity = '1'; return; }
+    paths.forEach((p) => { p.style.strokeDasharray = '100'; p.style.strokeDashoffset = '100'; });
+    const d1 = 820, d2 = 1050, total = d1 + d2;
+    const t0 = performance.now();
+    const step = (now) => {
+      const t = Math.min(now - t0, total);
+      const i = t < d1 ? 0 : 1;
+      const local = i === 0 ? t / d1 : (t - d1) / d2;
+      const p = paths[i];
+      const pt = p.getPointAtLength(p.getTotalLength() * ease(local));
+      pen.setAttribute('cx', pt.x.toFixed(1));
+      pen.setAttribute('cy', pt.y.toFixed(1));
+      pen.setAttribute('r', '2.9');
+      p.style.strokeDashoffset = String(100 * (1 - ease(local)));
+      if (t < total) requestAnimationFrame(step);
+      else {
+        pen.setAttribute('r', '0');
+        if (dot) dot.style.opacity = '1';
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  if ('IntersectionObserver' in window && !still) {
     doc.classList.add('is-armed');
-    const io = new IntersectionObserver((es) => {
+    const ioDoc = new IntersectionObserver((es) => {
       for (const e of es) {
         if (!e.isIntersecting) continue;
-        doc.classList.add('is-on');
-        io.disconnect();
+        doc.classList.add('is-seen');
+        setTimeout(slam, 1000);
+        ioDoc.disconnect();
       }
-    }, { threshold: 0.15, rootMargin: '0px 0px -12% 0px' });
-    io.observe(doc);
+    }, { threshold: 0.3, rootMargin: '0px 0px -6% 0px' });
+    ioDoc.observe(doc);
+
+    if (sign) {
+      const ioSign = new IntersectionObserver((es) => {
+        for (const e of es) {
+          if (!e.isIntersecting) continue;
+          ioSign.disconnect();
+          /* лист сначала доезжает, потом перо идёт по бумаге */
+          setTimeout(drawSig, 420);
+        }
+      }, { threshold: 0.55 });
+      ioSign.observe(sign);
+    }
+  } else {
+    doc.classList.add('is-seen');
+    if (dot) dot.style.opacity = '1';
   }
-  /* лист чуть поворачивается за курсором — только на мыши */
-  if (matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+
+  /* лист поворачивается за курсором, лампа за ним — только на мыши */
+  if (mouse && !still) {
     let tiltRaf = 0, tx = 0, ty = 0;
     doc.addEventListener('pointermove', (e) => {
       const r = doc.getBoundingClientRect();
@@ -1388,14 +1519,48 @@ if (doc) {
         tiltRaf = 0;
         doc.style.setProperty('--ry', tx.toFixed(2) + 'deg');
         doc.style.setProperty('--rx', ty.toFixed(2) + 'deg');
+        if (sec) {
+          sec.style.setProperty('--gx', (tx * 16).toFixed(1) + 'px');
+          sec.style.setProperty('--gy', (ty * -16).toFixed(1) + 'px');
+        }
       });
     });
     doc.addEventListener('pointerleave', () => {
       doc.style.setProperty('--ry', '0deg');
       doc.style.setProperty('--rx', '0deg');
+      if (sec) { sec.style.setProperty('--gx', '0px'); sec.style.setProperty('--gy', '0px'); }
     });
   }
-}
+
+  /* при прокрутке лист чуть расходится с нижним листом — глубина */
+  if (!still) {
+    let pRaf = 0;
+    const parallax = () => {
+      pRaf = 0;
+      const r = doc.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      const p = (innerHeight - r.top) / (innerHeight + r.height);
+      doc.style.setProperty('--pp', ((p - .5) * 2).toFixed(3));
+    };
+    addEventListener('scroll', () => { if (!pRaf) pRaf = requestAnimationFrame(parallax); }, { passive: true });
+    parallax();
+  }
+})();
+
+/* ---------- цепочка: собирается и перечёркивается по появлению ---------- */
+(() => {
+  const chain = document.getElementById('chain');
+  if (!chain) return;
+  if (!('IntersectionObserver' in window)) { chain.classList.add('in'); return; }
+  const io = new IntersectionObserver((es) => {
+    for (const e of es) {
+      if (!e.isIntersecting) continue;
+      chain.classList.add('in');
+      io.disconnect();
+    }
+  }, { threshold: 0.22 });
+  io.observe(chain);
+})();
 
 /* ---------- порядок вызовов при прокрутке ---------- */
 const onScroll = () => {
