@@ -1,0 +1,40 @@
+{
+  "port": 9223,
+  "newTab": "about:blank",
+  "closeTab": true,
+  "steps": [
+    { "viewport": { "w": 1440, "h": 900 } },
+    { "goto": "https://mensori-dev.github.io/", "wait": 3500 },
+    { "eval": "window.__go=(sel)=>{const e=document.querySelector(sel);if(!e)return 'нет '+sel;const y=Math.round(e.getBoundingClientRect().top+scrollY);if(window.__lenis)window.__lenis.scrollTo(y,{immediate:true});else window.scrollTo(0,y);const t=Math.round(e.getBoundingClientRect().top);if(Math.abs(t)>4){window.scrollTo(0,y)}return JSON.stringify({sel,y:Math.round(scrollY),top:Math.round(e.getBoundingClientRect().top)})};'helper ok'" },
+
+    { "eval": "window.__go('.hero')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/d-01-hero.png" },
+    { "eval": "window.__go('#works')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/d-02-works-price.png" },
+    { "eval": "window.__go('#brief')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/d-03-brief.png" },
+    { "eval": "window.__go('#calc')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/d-04-calc.png" },
+    { "eval": "window.__go('#pin')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/d-05-pin.png" },
+    { "eval": "window.__go('#mosaic')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/d-06-mosaic.png" },
+    { "eval": "window.__go('#contact')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/d-07-contact.png" },
+
+    { "viewport": { "w": 390, "h": 844, "mobile": true, "touch": true, "dsf": 2 } },
+    { "wait": 1200 },
+    { "eval": "window.__go('.hero')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/m-01-hero.png" },
+    { "eval": "window.__go('#works')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/m-02-works-price.png" },
+    { "eval": "window.__go('#brief')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/m-03-brief.png" },
+    { "eval": "window.__go('#calc')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/m-04-calc.png" },
+    { "eval": "window.__go('#pin')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/m-05-pin.png" },
+    { "eval": "window.__go('#contact')", "wait": 900 },
+    { "shot": "C:/Users/skamm/AppData/Local/Temp/opencode/cro/base/m-07-contact.png" }
+  ]
+}

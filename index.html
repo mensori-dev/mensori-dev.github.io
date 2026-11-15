@@ -12,7 +12,7 @@
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png?v=2" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="assets/site.css?v=20261115d">
+<link rel="stylesheet" href="assets/site.css?v=20261115e">
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 <link rel="canonical" href="https://mensori-dev.github.io/">
 <meta property="og:site_name" content="MENSORIDEV">
@@ -118,6 +118,7 @@
       <p class="lead">Страница под ключ: макет, вёрстка, адаптив, форма заявки, публикация. Домен и хостинг оформляются на вас — оплачиваете напрямую, без наценки.</p>
       <div class="hero__cta">
         <a class="btn magnet" href="https://wa.me/79020153104?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" data-src="hero">Написать в WhatsApp</a>
+        <a class="btn magnet" href="https://t.me/mensorip?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" data-src="hero">Написать в Telegram</a>
         <button class="btn btn--line magnet" type="button" id="demoBtn" aria-haspopup="dialog" aria-controls="demoModal">Показать демо <span class="btn__arrow">→</span></button>
       </div>
     </div>
@@ -261,8 +262,8 @@
 
       <div class="form__foot">
         <button class="btn magnet" type="submit">Отправить в WhatsApp</button>
+        <button class="btn magnet" type="button" id="briefTg">Отправить в Telegram</button>
         <span class="form__note" id="briefNote">откроется чат с готовым текстом</span>
-        <a class="form__tg" href="https://t.me/mensorip" target="_blank" rel="noopener" data-src="brief">или напишите в Telegram</a>
       </div>
 
       <div class="form__next">
@@ -529,7 +530,7 @@
           <div><dt>Срок</dt><dd>2–3 дня на лендинг</dd></div>
           <div><dt>Оплата</dt><dd>демо бесплатно, 50 % на старте и 50 % на сдаче</dd></div>
           <div><dt>Домен и хостинг</dt><dd>оформляются на вас, напрямую и без наценки</dd></div>
-          <div><dt>Проектов</dt><dd>5 своих, все на чистом коде</dd></div>
+          <div><dt>Проектов</dt><dd>5 готовых демо-проектов в портфолио, чистый код</dd></div>
         </dl>
 
         <ol class="doc__notes">
@@ -565,7 +566,7 @@
               <circle class="doc__sigdot" cx="468" cy="9" r="1.6"/>
               <circle class="doc__sigpen" cx="0" cy="0" r="0"/>
             </svg>
-            <p class="doc__sign-cap"><span>Менсори М.</span><span>15.11.2026</span></p>
+            <p class="doc__sign-cap"><span>Менсори М. · 2026</span></p>
           </div>
         </footer>
       </div>
@@ -645,45 +646,6 @@
   <div class="scene__inner">
     <h2 class="scene__cap">Без конструкторов и подписок</h2>
     <p class="scene__sub">Ни одной сторонней платформы: сайт не отключится, когда закончится оплата тарифа, и не подорожает в новый год.</p>
-  </div>
-</section>
-
-<!-- ============ КИНОЛЕНТА ============ -->
-<section class="reel" id="reel" style="--n:5" aria-label="Работы: пять кадров, каждый открывает демо">
-  <div class="reel__stage">
-    <div class="reel__top">
-      <span class="mono">[ работы ]</span>
-      <span class="mono reel__num" id="reelNum">01 / 05</span>
-    </div>
-
-    <div class="reel__track">
-      <a class="reel__item" href="https://mensori-dev.github.io/demos/auto/" target="_blank" rel="noopener">
-        <img src="assets/works/auto.webp" alt="Сайт автосервиса" loading="lazy">
-        <span class="reel__cap"><span class="reel__k">01 · автосервис</span><span class="reel__t">Калькулятор переобувки</span></span>
-      </a>
-
-      <a class="reel__item" href="https://mensori-dev.github.io/demos/barber/" target="_blank" rel="noopener">
-        <img src="assets/works/barber.webp" alt="Сайт барбершопа" loading="lazy">
-        <span class="reel__cap"><span class="reel__k">02 · барбершоп</span><span class="reel__t">Мастера и прайс строками</span></span>
-      </a>
-
-      <a class="reel__item" href="https://mensori-dev.github.io/demos/flowers/" target="_blank" rel="noopener">
-        <img src="assets/works/flowers.webp" alt="Сайт цветочной мастерской" loading="lazy">
-        <span class="reel__cap"><span class="reel__k">03 · цветы</span><span class="reel__t">Сборка букета по бюджету</span></span>
-      </a>
-
-      <a class="reel__item" href="https://mensori-dev.github.io/demos/salon/" target="_blank" rel="noopener">
-        <img class="reel__img--phone" src="assets/works/phone-salon.webp" alt="Мобильная версия сайта салона красоты: прайс и запись в один экран" loading="lazy">
-        <span class="reel__cap"><span class="reel__k">04 · салон красоты</span><span class="reel__t">Запись в один экран</span></span>
-      </a>
-
-      <a class="reel__item" href="https://mensori-dev.github.io/demos/atele/" target="_blank" rel="noopener">
-        <img src="assets/works/atele.webp" alt="Сайт ателье: пошив и ремонт одежды" loading="lazy">
-        <span class="reel__cap"><span class="reel__k">05 · ателье</span><span class="reel__t">Пошив и ремонт одежды</span></span>
-      </a>
-    </div>
-
-    <span class="reel__hint">листайте — кадры сменяются</span>
   </div>
 </section>
 
@@ -887,7 +849,7 @@
     <a class="telbig" href="tel:+79020153104">+7 902 015-31-04</a>
     <div class="contact__row">
       <a class="btn magnet" href="https://wa.me/79020153104" target="_blank" rel="noopener">Написать в WhatsApp</a>
-      <a class="btn btn--line magnet" href="https://t.me/mensorip" target="_blank" rel="noopener">Telegram</a>
+      <a class="btn magnet" href="https://t.me/mensorip" target="_blank" rel="noopener">Написать в Telegram</a>
       <a class="btn btn--line magnet" href="uslugi.html">Прайс и сроки</a>
     </div>
     <div class="contact__meta">
@@ -1006,49 +968,6 @@ const checkCounters = () => {
     if (r.top < innerHeight * 0.85) { el.dataset.done = '1'; runCount(el); }
   }
 };
-
-/* ---------- кинолента: кадры выезжают по одному на весь экран ---------- */
-const reel = document.querySelector('.reel');
-const reelItems = [...document.querySelectorAll('.reel__item')];
-const reelNum = document.getElementById('reelNum');
-const checkReel = () => {
-  if (!reel || !reelItems.length) return;
-  const n = reelItems.length;
-  if (matchMedia('(max-width:760px)').matches) {
-    const track = reel.querySelector('.reel__track');
-    if (!track) return;
-    const mid = track.getBoundingClientRect().left + track.clientWidth / 2;
-    let best = 0, bestD = 1e9;
-    reelItems.forEach((el, i) => {
-      const b = el.getBoundingClientRect();
-      const d = Math.abs(b.left + b.width / 2 - mid);
-      if (d < bestD) { bestD = d; best = i; }
-    });
-    if (reelNum) reelNum.textContent = String(best + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
-    return;
-  }
-  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-  const r = reel.getBoundingClientRect();
-  const travel = r.height - innerHeight;
-  if (travel <= 0) return;
-  const p = Math.min(1, Math.max(0, -r.top / travel));
-  for (let i = 0; i < n; i++) {
-    const local = p * (n - 1) - i;                    // 0 — кадр по центру экрана
-    const cl = Math.min(1, Math.max(-1, local));
-    const el = reelItems[i];
-    el.style.transform = 'translate3d(0,' + (-local * 100).toFixed(2) + '%,0) scale(' + (1 - Math.abs(cl) * 0.05).toFixed(3) + ')';
-    el.style.opacity = String(Math.max(0, 1 - Math.abs(cl) * 0.9));
-    el.style.zIndex = String(20 - Math.round(Math.abs(cl) * 10));
-  }
-  if (reelNum) {
-    const idx = Math.min(n - 1, Math.max(0, Math.round(p * (n - 1))));
-    reelNum.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
-  }
-};
-
-/* на телефоне лента — обычная свайп-карусель: счётчик идёт за прокруткой */
-const reelTrack = reel && reel.querySelector('.reel__track');
-if (reelTrack) reelTrack.addEventListener('scroll', checkReel, { passive: true });
 
 /* ---------- залипание: сайт стоит, текст заливается ---------- */
 const pinStage = document.querySelector('.pin__stage');
@@ -1567,7 +1486,7 @@ if (railBox && railBtn) {
 /* ---------- порядок вызовов при прокрутке ---------- */
 const onScroll = () => {
   if (raf) return;
-  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); });
+  raf = requestAnimationFrame(() => { raf = 0; onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); });
 };
 /* рельс обновляем отдельно и по времени: он должен работать и без кадров */
 let railT = 0;
@@ -1578,7 +1497,7 @@ addEventListener('scroll', () => {
 addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
 addEventListener('load', onScroll);
-onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkReel(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkRail();
+onScrollUI(); checkReveal(); checkScenes(); checkCounters(); checkPin(); checkChat(); checkLayers(); checkMosaic(); checkBand(); checkRail();
 
 /* ---------- курсор ---------- */
 const cur = document.getElementById('cursor');
@@ -1974,6 +1893,7 @@ const wordsIn = (el, opts) => {
   const fallbackText = document.getElementById('briefFallbackText');
   const copyBtn = document.getElementById('briefCopy');
   const reopenBtn = document.getElementById('briefReopen');
+  const tgBtn = document.getElementById('briefTg');
   let lastText = '';
 
   /* запасной выход: текст заявки остаётся на экране, даже если WhatsApp не открылся */
@@ -2065,8 +1985,8 @@ const wordsIn = (el, opts) => {
     });
   }
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  /* одна сборка текста на две кнопки: WhatsApp и Telegram получают одно и то же */
+  const buildBrief = () => {
     const d = new FormData(form);
     const name = (d.get('name') || '').toString().trim();
     const task = (d.get('task') || '').toString().trim();
@@ -2087,10 +2007,10 @@ const wordsIn = (el, opts) => {
       [nameEl, taskEl, bOwn, consentEl].forEach((el) => markBad(el, bad.indexOf(el) > -1));
       note.textContent = bad.length === 1 && bad[0] === consentEl
         ? 'поставьте галочку согласия'
-        : 'заполните отмеченные поля — и всё уйдёт в WhatsApp';
+        : 'заполните отмеченные поля — текст заявки соберётся сам';
       bad[0].scrollIntoView({ block: 'center', behavior: 'smooth' });
       try { bad[0].focus({ preventScroll: true }); } catch (_) { bad[0].focus(); }
-      return;
+      return '';
     }
 
     const rows = [
@@ -2107,12 +2027,29 @@ const wordsIn = (el, opts) => {
       'Согласие на обработку персональных данных: да'
     ].filter((row) => row !== null);
 
+    return rows.join('\n');
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = buildBrief();
+    if (!text) return;
     note.textContent = 'открываю WhatsApp…';
-    const text = rows.join('\n');
     window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(text), '_blank');
     showFallback(text);
     /* цель — фактическая отправка: форма прошла проверку и текст заявки готов, а не клик по кнопке */
     goal('brief_submit');
+  });
+
+  /* Telegram равноправен WhatsApp, но подставляет текст только в приложении:
+     на компьютере откроется пустой чат, поэтому текст сразу показываем ниже — есть что скопировать */
+  if (tgBtn) tgBtn.addEventListener('click', () => {
+    const text = buildBrief();
+    if (!text) return;
+    note.textContent = 'открываю Telegram…';
+    window.open('https://t.me/mensorip?text=' + encodeURIComponent(text), '_blank');
+    showFallback(text);
+    goal('brief_submit', { via: 'telegram' });
   });
 })();
 /* ---------- демо: модалка с названием бизнеса ---------- */

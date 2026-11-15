@@ -1,0 +1,30 @@
+{
+  "port": 9223,
+  "newTab": "about:blank",
+  "closeTab": true,
+  "steps": [
+    { "viewport": { "w": 1440, "h": 900 } },
+    { "goto": "https://mensori-dev.github.io/", "wait": 3500 },
+    { "eval": "window.__opened=[];window.open=(u)=>{window.__opened.push(String(u));return null};'перехват window.open готов'" },
+    { "eval": "(()=>{const e=document.querySelector('#brief');if(!e)return 'нет #brief';const y=Math.round(e.getBoundingClientRect().top+scrollY);if(window.__lenis)window.__lenis.scrollTo(y,{immediate:true});else window.scrollTo(0,y);return y})()", "wait": 1200 },
+    { "eval": "JSON.stringify({scrollY:Math.round(scrollY),briefTop:Math.round(document.querySelector('#brief').getBoundingClientRect().top)})" },
+
+    { "eval": "'--- 1. пустой сабмит ---'" },
+    { "eval": "(()=>{document.querySelector('#briefForm button[type=submit]').click();return 'click'})()", "wait": 900 },
+    { "eval": "JSON.stringify({invalid:[...document.querySelectorAll('#briefForm [aria-invalid=true]')].map(e=>e.name),note:document.getElementById('briefNote').textContent.trim(),opened:window.__opened.length})" },
+
+    { "eval": "'--- 2. заполнено, галочки нет ---'" },
+    { "focus": "#briefForm [name=name]" },
+    { "type": "Тест" },
+    { "focus": "#briefForm [name=task]" },
+    { "type": "Нужен сайт для шиномонтажа: цены и запись" },
+    { "eval": "(()=>{document.querySelector('#briefForm button[type=submit]').click();return 'click'})()", "wait": 900 },
+    { "eval": "JSON.stringify({invalid:[...document.querySelectorAll('#briefForm [aria-invalid=true]')].map(e=>e.name),consent:document.querySelector('#briefForm [name=consent]').checked,note:document.getElementById('briefNote').textContent.trim(),opened:window.__opened.length})" },
+
+    { "eval": "'--- 3. галочка + сабмит ---'" },
+    { "eval": "(()=>{const c=document.querySelector('#briefForm [name=consent]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));return c.checked})()" },
+    { "eval": "(()=>{document.querySelector('#briefForm button[type=submit]').click();return 'click'})()", "wait": 1200 },
+    { "eval": "JSON.stringify({invalid:[...document.querySelectorAll('#briefForm [aria-invalid=true]')].map(e=>e.name),opened:window.__opened.length,isWa:(window.__opened[0]||'').indexOf('https://wa.me/79020153104?text=')===0,url:(window.__opened[0]||'').slice(0,80),fallback:!document.getElementById('briefFallback').hidden,note:document.getElementById('briefNote').textContent.trim()})" },
+    { "eval": "JSON.stringify({fallbackText:document.getElementById('briefFallbackText').textContent.trim().slice(0,180)})" }
+  ]
+}

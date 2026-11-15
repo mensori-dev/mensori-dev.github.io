@@ -1,0 +1,16 @@
+{
+  "port": 9223,
+  "newTab": "about:blank",
+  "closeTab": true,
+  "steps": [
+    { "viewport": { "w": 1440, "h": 900 } },
+    { "goto": "https://mensori-dev.github.io/", "wait": 5000 },
+    { "eval": "(()=>{const r=performance.getEntriesByType('resource');const s={};let tot=0,zero=0;for(const x of r){const ext=(x.name.split('.').pop().split('?')[0]||'').slice(0,4);s[ext]=(s[ext]||0)+(x.transferSize||0);tot+=x.transferSize||0;if(!x.transferSize)zero++}return JSON.stringify({req:r.length,totalKB:Math.round(tot/1024),zeroSize:zero,byExt:Object.fromEntries(Object.entries(s).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,Math.round(v/1024)]))})})()" },
+    { "eval": "(()=>{const n=performance.getEntriesByType('navigation')[0];return JSON.stringify({docKB:Math.round((n.transferSize||n.encodedBodySize||0)/1024),docEncodedKB:Math.round((n.encodedBodySize||0)/1024),dcl:Math.round(n.domContentLoadedEventEnd),load:Math.round(n.loadEventEnd),ttfb:Math.round(n.responseStart),scrollH:document.documentElement.scrollHeight})})()" },
+    { "eval": "JSON.stringify(performance.getEntriesByType('resource').map(x=>[x.name.split('/').pop().split('?')[0].slice(0,26),Math.round((x.transferSize||0)/1024)]).sort((a,b)=>b[1]-a[1]).slice(0,6))" },
+    { "eval": "JSON.stringify({imgs:document.images.length,lazy:[...document.images].filter(i=>i.loading==='lazy').length,scripts:document.scripts.length,ext:[...document.scripts].filter(s=>s.src&&s.src.indexOf(location.host)<0).map(s=>s.src.split('/')[2]).slice(0,5),fonts:[...document.fonts].length})" },
+    { "viewport": { "w": 390, "h": 844, "mobile": true, "touch": true, "dsf": 2 } },
+    { "goto": "https://mensori-dev.github.io/", "wait": 5000 },
+    { "eval": "(()=>{const r=performance.getEntriesByType('resource');let tot=0;for(const x of r)tot+=x.transferSize||0;const n=performance.getEntriesByType('navigation')[0];return JSON.stringify({req:r.length,totalKB:Math.round(tot/1024),docKB:Math.round((n.transferSize||n.encodedBodySize||0)/1024),dcl:Math.round(n.domContentLoadedEventEnd),load:Math.round(n.loadEventEnd),scrollH:document.documentElement.scrollHeight})})()" }
+  ]
+}

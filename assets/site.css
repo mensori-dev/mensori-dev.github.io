@@ -1096,8 +1096,6 @@ footer a:hover{color:var(--accent)}
 .consent a{color:var(--ink);text-decoration:underline}
 .form__foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:clamp(10px,2vh,18px)}
 .form__note{font:500 11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.form__tg{font:500 11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule);padding-bottom:2px}
-.form__tg:hover{color:var(--ink);border-color:var(--ink)}
 .form__trust{margin:16px 0 0;max-width:62ch;font-size:12.5px;line-height:1.6;color:var(--muted)}
 .form__next{margin:4px 0 0}
 .form__next-t{display:block;margin-bottom:10px;color:var(--muted)}
@@ -1119,91 +1117,6 @@ footer a:hover{color:var(--accent)}
 .calc__viz{
   display:block;width:100%;height:126px;margin:clamp(16px,2.4vh,24px) 0 clamp(8px,1.6vh,14px);
   border-top:1px solid var(--rule-2);padding:0;
-}
-
-/* ---------- кинолента: кадры выезжают по одному на весь экран ---------- */
-.reel{
-  position:relative;background:var(--bg);
-  height:calc(var(--n,5) * 100svh);
-}
-.reel__stage{
-  position:sticky;top:0;height:100svh;overflow:hidden;
-  display:grid;place-items:center;
-}
-.reel__track{display:contents}
-.reel__top{
-  position:absolute;left:var(--pad);right:var(--pad);top:clamp(80px,11vh,120px);
-  display:flex;justify-content:space-between;align-items:center;z-index:5;
-}
-.reel__num{color:var(--red)}
-.reel__item{
-  position:absolute;inset:0;margin:0;display:grid;place-items:center;
-  padding:clamp(70px,12vh,130px) var(--pad) clamp(56px,9vh,104px);
-  text-decoration:none;color:inherit;cursor:pointer;
-  will-change:transform;
-}
-.reel__item img{
-  display:block;width:auto;height:auto;
-  max-width:min(88vw,1060px);max-height:min(66vh,620px);
-  border:1px solid rgba(244,243,239,.14);
-  box-shadow:0 50px 120px rgba(0,0,0,.7);
-}
-.reel__item img.reel__img--phone{
-  width:auto;height:min(64vh,600px);aspect-ratio:390/844;
-  object-fit:cover;object-position:top center;border-radius:26px;
-  border-color:rgba(244,243,239,.24);
-}
-.reel__cap{
-  position:absolute;left:var(--pad);bottom:clamp(34px,6vh,72px);
-  display:flex;flex-direction:column;gap:8px;
-}
-.reel__k{
-  font:600 11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--red);
-}
-.reel__t{
-  font-weight:800;text-transform:uppercase;letter-spacing:-.03em;line-height:1;
-  font-size:clamp(22px,3.2vw,42px);
-}
-.reel__hint{
-  position:absolute;left:50%;bottom:clamp(14px,3vh,26px);transform:translateX(-50%);
-  font:600 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(244,243,239,.52);z-index:6;
-}
-@media (max-width:760px){
-  /* на телефоне лента — свайп-карусель в один экран, без залипания */
-  .reel{height:auto}
-  .reel__stage{position:static;height:auto;display:block;padding:clamp(66px,9vh,88px) 0 clamp(10px,2vh,18px)}
-  .reel__top{position:static;left:auto;right:auto;top:auto;padding:0 var(--pad) 14px}
-  .reel__track{
-    display:flex;gap:12px;align-items:center;width:100%;
-    overflow-x:auto;overscroll-behavior-x:contain;
-    scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);
-    padding:0 var(--pad) 4px;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-  }
-  .reel__track::-webkit-scrollbar{display:none}
-  .reel__item{
-    position:relative;inset:auto;flex:0 0 86%;display:block;padding:0;
-    transform:none !important;opacity:1 !important;scroll-snap-align:center;
-  }
-  .reel__item img{
-    width:100%;height:auto;max-width:100%;max-height:none;
-    aspect-ratio:4/3;object-fit:cover;object-position:top center;
-    box-shadow:0 20px 50px rgba(0,0,0,.5);
-  }
-  .reel__item img.reel__img--phone{
-    width:auto;height:min(42svh,340px);max-width:100%;
-    aspect-ratio:390/844;margin:0 auto;
-  }
-  .reel__cap{position:static;padding-top:12px}
-  .reel__t{font-size:clamp(19px,5.6vw,28px)}
-  .reel__hint{display:none}
-}
-@media (prefers-reduced-motion:reduce) and (min-width:761px){
-  .reel{height:auto}
-  .reel__stage{position:static;height:auto;display:block}
-  .reel__item{position:relative;inset:auto;transform:none !important;opacity:1 !important;padding:clamp(30px,6vh,60px) var(--pad)}
 }
 
 /* ---------- чат: заявка приходит по одной строке (pin) ---------- */
@@ -1783,20 +1696,30 @@ footer a:hover{color:var(--accent)}
   .showcase__btns{width:100%}
   .showcase__btns .btn{flex:1 1 auto;justify-content:center}
 }
-/* на телефоне превью в две колонки — цветные пятна по 165 px:
-   даём каждой работе полную ширину, читается и картинка, и подпись */
+/* на телефоне витрина — лента: пять работ листаются пальцем влево-вправо.
+   Было 1633 px в столбик, стало ~273 — до формы три экрана вместо четырёх с половиной */
 @media (max-width:560px){
-  .showcase__rail{grid-template-columns:1fr;gap:20px}
+  .showcase__rail{
+    display:flex;gap:14px;
+    margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad);
+    scroll-padding-inline:var(--pad);
+    overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;scrollbar-width:none;
+  }
+  .showcase__rail::-webkit-scrollbar{display:none}
+  .wframe{flex:0 0 84%;scroll-snap-align:start}
   .wframe:last-child .wframe__win img{aspect-ratio:4/3}
+  /* две кнопки брифа одной ширины — равный вес и ничего не вылезает на 320 */
+  .form__foot .btn{flex:1 1 100%;justify-content:center}
 }
 
 /* ============ тап-таргеты на сенсорных экранах ============
    Внешний вид не меняем: мелкие подписи-ссылки (12–37 px по высоте)
    получают невидимую площадку 44 px — палец попадает, вёрстка не едет. */
 @media (hover:none),(pointer:coarse){
-  .hero__foot a,.layers__reset,.form__more-btn,.form__tg,.consent a,footer a{position:relative}
+  .hero__foot a,.layers__reset,.form__more-btn,.consent a,footer a{position:relative}
   .hero__foot a::after,.layers__reset::after,.form__more-btn::after,
-  .form__tg::after,.consent a::after,footer a::after{
+  .consent a::after,footer a::after{
     content:"";position:absolute;left:0;right:0;top:50%;height:44px;transform:translateY(-50%);
   }
 }

@@ -1,0 +1,23 @@
+{
+  "port": 9223,
+  "newTab": "about:blank",
+  "closeTab": true,
+  "steps": [
+    { "viewport": { "w": 1440, "h": 900 } },
+    { "goto": "https://mensori-dev.github.io/", "wait": 3500 },
+    { "eval": "JSON.stringify({css:(document.querySelector('link[rel=stylesheet]')||{}).getAttribute('href'),page:document.documentElement.scrollHeight,vw:innerWidth,vh:innerHeight})" },
+
+    { "eval": "'--- карта секций: имя:offsetTop:высота ---'" },
+    { "eval": "(()=>{const f=e=>{const n=(e.id||((e.className||'').match(/[a-z][a-z0-9_-]*/)||[''])[0]||e.tagName).slice(0,12);const r=e.getBoundingClientRect();return n+':'+Math.round(r.top+scrollY)+':'+Math.round(r.height)};return [...document.querySelectorAll('section,footer')].map(f).join('|')})()" },
+
+    { "eval": "'--- положение в % от длины страницы и в экранах ---'" },
+    { "eval": "(()=>{const h=document.documentElement.scrollHeight,vh=innerHeight;const p=(s)=>{const e=document.querySelector(s);if(!e)return null;const y=Math.round(e.getBoundingClientRect().top+scrollY);return {pct:Math.round(y/h*1000)/10,screens:Math.round(y/vh*10)/10,y}};return JSON.stringify({price:p('#price'),brief:p('#brief'),form:p('#briefForm'),calc:p('#calc'),contact:p('#contact')})})()" },
+
+    { "eval": "'--- то же на 390 ---'" },
+    { "viewport": { "w": 390, "h": 844, "mobile": true, "touch": true, "dsf": 2 } },
+    { "wait": 1500 },
+    { "eval": "JSON.stringify({page:document.documentElement.scrollHeight,vw:innerWidth,vh:innerHeight})" },
+    { "eval": "(()=>{const f=e=>{const n=(e.id||((e.className||'').match(/[a-z][a-z0-9_-]*/)||[''])[0]||e.tagName).slice(0,12);const r=e.getBoundingClientRect();return n+':'+Math.round(r.top+scrollY)+':'+Math.round(r.height)};return [...document.querySelectorAll('section,footer')].map(f).join('|')})()" },
+    { "eval": "(()=>{const h=document.documentElement.scrollHeight,vh=innerHeight;const p=(s)=>{const e=document.querySelector(s);if(!e)return null;const y=Math.round(e.getBoundingClientRect().top+scrollY);return {pct:Math.round(y/h*1000)/10,screens:Math.round(y/vh*10)/10,y}};return JSON.stringify({price:p('#price'),brief:p('#brief'),form:p('#briefForm'),calc:p('#calc'),contact:p('#contact')})})()" }
+  ]
+}
