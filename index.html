@@ -2036,15 +2036,24 @@ const wordsIn = (el, opts) => {
     return rows.join('\n');
   };
 
+  /* после отправки: текст заявки кладём в sessionStorage, чтобы страница «спасибо»
+     показала его, если чат не открылся. Уводим туда только когда окно чата открылось */
+  const afterSend = (text, win) => {
+    try { sessionStorage.setItem('brief', text); } catch (_) {}
+    if (!win) return;
+    setTimeout(() => { location.href = 'thanks.html'; }, 400);
+  };
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const text = buildBrief();
     if (!text) return;
     note.textContent = 'открываю WhatsApp…';
-    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(text), '_blank');
+    const win = window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(text), '_blank');
     showFallback(text);
     /* цель — фактическая отправка: форма прошла проверку и текст заявки готов, а не клик по кнопке */
     goal('brief_submit');
+    afterSend(text, win);
   });
 
   /* Telegram равноправен WhatsApp, но подставляет текст только в приложении:
@@ -2053,9 +2062,10 @@ const wordsIn = (el, opts) => {
     const text = buildBrief();
     if (!text) return;
     note.textContent = 'открываю Telegram…';
-    window.open('https://t.me/mensorip?text=' + encodeURIComponent(text), '_blank');
+    const win = window.open('https://t.me/mensorip?text=' + encodeURIComponent(text), '_blank');
     showFallback(text);
     goal('brief_submit', { via: 'telegram' });
+    afterSend(text, win);
   });
 })();
 /* ---------- демо: модалка с названием бизнеса ---------- */
