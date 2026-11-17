@@ -1665,7 +1665,7 @@ footer a:hover{color:var(--accent)}
 .showcase__cond{margin-left:auto;font:600 10px/1.5 ui-monospace,"Cascadia Mono",Consolas,monospace;
   letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 
-.showcase__rail{position:relative;display:grid;grid-template-columns:repeat(5,1fr);
+.showcase__rail{position:relative;display:grid;grid-template-columns:repeat(6,1fr);
   gap:clamp(10px,1.5vw,20px);margin-top:clamp(24px,4vh,36px);padding-top:18px}
 .showcase__rail::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--rule)}
 .wframe{position:relative;display:block}
@@ -1689,8 +1689,8 @@ footer a:hover{color:var(--accent)}
 @media (max-width:760px){
   .showcase__rail{grid-template-columns:1fr 1fr;gap:14px 12px;padding-top:0}
   .showcase__rail::before,.wframe::before{display:none}
-  .wframe:last-child{grid-column:1/-1}
-  .wframe:last-child .wframe__win img{aspect-ratio:16/9}
+  .wframe:last-child:nth-child(odd){grid-column:1/-1}
+  .wframe:last-child:nth-child(odd) .wframe__win img{aspect-ratio:16/9}
   .showcase__cond{margin-left:0;flex-basis:100%}
   .showcase__foot{align-items:flex-start}
   .showcase__btns{width:100%}
