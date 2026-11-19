@@ -1665,7 +1665,7 @@ footer a:hover{color:var(--accent)}
 .showcase__cond{margin-left:auto;font:600 10px/1.5 ui-monospace,"Cascadia Mono",Consolas,monospace;
   letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 
-.showcase__rail{position:relative;display:grid;grid-template-columns:repeat(6,1fr);
+.showcase__rail{position:relative;display:grid;grid-template-columns:repeat(7,1fr);
   gap:clamp(10px,1.5vw,20px);margin-top:clamp(24px,4vh,36px);padding-top:18px}
 .showcase__rail::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--rule)}
 .wframe{position:relative;display:block}
