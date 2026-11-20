@@ -1665,8 +1665,8 @@ footer a:hover{color:var(--accent)}
 .showcase__cond{margin-left:auto;font:600 10px/1.5 ui-monospace,"Cascadia Mono",Consolas,monospace;
   letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 
-.showcase__rail{position:relative;display:grid;grid-template-columns:repeat(7,1fr);
-  gap:clamp(10px,1.5vw,20px);margin-top:clamp(24px,4vh,36px);padding-top:18px}
+.showcase__rail{position:relative;display:grid;grid-template-columns:repeat(8,1fr);
+  gap:clamp(8px,1.2vw,16px);margin-top:clamp(24px,4vh,36px);padding-top:18px}
 .showcase__rail::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--rule)}
 .wframe{position:relative;display:block}
 .wframe::before{content:"";position:absolute;left:50%;top:-18px;width:1px;height:18px;background:var(--rule)}
@@ -1686,6 +1686,11 @@ footer a:hover{color:var(--accent)}
 .showcase__note{margin:0;max-width:58ch;font-size:13px;line-height:1.55;color:var(--muted)}
 .showcase__btns{display:flex;flex-wrap:wrap;gap:10px}
 
+/* восемь работ в один ряд — до 1280 px карточки уже, поэтому две строки по четыре */
+@media (max-width:1280px){
+  .showcase__rail{grid-template-columns:repeat(4,1fr);gap:16px 12px;padding-top:0}
+  .showcase__rail::before,.wframe::before{display:none}
+}
 @media (max-width:760px){
   .showcase__rail{grid-template-columns:1fr 1fr;gap:14px 12px;padding-top:0}
   .showcase__rail::before,.wframe::before{display:none}
